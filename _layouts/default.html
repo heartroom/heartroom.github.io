@@ -1,19 +1,35 @@
-<!doctype html>
+<html lang="zh-CN">
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="test" />
+    <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
+    <meta name="author" content="long" />
     <title>{{ page.title }}</title>
     <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
   <body>
-    <div class="nav">
-      {% include navigation.html %}
+    <div id="header">
+      <div id="banner">
+        <span id="logo">web title</span>
+        <span id="sub">we can assert that there is no passion,no great cause will not be completed.-Hegel</span>
+      </div>
+      <div id="menu">
+        {% include navigation.html %}
+      </div>
     </div>
-    <div class="content">
-      {{ content }}
+    <div id="main">
+      <div id="content">
+        {{ content }}
+      </div>
+      <div id="sidebar">
+        {% include right.html %}
+      </div>
     </div>
-    <div>
-      {% include right.html %}
+    <div id="footer">
+      Designed & Powerd by long
     </div>
   </body>
 </html>
