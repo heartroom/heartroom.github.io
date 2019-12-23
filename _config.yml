@@ -1,3 +1,4 @@
+plugins: [jekyll-paginate]
 collections:
   authors:
     output: true
@@ -17,4 +18,5 @@ defaults:
     values:
       layout: "default"
 paginate: 2
-paginate_path: "blog/page:num"
+paginate_path: "page:num"
+#plugins: [jekyll-paginte]
