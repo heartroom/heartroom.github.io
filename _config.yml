@@ -19,4 +19,5 @@ defaults:
       layout: "default"
 paginate: 2
 paginate_path: "page:num"
+permalink: /:categories/:title/
 #plugins: [jekyll-paginte]
