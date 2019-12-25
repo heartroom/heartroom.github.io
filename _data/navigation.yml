@@ -1,12 +1,18 @@
 - name: 首页
   link: /
+  shortName: index
 - name: 技术
   link: /tech
+  shortName: tech
 - name: 作品 
   link: /works
+  shortName: works
 - name: 电影
   link: /movie
+  shortName: movie
 - name: 足球
   link: /football
+  shortName: football
 - name: 关于  
   link: /about
+  shortName: about

@@ -1,7 +1,7 @@
 <ul>
   {% for item in site.data.navigation %}
   <li>
-    <a href="{{ item.link }}" {% if page.id == item.name %}class="on"{% endif %}>
+    <a href="{{ item.link }}" {% if page.id == item.name or page.category == item.shortName %}class="on"{% endif %}>
     {{ item.name }}
     </a>
   </li>
