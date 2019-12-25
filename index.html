@@ -2,11 +2,12 @@
 # front matter tells Jekyll to process Liquid
 title: Long Blog
 layout: default
+id: index
 ---
 {% for post in paginator.posts %}
 <div class="item">
   <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-  <small>2019年12月23日</small>
+  <small>{{post.date | date: "%Y-%m-%d"}}</small>
   <div class="desc">{{ post.excerpt }}</div>
   <div class="detail"><a href="#">read all</a></div>
 </div>

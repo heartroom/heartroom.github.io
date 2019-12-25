@@ -1,17 +1,9 @@
 <ul>
   {% for item in site.data.navigation %}
   <li>
-    <a href="{{ item.link }}" {% if page.url == item.link %}class="on"{% endif %}>
+    <a href="{{ item.link }}" {% if page.id == item.name %}class="on"{% endif %}>
     {{ item.name }}
     </a>
   </li>
   {% endfor %}
-</ul>
-
-<ul>
-    {% for category in site.categories %}
-    <li><a href="/categories/{{ category | first }}/" title="view all
-posts">{{ category | first }} {{ category | last | size }}</a>
-    </li>
-    {% endfor %}
 </ul>

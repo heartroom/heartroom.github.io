@@ -11,25 +11,27 @@
     <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
   <body>
-    <div id="header">
-      <div id="banner">
-        <span id="logo">web title</span>
-        <span id="sub">we can assert that there is no passion,no great cause will not be completed.-Hegel</span>
+    <div id="wrap">
+      <div id="header">
+        <div id="banner">
+          <span id="logo">web title</span>
+          <span id="sub">we can assert that there is no passion,no great cause will not be completed.-Hegel</span>
+        </div>
+        <div id="menu">
+          {% include navigation.html %}
+        </div>
       </div>
-      <div id="menu">
-        {% include navigation.html %}
+      <div id="main">
+        <div id="content">
+          {{ content }}
+        </div>
+        <div id="sidebar">
+          {% include right.html %}
+        </div>
       </div>
-    </div>
-    <div id="main">
-      <div id="content">
-        {{ content }}
+      <div id="footer">
+        Designed & Powerd by long
       </div>
-      <div id="sidebar">
-        {% include right.html %}
-      </div>
-    </div>
-    <div id="footer">
-      Designed & Powerd by long
     </div>
   </body>
 </html>

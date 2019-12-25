@@ -1,8 +1,12 @@
-- name: Home
+- name: index
   link: /
-- name: About
-  link: /about.html
-- name: Blog 
-  link: /blog.html
-- name: Staff
-  link: /staff.html
+- name: tech
+  link: /tech
+- name: works 
+  link: /works
+- name: movie
+  link: /movie
+- name: football
+  link: /football
+- name: about  
+  link: /about

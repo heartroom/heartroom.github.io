@@ -1,8 +1,16 @@
-<div class="me-info">
-    im a programer（php，.net，java）,this is my blog<br/>
-    QQ:1250307745<br/>
-    E-Mail:long275@126.com
+<div class="me-info" >
+    <img src="/assets/images/logo.jpg"/>
+    <div class="detail">
+        9年程序猿，会php，.net，java，html，css，js。
+        <p>QQ&nbsp;:&nbsp;1250307745</p>
+        <p>E-Mail&nbsp;:&nbsp;long275@126.com</p>
+    </div>
 </div>
-<div>
-    category
+<div class="news">
+    <div class="title">最新文章</div>
+    {% for post in site.posts limit:4 %}
+    <div class="item">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+      </div>
+    {% endfor %}
 </div>
