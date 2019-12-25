@@ -1,0 +1,127 @@
+---
+layout: post
+author: jill
+category: tech
+---
+<div>
+    安装php
+<br>sudo apt install php7.2
+<br>
+<br>安装nginx
+<br>sudo apt install nginx-full
+<br>
+<br>安装对应的php-fpm
+<br>sudo apt install php7.2-fpm
+<br>sudo apt install php7.2-mysql
+<br>
+<br>配置网站目录
+<br>sudo vim /etc/nginx/sites-available/default
+<br>
+<br>include /home/xxx/site.conf
+<br>
+<br>/home/xxx/site.conf 内容如下
+<br>server {
+<br>    listen 80;
+<br>    #listen [::]:80;
+<br>
+<br>    server_name long.dev.com;
+<br>
+<br>    root /home/long/code;
+<br>    index index.php;
+<br>
+<br>    location / {
+<br>        try_files $uri $uri/ /index.php$is_args$args;
+<br>    }
+<br>    location ~ \.php$ {
+<br>        #try_files $uri $uri/ /index.php$is_args$args;
+<br>        fastcgi_pass unix:/run/php/php7.2-fpm.sock;
+<br>        include fastcgi_params;
+<br>    }
+<br>    error_log /home/long/code/nginx_error.log error;
+<br>    #access_log /home/long/code/nginx_access.log main;
+<br>}
+<br>
+<br>在 /etc/nginx/fastcgi_params 文件里增加下面内容
+<br>
+<br>fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+<br>fastcgi_param PATH_INFO $fastcgi_script_name;
+<br>
+<br>重启php fpm
+<br>sudo service php7.2-fpm restart
+<br>
+<br>sudo nginx -s reload
+<br>
+<br>安装mysql
+<br>ubuntu上安装mysql非常简单只需要几条命令就可以完成。
+<br>1. sudo apt-get install mysql-server
+<br>2. apt-get isntall mysql-client
+<br>3. sudo apt-get install libmysqlclient-dev
+<br>安装过程中会提示设置密码什么的，注意设置了不要忘了，安装完成之后可以使用如下命令来检查是否安装成功：
+<br>
+<br>sudo netstat -tap | grep mysql
+<br>
+<br>通过上述命令检查之后，如果看到有mysql 的socket处于 listen 状态则表示安装成功。
+<br>
+<br>登陆mysql数据库可以通过如下命令：
+<br>
+<br>mysql -u root -p
+<br>-u 表示选择登陆的用户名， -p 表示登陆的用户密码，上面命令输入之后会提示输入密码，此时输入密码就可以登录到mysql。
+<br>
+<br>安装samba
+<br>sudo apt-get install samba
+<br>sudo apt-get install smbclient
+<br>安装完成后执行 
+<br>samba -V
+<br>如果可以看到版本号即为安装成功
+<br>
+<br>Ubuntu下samba配置和使用
+<br>第二步需要配置samba服务器，使用如下命令打开samba的配置文件
+<br>
+<br>sudo vi /etc/samba/smb.conf 
+<br>
+<br>加入配置信息
+<br>
+<br>[share]
+<br>   comment = share folder
+<br>   browseable = yes
+<br>   path = /home/zhang/share
+<br>   create mask = 0777
+<br>   directory mask = 0777
+<br>   valid users = zhang
+<br>   force user = nobody
+<br>   force group = nogroup
+<br>   public = yes
+<br>   available = yes
+<br>
+<br>这其中比较重要的参数为path和valid users, path指定了samba服务器的根目录，可以任意指定合法路径； valid users表示可以访问samba服务器的合法用户；用户在配置时注意需要将路径改为自己需要的路径，切勿全盘照抄
+<br>
+<br>Ubuntu下samba配置和使用
+<br>由于在上文中配置的samba服务器根文件路径在我的Ubuntu上还不存在，所以我需要在对应路径下创建文件夹，并修改其权限
+<br>    mkdir share
+<br>    chmod 777 share
+<br>
+<br>Ubuntu下samba配置和使用
+<br>接下来需要为samba服务器添加用户了，由于我的配置中使用的是名为"zhang"的用户(该用户其实就是我的登录用户)，所以我需要通过如下命令来为samba添加此用户并设置密码
+<br>    sudo smbpasswd -a zhang
+<br>
+<br>Ubuntu下samba配置和使用
+<br>配置完成后需要重启samba服务器，使用如下命令重启samba服务器
+<br>
+<br>sudo /etc/init.d/samba restart
+<br>
+<br>Ubuntu下samba配置和使用
+<br>接下来就可以在windows上访问samba服务器了，通过如下的方式访问
+<br>
+<br>    \\+ ip
+<br>
+<br>在linux中可以通过命令 ifconfig查看ip地址
+<br>
+<br>输入地址后，我们应该就可以看到我们之前创建的share文件夹了
+<br>
+<br>安装ssh
+<br>sudo apt install openssh-server 
+<br>
+<br>安装yii
+<br>sudo apt install composer
+<br>composer create-project --prefer-dist yiisoft/yii2-app-basic basic
+    </div>

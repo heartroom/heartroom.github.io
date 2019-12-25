@@ -1,8 +1,20 @@
 ---
 layout: default
-title: About
-id: about
+title: 关于本站
+id: 关于
 ---
-### About page
+### 关于本站
 
-This page tells you a little bit about me
+
+这里记录了工作和生活中的点滴。
+
+
+
+09年毕业开始工作，没留下记录。
+
+
+希望这次自己能坚持下去。
+
+
+每天写一篇技术积累。
+

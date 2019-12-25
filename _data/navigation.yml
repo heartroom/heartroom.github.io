@@ -1,12 +1,12 @@
-- name: index
+- name: 首页
   link: /
-- name: tech
+- name: 技术
   link: /tech
-- name: works 
+- name: 作品 
   link: /works
-- name: movie
+- name: 电影
   link: /movie
-- name: football
+- name: 足球
   link: /football
-- name: about  
+- name: 关于  
   link: /about
