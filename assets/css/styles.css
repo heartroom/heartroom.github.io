@@ -14,7 +14,7 @@ img, video, object, embed { border: 0; max-width: 100%; }
 
 #main { vertical-align: top; }
 
-@media (max-width: 760px) { #sidebar { width: 100%; }
+@media (max-width: 760px) { #sidebar { width: 100%; margin-top: 10px; border-top: 2px solid #337ab7; padding-top: 10px; }
   #content { width: 100%; } }
 
 #footer { border-top: 2px solid #337ab7; font-size: 14px; margin-top: 5px; padding-top: 5px; text-align: center; }
