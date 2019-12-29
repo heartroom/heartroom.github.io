@@ -55,8 +55,10 @@ img, video, object, embed { border: 0; max-width: 100%; }
 
 #sidebar .me-info .detail { height: 70px; line-height: 10px; padding-left: 75px; text-align: justify; }
 
-#sidebar .news { margin-top: 10px; }
+#sidebar .box { margin-top: 10px; }
 
-#sidebar .news .title { font-size: 16px; font-weight: bold; margin: 5px 0; padding-top: 5px; border-top: 2px solid #337ab7; }
+#sidebar .box .title { font-size: 16px; font-weight: bold; margin: 5px 0; padding-top: 5px; border-top: 2px solid #337ab7; position: relative; }
+
+.tag { padding: 0 5px; border-radius: 2px; margin-right: 5px; border: 2px solid #ccc; margin-top: 5px; line-height: 30px; font-size: 14px; }
 
 /*# sourceMappingURL=styles.css.map */
