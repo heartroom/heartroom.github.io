@@ -57,7 +57,7 @@ img, video, object, embed { border: 0; max-width: 100%; }
 
 #sidebar .me-info img { float: left; width: 70px; height: 70px; }
 
-#sidebar .me-info .detail { padding-left: 75px; text-align: justify; min-height: 70px; }
+#sidebar .me-info .detail { padding-left: 75px; min-height: 70px; }
 
 #sidebar .me-info .detail p { margin: 0; }
 
