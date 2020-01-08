@@ -4,11 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="description" content="test" />
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta name="description" content="编程知识积累" />
     <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
     <meta name="author" content="long" />
-    <title></title>
-    <link rel="stylesheet" href="/assets/css/styles.css?v=1.0">
+    <title>技术相关</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=2.3">
     <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
     <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/common.js"></script>
@@ -36,20 +39,14 @@
   </li>
   
   <li>
-    <a href="/works" >
+    <a href="/works/" >
     作品
     </a>
   </li>
   
   <li>
-    <a href="/movie" >
-    电影
-    </a>
-  </li>
-  
-  <li>
-    <a href="/football" >
-    足球
+    <a href="/others" >
+    其他
     </a>
   </li>
   
@@ -67,6 +64,66 @@
           <h3 id="技术相关">技术相关</h3>
 
 <div class="item">
+  <h3><a href="/tech/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/">状态模式</a></h3>
+  <small>
+  2020-01-07
+  
+    <a href="/tags/设计模式">设计模式</a>
+  
+  </small>
+  <div class="desc">拆分状态跳转逻辑，每个状态在自己的内部，跳转到下一个状态。需要一个上下文类(Context)，状态基类(state)，具体状态类&lt;?phpclass Context{    private...</div>
+  <div class="detail"><a href="/tech/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/">查看详情&gt;&gt;</a></div>
+</div>
+
+<div class="item">
+  <h3><a href="/tech/C-%E9%9D%A2%E8%AF%95/">C#面试</a></h3>
+  <small>
+  2020-01-05
+  
+    <a href="/tags/面试">面试</a>
+  
+  </small>
+  <div class="desc">  值类型和引用类型的区别值类型表示实际数据，引用类型表示指向存储在内存堆中的数据的指针或引用值类型的数据存储在内存的栈中；引用类型的数据存储在内存的堆中，而内存单元中只存放堆中对象的地址。栈的...</div>
+  <div class="detail"><a href="/tech/C-%E9%9D%A2%E8%AF%95/">查看详情&gt;&gt;</a></div>
+</div>
+
+<div class="item">
+  <h3><a href="/tech/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></h3>
+  <small>
+  2020-01-01
+  
+    <a href="/tags/设计模式">设计模式</a>
+  
+  </small>
+  <div class="desc">工厂模式单例模式构造者模式原型模式适配器模式桥接模式过滤器模式组合模式装饰器模式外观模式享元模式代理模式责任链模式命令模式解释器模式迭代器模式中介模式备忘录模式观察者模式状态模式空对象模式策略模...</div>
+  <div class="detail"><a href="/tech/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">查看详情&gt;&gt;</a></div>
+</div>
+
+<div class="item">
+  <h3><a href="/tech/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Git常用命令</a></h3>
+  <small>
+  2019-12-29
+  
+    <a href="/tags/linux">linux</a>
+  
+  </small>
+  <div class="desc">原文链接：https://www.jianshu.com/p/cdccfef91ae1git config  git config命令的作用是配置git的相关信息。配置全局的用户名和邮箱，mac...</div>
+  <div class="detail"><a href="/tech/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">查看详情&gt;&gt;</a></div>
+</div>
+
+<div class="item">
+  <h3><a href="/tech/PHP%E5%B8%B8%E7%94%A8%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0/">Php常用数组函数</a></h3>
+  <small>
+  2019-12-28
+  
+    <a href="/tags/php">php</a>
+  
+  </small>
+  <div class="desc">      count函数    count函数是用来计算数组内的元素的数目的一个函数        array_chunk() array_chunk函数是用来将一个数组拆分为多个数组块的，语...</div>
+  <div class="detail"><a href="/tech/PHP%E5%B8%B8%E7%94%A8%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0/">查看详情&gt;&gt;</a></div>
+</div>
+
+<div class="item">
   <h3><a href="/tech/PHP%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0/">Php常用字符串函数</a></h3>
   <small>
   2019-12-27
@@ -75,7 +132,7 @@
   
   </small>
   <div class="desc">      strlen() 获取字符串长度    strlen()、mb_strlen()，不同之处在于mb_strlen()第二个参数可以用于指定字符编码。    PHP内置的字符串长度函数...</div>
-  <div class="detail"><a href="/tech/PHP%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0/">查看详情</a></div>
+  <div class="detail"><a href="/tech/PHP%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0/">查看详情&gt;&gt;</a></div>
 </div>
 
 <div class="item">
@@ -87,7 +144,7 @@
   
   </small>
   <div class="desc">原文链接:https://blog.csdn.net/qq_33205418/article/details/83026617目录1.最强大的搜索命令：find 查找各种文件的命令　2.在文件资...</div>
-  <div class="detail"><a href="/tech/Linux%E4%B8%8B%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%9F%A5%E6%89%BE%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4/">查看详情</a></div>
+  <div class="detail"><a href="/tech/Linux%E4%B8%8B%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%9F%A5%E6%89%BE%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4/">查看详情&gt;&gt;</a></div>
 </div>
 
 <div class="item">
@@ -99,7 +156,7 @@
   
   </small>
   <div class="desc">原文链接:https://blog.csdn.net/beauty5188/article/details/795588091)   SQL注入攻击(SQLInjection)攻击方法:攻击者在...</div>
-  <div class="detail"><a href="/tech/%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB-SQL%E6%94%BB%E5%87%BB-XSS-CSRF-DDos/">查看详情</a></div>
+  <div class="detail"><a href="/tech/%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB-SQL%E6%94%BB%E5%87%BB-XSS-CSRF-DDos/">查看详情&gt;&gt;</a></div>
 </div>
 
 <div class="item">
@@ -111,7 +168,7 @@
   
   </small>
   <div class="desc">    结论：直接比较值，对于空字符串，空数组，null，未定义变量，0 都是 false。isset，对于空字符串，空数组，0是 true，null和未定义变量是 false。empty，对于...</div>
-  <div class="detail"><a href="/tech/isset,empty,is_null/">查看详情</a></div>
+  <div class="detail"><a href="/tech/isset,empty,is_null/">查看详情&gt;&gt;</a></div>
 </div>
 
 <div class="item">
@@ -123,7 +180,7 @@
   
   </small>
   <div class="desc">    输入参数 计算之前 先转成对应的类型。输入参数是数组，从数组里的某个值，先验证数组是否为空，在验证对应的key是否存在。json_encode(null)，值不是false。不要忘记没有...</div>
-  <div class="detail"><a href="/tech/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/">查看详情</a></div>
+  <div class="detail"><a href="/tech/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/">查看详情&gt;&gt;</a></div>
 </div>
 
 <div class="item">
@@ -135,7 +192,7 @@
   
   </small>
   <div class="desc">    慢查询优化关于MySQL索引原理是比较枯燥的东西，大家只需要有一个感性的认识，并不需要理解得非常透彻和深入。我们回头来看看一开始我们说的慢查询，了解完索引原理之后，大家是不是有什么想法呢...</div>
-  <div class="detail"><a href="/tech/MySQL%E7%B4%A2%E5%BC%95%E5%8E%9F%E7%90%86%E5%8F%8A%E6%85%A2%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/">查看详情</a></div>
+  <div class="detail"><a href="/tech/MySQL%E7%B4%A2%E5%BC%95%E5%8E%9F%E7%90%86%E5%8F%8A%E6%85%A2%E6%9F%A5%E8%AF%A2%E4%BC%98%E5%8C%96/">查看详情&gt;&gt;</a></div>
 </div>
 
 <div class="item">
@@ -149,7 +206,7 @@
   
   </small>
   <div class="desc">    安装phpsudo apt install php7.2安装nginxsudo apt install nginx-full安装对应的php-fpmsudo apt install ph...</div>
-  <div class="detail"><a href="/tech/%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%83/">查看详情</a></div>
+  <div class="detail"><a href="/tech/%E6%90%AD%E5%BB%BALNMP%E7%8E%AF%E5%A2%83/">查看详情&gt;&gt;</a></div>
 </div>
 
 <div class="item">
@@ -161,7 +218,7 @@
   
   </small>
   <div class="desc">    Ctrl + u            删除光标之前到行首的字符Ctrl + k            删除光标之前到行尾的字符Ctrl + c            取消当前行输入的命...</div>
-  <div class="detail"><a href="/tech/linux%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">查看详情</a></div>
+  <div class="detail"><a href="/tech/linux%E5%B8%B8%E7%94%A8%E5%BF%AB%E6%8D%B7%E9%94%AE/">查看详情&gt;&gt;</a></div>
 </div>
 
 <div class="item">
@@ -173,7 +230,7 @@
   
   </small>
   <div class="desc">安装sudo apt-get install redis-server启动 redis$ redis-server查看 redis 的运行状态$ service redis-server sta...</div>
-  <div class="detail"><a href="/tech/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/">查看详情</a></div>
+  <div class="detail"><a href="/tech/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/">查看详情&gt;&gt;</a></div>
 </div>
 
 <div class="item">
@@ -185,7 +242,7 @@
   
   </small>
   <div class="desc">    系统信息 arch 显示机器的处理器架构(1) uname -m 显示机器的处理器架构(2) uname -r 显示正在使用的内核版本 dmidecode -q 显示硬件系统部件 - (...</div>
-  <div class="detail"><a href="/tech/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/">查看详情</a></div>
+  <div class="detail"><a href="/tech/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/">查看详情&gt;&gt;</a></div>
 </div>
 
 <div class="item">
@@ -195,9 +252,11 @@
   
     <a href="/tags/php">php</a>
   
+    <a href="/tags/面试">面试</a>
+  
   </small>
   <div class="desc">原文链接：https://www.cnblogs.com/hanqishihu/p/5560767.htmlPHP基础  变量的传值与引用。  变量的类型转换和判断类型方法。  php运算符优先...</div>
-  <div class="detail"><a href="/tech/PHP%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">查看详情</a></div>
+  <div class="detail"><a href="/tech/PHP%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">查看详情&gt;&gt;</a></div>
 </div>
 
 <div class="item">
@@ -211,7 +270,7 @@
   
   </small>
   <div class="desc">转载自：https://www.cnblogs.com/HZL2017/p/10719029.html1.vim介绍vi编辑器是所有Unix以及Linux下的标准编辑器，vim可以看作vi的升级...</div>
-  <div class="detail"><a href="/tech/vim%E7%BC%96%E8%BE%91%E5%99%A8%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">查看详情</a></div>
+  <div class="detail"><a href="/tech/vim%E7%BC%96%E8%BE%91%E5%99%A8%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">查看详情&gt;&gt;</a></div>
 </div>
 
 
@@ -225,34 +284,134 @@
         <p>E-Mail&nbsp;:&nbsp;long275@126.com</p>
     </div>
 </div>
-<div class="news">
-    <div class="title">最新文章</div>
+<div class="box">
+    <div class="title">最新</div>
     
     <div class="item">
-        <a href="/tech/PHP%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0/">Php常用字符串函数</a>
+        <a href="/tech/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/">状态模式</a>
       </div>
     
     <div class="item">
-        <a href="/tech/Linux%E4%B8%8B%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%9F%A5%E6%89%BE%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4/">Linux下文件搜索查找查看命令</a>
+        <a href="/tech/C-%E9%9D%A2%E8%AF%95/">C#面试</a>
       </div>
     
     <div class="item">
-        <a href="/tech/%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB-SQL%E6%94%BB%E5%87%BB-XSS-CSRF-DDos/">网络攻击（sql攻击、xss、csrf、ddos）</a>
+        <a href="/tech/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
       </div>
     
     <div class="item">
-        <a href="/tech/isset,empty,is_null/">Isset,empty,is_null</a>
+        <a href="/others/%E5%8F%8D%E8%84%86%E5%BC%B1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">反脆弱读书笔记</a>
       </div>
     
     <div class="item">
-        <a href="/tech/%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C/">开发经验</a>
+        <a href="/tech/Git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">Git常用命令</a>
       </div>
     
+</div>
+<div class="box">
+    <div class="title">备忘</div>
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <div class="item">
+            <a href="/tech/PHP%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">Php面试总结</a>
+        </div>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+<div class="box">
+    <div class="title">标签</div>
+    <div class="tag">
+        
+        <a href="/tags/网站" >网站</a>
+        
+        <a href="/tags/游戏" >游戏</a>
+        
+        <a href="/tags/足球" >足球</a>
+        
+        <a href="/tags/APP" >APP</a>
+        
+        <a href="/tags/软件" >软件</a>
+        
+        <a href="/tags/linux" >linux</a>
+        
+        <a href="/tags/vim" >vim</a>
+        
+        <a href="/tags/php" >php</a>
+        
+        <a href="/tags/面试" >面试</a>
+        
+        <a href="/tags/redis" >redis</a>
+        
+        <a href="/tags/mysql" >mysql</a>
+        
+        <a href="/tags/读书笔记" >读书笔记</a>
+        
+        <a href="/tags/设计模式" >设计模式</a>
+        
+    </div>
 </div>
         </div>
       </div>
       <div id="footer">
-        Designed & Powerd by long
+        Designed & Powerd by long | Create by jekyll.
       </div>
     </div>
   </body>
