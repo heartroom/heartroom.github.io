@@ -10,7 +10,7 @@
     <meta name="description" content="编程知识积累" />
     <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
     <meta name="author" content="long" />
-    <title>Redis安装和使用</title>
+    <title>心空间</title>
     <link rel="stylesheet" href="/assets/css/styles.css?v=2.3">
     <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
     <script src="/assets/js/jquery.js"></script>
@@ -27,13 +27,13 @@
           <ul>
   
   <li>
-    <a href="/" >
+    <a href="/" class="on">
     首页
     </a>
   </li>
   
   <li>
-    <a href="/tech" class="on">
+    <a href="/tech" >
     技术
     </a>
   </li>
@@ -61,86 +61,145 @@
       </div>
       <div id="main">
         <div id="content">
-          <h3>Redis安装和使用</h3>
-<p>
-    <sapn>发布于：2019-09-12</sapn> &nbsp;
+          
+  
 
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  <div class="item">
+    <h3><a href="/tech/PHP%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">Php面试总结</a><span style="color:red">【置顶】</span></h3>
+    <small>
+      2018-08-22
+      
+          <a href="/tags/php">php</a>
+      
+          <a href="/tags/面试">面试</a>
+      
+    </small>
+    <div class="desc">原文链接：https://www.cnblogs.com/hanqishihu/p/5560767.htmlPHP基础  变量的传值与引用。  变量的类型转换和判断类型方法。  php运算符优先...</div>
+    <div class="detail"><a href="/tech/PHP%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">查看详情>></a></div>
+  </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+<div class="item">
+  <h3><a href="/works/%E9%AD%94%E5%A1%94/">魔塔</a></h3>
+  <small>
+    2013-07-16
     
-    标签分类：
-        
-            <a href="/tags/redis">redis</a>
-        
+        <a href="/tags/游戏">游戏</a>
     
-</p>
-<p>安装
-sudo apt-get install redis-server</p>
+  </small>
+  <div class="desc">早年发布到GameRes上了。网址：http://www.16p.com/756293.html功能《魔塔》是一款很古老的策略类游戏，主要内容就是通过英雄升级，最终打败魔王，救出公主。游戏操作非...</div>
+  <div class="detail"><a href="/works/%E9%AD%94%E5%A1%94/">查看详情>></a></div>
+</div>
 
-<p>启动 redis
-$ redis-server</p>
+<div class="item">
+  <h3><a href="/works/GPS%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/">GPS定位</a></h3>
+  <small>
+    2012-01-13
+    
+        <a href="/tags/网站">网站</a>
+    
+  </small>
+  <div class="desc">系统现在可能已经下线了。介绍网址：http://www.qianyan.biz/sshow-49418772.html功能1.1. 车辆定位　　GPS设备，可全天候实时计算本车运动状态信息，主要...</div>
+  <div class="detail"><a href="/works/GPS%E7%9B%91%E6%8E%A7%E7%B3%BB%E7%BB%9F/">查看详情>></a></div>
+</div>
 
-<p>查看 redis 的运行状态
-$ service redis-server status</p>
 
-<p>查看 redis 的是否启动
-redis-cli</p>
+<div class="paging">
+    <ul>	
+    
+        <li><a href="/page3">上一页</a></li>
+    
+    
+        <li>
+        
+          <a href="/index.html">1</a>
+        
+	</li>
+    
+        <li>
+        
+         <a href="/page2">2</a>
+        
+	</li>
+    
+        <li>
+        
+         <a href="/page3">3</a>
+        
+	</li>
+    
+        <li>
+        
+          <span class="active">4</span>
+        
+	</li>
+    
+    
+    </ul>
+</div>    
 
-<p>redis 配置文件redis.conf在/etc/redis目录下，可以通过修改文件修改 redis 的配置，或者通过命令修改。</p>
-
-<p>redis设置密码访问</p>
-
-<p>你的redis在真是环境中不可以谁想访问就可以访问，所以必须要设置密码</p>
-
-<p>设置密码的流程如下：</p>
-
-<p>vim /etc/redis.conf</p>
-
-<p>#requirepass foobared去掉注释，foobared改为自己的密码，我在这里改为</p>
-
-<p>requirepass 123456</p>
-
-<p>然后保存，重启服务</p>
-
-<p>cd /usr/local/bin</p>
-
-<p>./redis-server /etc/redis.conf</p>
-
-<p>测试连接：./redis-cli</p>
-
-<p>输入命令 会提示(error) NOAUTH Authentication required. 这是属于正常现象。</p>
-
-<p>我们输入 auth 123456#你刚才设置的密码</p>
-
-<p>在远程服务上执行命令</p>
-
-<p>redis-cli -h host -p port -a password</p>
-
-<p>yii链接redis</p>
-
-<p>composer require yiisoft/yii2-redis</p>
-
-<p>redis开启外网访问</p>
-
-<p>redis默认只允许本地访问，要使redis可以远程访问可以修改redis.conf</p>
-
-<p>打开redis.conf文件在NETWORK部分有说明</p>
-
-<p>解决办法：注释掉bind 127.0.0.1可以使所有的ip访问redis</p>
-
-<p>若是想指定多个ip访问，但并不是全部的ip访问，可以bind</p>
-
-<p>配置Yii2的redis扩展</p>
-
-<p>php composer.phar require –prefer-dist yiisoft/yii2-redis</p>
-
-<p>插入队列数据：</p>
-
-<p>$redis-&gt;lpush(queueName, data);</p>
-
-<p>读取队列数据(阻塞列表直到等待超时或发现可弹出元素为止)：</p>
-
-<p>ini_set(‘default_socket_timeout’, -1); //socket不超时</p>
-
-<p>$message = \Yii::$app-&gt;redis-&gt;brpop(queueName, 0);</p>
 
 
         </div>

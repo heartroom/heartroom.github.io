@@ -10,7 +10,7 @@
     <meta name="description" content="编程知识积累" />
     <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
     <meta name="author" content="long" />
-    <title>Redis安装和使用</title>
+    <title>Ngrok内网穿透</title>
     <link rel="stylesheet" href="/assets/css/styles.css?v=2.3">
     <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
     <script src="/assets/js/jquery.js"></script>
@@ -61,86 +61,53 @@
       </div>
       <div id="main">
         <div id="content">
-          <h3>Redis安装和使用</h3>
+          <h3>Ngrok内网穿透</h3>
 <p>
-    <sapn>发布于：2019-09-12</sapn> &nbsp;
+    <sapn>发布于：2020-01-08</sapn> &nbsp;
 
     
     标签分类：
         
-            <a href="/tags/redis">redis</a>
+            <a href="/tags/服务器">服务器</a>
         
     
 </p>
-<p>安装
-sudo apt-get install redis-server</p>
+<p>ngrok使用教程</p>
 
-<p>启动 redis
-$ redis-server</p>
+<p>ngrok 是一个反向代理，通过在公共端点和本地运行的 Web 服务器之间建立一个安全的通道，实现内网主机的服务可以暴露给外网。ngrok 可捕获和分析所有通道上的流量，便于后期分析和重放，所以ngrok可以很方便地协助服务端程序测试。</p>
 
-<p>查看 redis 的运行状态
-$ service redis-server status</p>
+<p>ngrok的使用并不复杂，主要步骤如下：</p>
 
-<p>查看 redis 的是否启动
-redis-cli</p>
+<ol>
+  <li>
+    <p>进入ngrok官网（https://ngrok.com/），注册ngrok账号并下载ngrok；</p>
+  </li>
+  <li>
+    <p>根据官网给定的授权码，运行如下授权命令；</p>
 
-<p>redis 配置文件redis.conf在/etc/redis目录下，可以通过修改文件修改 redis 的配置，或者通过命令修改。</p>
+    <p>ngrok authtoken 授权码</p>
 
-<p>redis设置密码访问</p>
+    <p>授权码和账户是绑定的，在授权命令运行后，ngrok会将授权码保存在~/.ngrok2/ngrok.yml中，所以只需要运行一次，以后都可以使用。</p>
+  </li>
+  <li>
+    <p>根据需要，运行命令开发端口。</p>
 
-<p>你的redis在真是环境中不可以谁想访问就可以访问，所以必须要设置密码</p>
+    <p>ngrok http 8080</p>
 
-<p>设置密码的流程如下：</p>
+    <p>需要注意的是，这里的端口8080可以根据需要替换成其他端口。这条命令的意思是将本地8080端口对应的服务暴露到外网中。</p>
 
-<p>vim /etc/redis.conf</p>
+    <p>红色标注的方框内，第一个是http协议对应的外网地址，第二个是https协议对应的外网地址。这样，凡是访问http://1a969631.ngrok.io的请求都将发送到localhost:8080。</p>
+  </li>
+  <li>
+    <p>其他</p>
 
-<p>#requirepass foobared去掉注释，foobared改为自己的密码，我在这里改为</p>
+    <p>每次启动ngrok都会分配一个新的外网域名，所以需要每次更换配置或者更换访问地址，不太方便。当然，ngrok也提供了解决方法，那就是付费，可以设置固定域名。</p>
+  </li>
+</ol>
 
-<p>requirepass 123456</p>
+<p>版权声明：本文为CSDN博主「冷血有情556」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。</p>
 
-<p>然后保存，重启服务</p>
-
-<p>cd /usr/local/bin</p>
-
-<p>./redis-server /etc/redis.conf</p>
-
-<p>测试连接：./redis-cli</p>
-
-<p>输入命令 会提示(error) NOAUTH Authentication required. 这是属于正常现象。</p>
-
-<p>我们输入 auth 123456#你刚才设置的密码</p>
-
-<p>在远程服务上执行命令</p>
-
-<p>redis-cli -h host -p port -a password</p>
-
-<p>yii链接redis</p>
-
-<p>composer require yiisoft/yii2-redis</p>
-
-<p>redis开启外网访问</p>
-
-<p>redis默认只允许本地访问，要使redis可以远程访问可以修改redis.conf</p>
-
-<p>打开redis.conf文件在NETWORK部分有说明</p>
-
-<p>解决办法：注释掉bind 127.0.0.1可以使所有的ip访问redis</p>
-
-<p>若是想指定多个ip访问，但并不是全部的ip访问，可以bind</p>
-
-<p>配置Yii2的redis扩展</p>
-
-<p>php composer.phar require –prefer-dist yiisoft/yii2-redis</p>
-
-<p>插入队列数据：</p>
-
-<p>$redis-&gt;lpush(queueName, data);</p>
-
-<p>读取队列数据(阻塞列表直到等待超时或发现可弹出元素为止)：</p>
-
-<p>ini_set(‘default_socket_timeout’, -1); //socket不超时</p>
-
-<p>$message = \Yii::$app-&gt;redis-&gt;brpop(queueName, 0);</p>
+<p>原文链接：https://blog.csdn.net/liu_005/article/details/79557818</p>
 
 
         </div>
