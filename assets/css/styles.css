@@ -53,6 +53,8 @@ img, video, object, embed { border: 0; max-width: 100%; }
 
 #content .item .detail { margin: 5px 0 10px; font-size: 14px; }
 
+#content .highlight { background-color: #303030; color: whitesmoke; overflow-x: auto; }
+
 #sidebar .me-info { font-size: 14px; }
 
 #sidebar .me-info img { float: left; width: 70px; height: 70px; }
