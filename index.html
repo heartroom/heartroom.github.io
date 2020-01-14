@@ -125,6 +125,16 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
   <div class="item">
     <h3><a href="/tech/PHP%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">Php面试总结</a><span style="color:red">【置顶】</span></h3>
     <small>
@@ -154,6 +164,66 @@
 
 
 <div class="item">
+  <h3><a href="/tech/%E8%BF%87%E6%BB%A4%E5%99%A8%E6%A8%A1%E5%BC%8F/">过滤器模式</a></h3>
+  <small>
+    2020-01-14
+    
+        <a href="/tags/设计模式">设计模式</a>
+    
+  </small>
+  <div class="desc">使用多个不同的过滤规则过滤一组对象。结构模式。class Target{    public $name;    public $gender;    public $maritalStatus...</div>
+  <div class="detail"><a href="/tech/%E8%BF%87%E6%BB%A4%E5%99%A8%E6%A8%A1%E5%BC%8F/">查看详情>></a></div>
+</div>
+
+<div class="item">
+  <h3><a href="/tech/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">桥接模式</a></h3>
+  <small>
+    2020-01-14
+    
+        <a href="/tags/设计模式">设计模式</a>
+    
+  </small>
+  <div class="desc">两个维度变化的情况可以使用桥接模式，减少类的数量。比如形状（方形、圆形、三角形）和颜色（红、黄、绿）的组合。刷新、置顶、直通车的支付逻辑（免费、余额、支付宝、微信）也可以用桥接模式来实现。&lt...</div>
+  <div class="detail"><a href="/tech/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">查看详情>></a></div>
+</div>
+
+<div class="item">
+  <h3><a href="/tech/singleton/">单例模式</a></h3>
+  <small>
+    2020-01-14
+    
+        <a href="/tags/设计模式">设计模式</a>
+    
+  </small>
+  <div class="desc">一个类只有一个对象，感觉跟享元模式的目的是一样的，都可以减少内存开销，减少对象创建时间，提高性能，但是享元模式一个类可能创建多个对象（类型不同）。class Singleton{    priv...</div>
+  <div class="detail"><a href="/tech/singleton/">查看详情>></a></div>
+</div>
+
+<div class="item">
+  <h3><a href="/tech/flyweight/">享元模式</a></h3>
+  <small>
+    2020-01-14
+    
+        <a href="/tags/设计模式">设计模式</a>
+    
+  </small>
+  <div class="desc">共享对象，对象池技术，缓存一类对象。参考https://www.cnblogs.com/adamjwh/p/9070107.html&lt;?phpabstract class Flyweigh...</div>
+  <div class="detail"><a href="/tech/flyweight/">查看详情>></a></div>
+</div>
+
+<div class="item">
+  <h3><a href="/tech/facade/">外观模式</a></h3>
+  <small>
+    2020-01-14
+    
+        <a href="/tags/设计模式">设计模式</a>
+    
+  </small>
+  <div class="desc">为复杂的模块或子系统提供一个外界访问的接口，客户调用接口，而不用管如何调用复杂的子系统&lt;?phpclass Facade{    private $subSystemA;    priva...</div>
+  <div class="detail"><a href="/tech/facade/">查看详情>></a></div>
+</div>
+
+<div class="item">
   <h3><a href="/tech/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">命令模式</a></h3>
   <small>
     2020-01-13
@@ -161,7 +231,7 @@
         <a href="/tags/设计模式">设计模式</a>
     
   </small>
-  <div class="desc">命令模式是为了对多个方法进行管理而出现的。把命令拆分成命令的请求者（invoker）和命令的实际执行者（receiver）。在调用者里对执行者的方法进行 ##管理控制##。&lt;?phpint...</div>
+  <div class="desc">命令模式是为了对多个方法进行管理而出现的。把命令拆分成命令的请求者（invoker）和命令的实际执行者（receiver）。在调用者里对执行者的方法进行管理控制。&lt;?phpinterfac...</div>
   <div class="detail"><a href="/tech/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">查看详情>></a></div>
 </div>
 
@@ -213,66 +283,6 @@
   <div class="detail"><a href="/tech/%E4%B8%AD%E4%BB%8B%E6%A8%A1%E5%BC%8F/">查看详情>></a></div>
 </div>
 
-<div class="item">
-  <h3><a href="/tech/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">策略模式</a></h3>
-  <small>
-    2020-01-09
-    
-        <a href="/tags/设计模式">设计模式</a>
-    
-  </small>
-  <div class="desc">策略模式就是把一组算法封装成一个一个的类，实现相同的接口，更灵活的 调用不同的策略算法。各个算法的修改互不影响。&lt;?phpclass Context{    private $strate...</div>
-  <div class="detail"><a href="/tech/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">查看详情>></a></div>
-</div>
-
-<div class="item">
-  <h3><a href="/tech/websocket%E5%85%A5%E9%97%A8/">Websocket入门</a></h3>
-  <small>
-    2020-01-08
-    
-        <a href="/tags/服务器">服务器</a>
-    
-  </small>
-  <div class="desc">作者： 阮一峰 原文链接：http://www.ruanyifeng.com/blog/2017/05/websocket.htmlWebSocket 是一种网络通信协议，很多高级功能都需要它。...</div>
-  <div class="detail"><a href="/tech/websocket%E5%85%A5%E9%97%A8/">查看详情>></a></div>
-</div>
-
-<div class="item">
-  <h3><a href="/tech/ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">Ngrok内网穿透</a></h3>
-  <small>
-    2020-01-08
-    
-        <a href="/tags/服务器">服务器</a>
-    
-  </small>
-  <div class="desc">ngrok使用教程ngrok 是一个反向代理，通过在公共端点和本地运行的 Web 服务器之间建立一个安全的通道，实现内网主机的服务可以暴露给外网。ngrok 可捕获和分析所有通道上的流量，便于后...</div>
-  <div class="detail"><a href="/tech/ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">查看详情>></a></div>
-</div>
-
-<div class="item">
-  <h3><a href="/tech/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/">状态模式</a></h3>
-  <small>
-    2020-01-07
-    
-        <a href="/tags/设计模式">设计模式</a>
-    
-  </small>
-  <div class="desc">拆分状态跳转逻辑，每个状态在自己的内部，跳转到下一个状态。需要一个上下文类(Context)，状态基类(state)，具体状态类&lt;?phpclass Context{    private...</div>
-  <div class="detail"><a href="/tech/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/">查看详情>></a></div>
-</div>
-
-<div class="item">
-  <h3><a href="/tech/C-%E9%9D%A2%E8%AF%95/">C#面试</a></h3>
-  <small>
-    2020-01-05
-    
-        <a href="/tags/面试">面试</a>
-    
-  </small>
-  <div class="desc">  值类型和引用类型的区别值类型表示实际数据，引用类型表示指向存储在内存堆中的数据的指针或引用值类型的数据存储在内存的栈中；引用类型的数据存储在内存的堆中，而内存单元中只存放堆中对象的地址。栈的...</div>
-  <div class="detail"><a href="/tech/C-%E9%9D%A2%E8%AF%95/">查看详情>></a></div>
-</div>
-
 
 <div class="paging">
     <ul>	
@@ -302,6 +312,12 @@
         
 	</li>
     
+        <li>
+        
+         <a href="/page5">5</a>
+        
+	</li>
+    
     
         <li><a href="/page2">下一页</a></li>
     
@@ -324,28 +340,38 @@
     <div class="title">最新</div>
     
     <div class="item">
-        <a href="/tech/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">命令模式</a>
+        <a href="/tech/%E8%BF%87%E6%BB%A4%E5%99%A8%E6%A8%A1%E5%BC%8F/">过滤器模式</a>
       </div>
     
     <div class="item">
-        <a href="/tech/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">适配器模式</a>
+        <a href="/tech/%E6%A1%A5%E6%8E%A5%E6%A8%A1%E5%BC%8F/">桥接模式</a>
       </div>
     
     <div class="item">
-        <a href="/tech/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/">装饰器模式</a>
+        <a href="/tech/singleton/">单例模式</a>
       </div>
     
     <div class="item">
-        <a href="/tech/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/">代理模式</a>
+        <a href="/tech/flyweight/">享元模式</a>
       </div>
     
     <div class="item">
-        <a href="/tech/%E4%B8%AD%E4%BB%8B%E6%A8%A1%E5%BC%8F/">中介模式</a>
+        <a href="/tech/facade/">外观模式</a>
       </div>
     
 </div>
 <div class="box">
     <div class="title">备忘</div>
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
     
         
     
