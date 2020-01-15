@@ -10,7 +10,7 @@
     <meta name="description" content="编程知识积累" />
     <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
     <meta name="author" content="long" />
-    <title>Staff</title>
+    <title>责任链模式</title>
     <link rel="stylesheet" href="/assets/css/styles.css?v=2.5">
     <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
     <script src="/assets/js/jquery.js"></script>
@@ -33,7 +33,7 @@
   </li>
   
   <li>
-    <a href="/tech" >
+    <a href="/tech" class="on">
     技术
     </a>
   </li>
@@ -61,25 +61,139 @@
       </div>
       <div id="main">
         <div id="content">
-          <h1>Staff</h1>
+          <h3>责任链模式</h3>
+<p>
+    <sapn>发布于：2020-01-15 23:10</sapn> &nbsp;
 
-<ul>
-  
-    <li>
-      <h2><a href="/authors/jill/">Jill Smith</a></h2>
-      <h3>Chief Editor</h3>
-      <p><p>Jill is an avid fruit grower based in the south of France.</p>
+    
+    标签分类：
+        
+            <a href="/tags/设计模式">设计模式</a>
+        
+    
 </p>
-    </li>
-  
-    <li>
-      <h2><a href="/authors/ted/">Ted Doe</a></h2>
-      <h3>Writer</h3>
-      <p><p>Ted has been eating fruit since he was baby.</p>
-</p>
-    </li>
-  
-</ul>
+<p>请求会被一组对象（handler）处理，这组对象组成一个链表，如果不是自己处理，就调用下一个对象处理，直到最后。这样如果增加新的请求，新的处理，不需要修改原来的逻辑，只添加新的handler到链里就可以了。</p>
+
+<p><img src="/assets/images/handler.png" alt="责任链模式" title="责任链模式" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Request
+{
+    public $name;
+    private $level;
+    public function __construct($name, $level)
+    {
+        $this-&gt;name = $name;
+        $this-&gt;level = $level;
+    }
+
+    public function getLevel()
+    {
+        return $this-&gt;level;
+    }
+}
+class Response
+{
+    public $content;
+
+    public function __construct($content)
+    {
+        $this-&gt;content = $content;
+    }
+}
+abstract class Handler
+{
+    /** @var Handler */
+    protected $next;
+
+    /**
+     * @param $request Request
+     * @return Response|null
+     */
+    public function handleRequest($request)
+    {
+        if ($this-&gt;getLevel() == $request-&gt;getLevel()) {
+            return $this-&gt;getResponse($request);
+        } else if ($this-&gt;next != null) {
+            return $this-&gt;next-&gt;handleRequest($request);
+        }
+        return null;
+    }
+
+    abstract public function getLevel();
+
+    abstract public function getResponse($request);
+
+    public function getNext()
+    {
+        return $this-&gt;next;
+    }
+
+    public function setNext($next)
+    {
+        $this-&gt;next = $next;
+    }
+}
+
+class ConcreteHandler1 extends Handler
+{
+    public function getLevel()
+    {
+        return 1;
+    }
+
+    /**
+     * @param $request Request
+     * @return Response
+     */
+    public function getResponse($request)
+    {
+        return new Response($request-&gt;name . '的处理返回');
+    }
+}
+
+class ConcreteHandler2 extends Handler
+{
+    public function getLevel()
+    {
+        return 2;
+    }
+
+    /**
+     * @param $request Request
+     * @return Response
+     */
+    public function getResponse($request)
+    {
+        return new Response($request-&gt;name . '的处理返回2');
+    }
+}
+
+class ConcreteHandler3 extends Handler
+{
+    public function getLevel()
+    {
+        return 3;
+    }
+
+    /**
+     * @param $request Request
+     * @return Response
+     */
+    public function getResponse($request)
+    {
+        return new Response($request-&gt;name . '的处理返回3');
+    }
+}
+$request = new Request("test", 2);
+$handler1 = new ConcreteHandler1();
+$handler2 = new ConcreteHandler2();
+$handler3 = new ConcreteHandler3();
+$handler1-&gt;setNext($handler2);
+$handler2-&gt;setNext($handler3);
+$response = $handler1-&gt;handleRequest($request);
+echo $response-&gt;content;
+</code></pre></div></div>
+
 
         </div>
         <div id="sidebar">
