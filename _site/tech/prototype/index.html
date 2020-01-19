@@ -10,12 +10,8 @@
     <meta name="description" content="编程知识积累" />
     <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
     <meta name="author" content="long" />
-    <title>工厂模式</title>
-<<<<<<< HEAD
-    <link rel="stylesheet" href="/assets/css/styles.css?v=2.6">
-=======
+    <title>原型模式</title>
     <link rel="stylesheet" href="/assets/css/styles.css?v=2.5">
->>>>>>> ef8125144df96fcf55257aac7147ba8e12f174b7
     <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
     <script src="/assets/js/jquery.js"></script>
     <script src="/assets/js/common.js"></script>
@@ -65,9 +61,9 @@
       </div>
       <div id="main">
         <div id="content">
-          <h3>工厂模式</h3>
+          <h3>原型模式</h3>
 <p>
-    <sapn>发布于：2020-01-18 09:10</sapn> &nbsp;
+    <sapn>发布于：2020-01-15 09:10</sapn> &nbsp;
 
     
     标签分类：
@@ -76,57 +72,31 @@
         
     
 </p>
-<p>根据一个要创建的类的标识，就创建出类的模式。</p>
+<p>根据一个对象创建一个完全相同的对象。clone。</p>
 
-<p><img src="/assets/images/factory.png" alt="工厂模式" title="工厂模式" /></p>
+<p><img src="/assets/images/prototype.png" alt="原型模式" title="原型模式" /></p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-<span class="k">abstract</span> <span class="kd">class</span> <span class="nc">Product</span>
+<span class="kd">class</span> <span class="nc">Prototype</span>
 <span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">method1</span><span class="p">()</span>
-    <span class="p">{}</span>
-
-    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">method2</span><span class="p">();</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Product1</span> <span class="k">extends</span> <span class="nx">Product</span>
-<span class="p">{</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">method2</span><span class="p">()</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getClone</span><span class="p">()</span>
     <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">'P1 method2'</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="k">return</span> <span class="k">clone</span> <span class="nv">$this</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nc">ConcretePrototype</span> <span class="k">extends</span> <span class="nx">Prototype</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$name</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
     <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">class</span> <span class="nc">Product2</span> <span class="k">extends</span> <span class="nx">Product</span>
-<span class="p">{</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">method2</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">'P2 method2'</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="k">abstract</span> <span class="kd">class</span> <span class="nc">Creator</span>
-<span class="p">{</span>
-    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">createProduct</span><span class="p">(</span><span class="nv">$productName</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">ProductCreator</span> <span class="k">extends</span> <span class="nx">Creator</span>
-<span class="p">{</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">createProduct</span><span class="p">(</span><span class="nv">$productName</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="k">new</span> <span class="nv">$productName</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="nv">$creator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ProductCreator</span><span class="p">();</span>
-<span class="nv">$p1</span> <span class="o">=</span> <span class="nv">$creator</span><span class="o">-&gt;</span><span class="na">createProduct</span><span class="p">(</span><span class="s1">'Product1'</span><span class="p">);</span>
-<span class="nv">$p1</span><span class="o">-&gt;</span><span class="na">method2</span><span class="p">();</span>
-
-<span class="nv">$p2</span> <span class="o">=</span> <span class="nv">$creator</span><span class="o">-&gt;</span><span class="na">createProduct</span><span class="p">(</span><span class="s1">'Product2'</span><span class="p">);</span>
-<span class="nv">$p2</span><span class="o">-&gt;</span><span class="na">method2</span><span class="p">();</span>
-
+<span class="nv">$p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ConcretePrototype</span><span class="p">(</span><span class="s1">'xxx'</span><span class="p">);</span>
+<span class="nv">$p2</span> <span class="o">=</span> <span class="nv">$p1</span><span class="o">-&gt;</span><span class="na">getClone</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$p2</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
 </code></pre></div></div>
 
 
@@ -144,42 +114,28 @@
     <div class="title">最新</div>
     
     <div class="item">
-        <a href="/tech/template/">模板方法模式</a>
+        <a href="/tech/responsibility/">责任链模式</a>
       </div>
     
     <div class="item">
-        <a href="/tech/factory/">工厂模式</a>
+        <a href="/tech/observer/">观察者模式</a>
       </div>
     
     <div class="item">
-        <a href="/tech/interpret/">解释器模式</a>
+        <a href="/tech/prototype/">原型模式</a>
       </div>
     
     <div class="item">
-        <a href="/tech/memento/">备忘录模式</a>
+        <a href="/tech/builder/">建造者模式</a>
       </div>
     
     <div class="item">
-        <a href="/tech/composite/">组合模式</a>
+        <a href="/tech/%E8%BF%87%E6%BB%A4%E5%99%A8%E6%A8%A1%E5%BC%8F/">过滤器模式</a>
       </div>
     
 </div>
 <div class="box">
     <div class="title">备忘</div>
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
     
         
     
@@ -318,15 +274,9 @@
 </div>
         </div>
       </div>
-<<<<<<< HEAD
-    </div>
-    <div id="footer">
-      Designed & Powerd by long | Create by jekyll.
-=======
       <div id="footer">
         Designed & Powerd by long | Create by jekyll.
       </div>
->>>>>>> ef8125144df96fcf55257aac7147ba8e12f174b7
     </div>
   </body>
 </html>
