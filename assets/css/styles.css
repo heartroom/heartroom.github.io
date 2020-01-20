@@ -12,7 +12,7 @@ img, video, object, embed { border: 0; max-width: 100%; }
 
 #sidebar { width: 38%; float: right; }
 
-#content { width: 60%; float: left; vertical-align: top; background-color: white; padding: 10px; overflow: hidden; box-sizing: border-box; margin-bottom: 10px; }
+#content { width: 60%; float: left; vertical-align: top; overflow: hidden; box-sizing: border-box; margin-bottom: 10px; }
 
 #main { vertical-align: top; margin-bottom: 30px; }
 
@@ -35,13 +35,13 @@ img, video, object, embed { border: 0; max-width: 100%; }
 
 #menu li, .paging li { display: inline; }
 
-#menu ul { padding: 2px 0; }
+#menu ul { padding: 1px 0 0 0; }
 
 #menu li { margin-right: 10px; }
 
 #menu a { display: inline-block; padding: 0 5px; height: 30px; line-height: 30px; }
 
-#menu .on { background-color: #337ab7; color: white; }
+#menu .on { background-color: #337ab7; color: white; border-radius: 2px 2px 0 0; }
 
 #content h3 { margin: 0 0 5px 0; }
 
@@ -76,5 +76,9 @@ img, video, object, embed { border: 0; max-width: 100%; }
 .tag .on { color: white; background-color: #34538b; }
 
 .page { padding-bottom: 10px; }
+
+.article { padding: 10px; background-color: white; }
+
+.list-title { font-size: 20px; font-weight: bold; margin-bottom: 10px; background-color: white; padding: 10px; }
 
 /*# sourceMappingURL=styles.css.map */
