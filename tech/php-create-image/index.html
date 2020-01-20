@@ -10,7 +10,7 @@
     <meta name="description" content="编程知识积累" />
     <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
     <meta name="author" content="long" />
-    <title></title>
+    <title>php生成图片问题</title>
     <link rel="stylesheet" href="/assets/css/styles.css?v=2.8">
     <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
     <script src="/assets/js/jquery.js"></script>
@@ -33,7 +33,7 @@
   </li>
   
   <li>
-    <a href="/tech" >
+    <a href="/tech" class="on">
     技术
     </a>
   </li>
@@ -61,55 +61,53 @@
       </div>
       <div id="main">
         <div id="content">
-           
+          <div class="list-title">
+    php生成图片问题
+</div>
+<div class="article">
+    <!-- <h3>php生成图片问题</h3> -->
+    <p>
+        <sapn>发布于：2020-01-20 16:10</sapn> &nbsp;
     
- 
-    
- 
-    
- 
-    
- 
-    
- 
-    
- 
-    
- 
-    
- 
-    
- 
-    
- 
-    
- 
-    
-    <h2>读书笔记相关</h2>
-
-          
-
         
+        标签分类：
             
-
-            <div class="item">
-                <h3><a href="/others/%E5%8F%8D%E8%84%86%E5%BC%B1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">反脆弱读书笔记</a></h3>
-                <small>2019-12-29</small>
-                <div class="desc">酒神式思维我们发展到今天，并非得 益于复原力这样局限性的概念，更非得益于政策制定 者，而是得益于一些甘愿冒险、甘愿承担失误后果的 人，他们是值得社会去鼓励、保护和尊重的人。你必须努力理顺你的思维...</div>
-                <div class="detail"><a href="">查看详情>></a></div>
-              </div>
+                <a href="/tags/php">php</a>
             
         
+    </p>
+    <p>原文：<a href="https://blog.51cto.com/shenymce/2319510" target="_blank">https://blog.51cto.com/shenymce/2319510</a></p>
 
-        
+<p>php生成图片，在html的img标签中可以正常显示，直接访问网址乱码的问题解决：</p>
 
-    
- 
-    
- 
-    
- 
-    
+<p>今天做php生成图片的时候，出现了一个问题。代码实际上挺简单的，如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>header("Content-type:image/png");
+$a = imagecreate(100,100);
+imagecolorallocate($a,255,0,255);
+imagepng($a);
+imagedestroy($a);
+</code></pre></div></div>
+
+<p>当我直接访问页面url是提示</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>�PNG  IHDRddJ,PLTE��4��IDAT8�c���Q@Ox��^�IEND�B`�
+</code></pre></div></div>
+
+<p>当我新建一个html页面，使用img标签是图片可以正常显示，网上找了很久，试了很多方法，终于找到了解决方法</p>
+
+<p>解决方法：
+修改上门的代码为</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ob_end_clean();//添加这句就可以了
+header("Content-type:image/png");
+$a = imagecreate(100,100);
+imagecolorallocate($a,255,0,255);
+imagepng($a);
+</code></pre></div></div>
+
+<p>这样图片就可以直接通过网址访问了</p>
+
+</div>
 
         </div>
         <div id="sidebar">
@@ -293,7 +291,7 @@
         
         <a href="/tags/mysql" >mysql</a>
         
-        <a href="/tags/读书笔记"  class="on" >读书笔记</a>
+        <a href="/tags/读书笔记" >读书笔记</a>
         
         <a href="/tags/设计模式" >设计模式</a>
         
