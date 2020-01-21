@@ -9,5 +9,30 @@ $(function(){
 			}
 			$("#sub").html(content);
 		}
-    });
+	});
+
+	function loadTopButton() {
+		var scroH = $(document).scrollTop();  //滚动高度
+		var node = $('#btnTop');
+		if (scroH>100) {
+			// console.log("需要显示了");
+			if(!node.is(':visible')) {
+				node.show("normal");
+			}
+		} else {
+			// console.log("不需要显示了");
+			if(node.is(':visible')) {
+				node.hide("normal");
+			}
+		}
+	}
+	$(document).scroll(function() {
+		loadTopButton();
+    });
+	
+	loadTopButton();
+
+	$("#btnTop").click(function(){
+		scroll(0, 0);
+	});
 }); 
