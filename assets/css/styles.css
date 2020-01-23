@@ -59,7 +59,7 @@ img, video, object, embed { border: 0; max-width: 100%; }
 
 #content .item .detail { font-size: 14px; }
 
-#content .highlight { background-color: #303030; color: whitesmoke; overflow-x: auto; }
+#content pre { background-color: #303030; color: whitesmoke; overflow-x: auto; }
 
 #sidebar .me-info { font-size: 14px; padding: 10px 10px 10px 0; background-color: white; margin-bottom: 10px; }
 
