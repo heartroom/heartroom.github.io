@@ -163,6 +163,16 @@
   
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
   <div class="item">
     <h3><a href="/tech/php-Interview/">php面试总结</a><span style="color:red">【置顶】</span></h3>
     <small>
@@ -190,6 +200,66 @@
 
   
 
+
+<div class="item">
+  <h3><a href="/tech/singleton/">单例模式</a></h3>
+  <small>
+    2020-01-14
+    
+        <a href="/tags/设计模式">设计模式</a>
+    
+  </small>
+  <div class="desc"><a href="/tech/singleton/">一个类只有一个对象，感觉跟享元模式的目的是一样的，都可以减少内存开销，减少对象创建时间，提高性能，但是享元模式一个类可能创建多个对象（类型不同）。class Singleton{    priv...</a></div>
+  <div class="detail"><a href="/tech/singleton/">查看详情>></a></div>
+</div>
+
+<div class="item">
+  <h3><a href="/tech/flyweight/">享元模式</a></h3>
+  <small>
+    2020-01-14
+    
+        <a href="/tags/设计模式">设计模式</a>
+    
+  </small>
+  <div class="desc"><a href="/tech/flyweight/">共享对象，对象池技术，缓存一类对象。参考https://www.cnblogs.com/adamjwh/p/9070107.html&lt;?phpabstract class Flyweigh...</a></div>
+  <div class="detail"><a href="/tech/flyweight/">查看详情>></a></div>
+</div>
+
+<div class="item">
+  <h3><a href="/tech/facade/">外观模式</a></h3>
+  <small>
+    2020-01-14
+    
+        <a href="/tags/设计模式">设计模式</a>
+    
+  </small>
+  <div class="desc"><a href="/tech/facade/">为复杂的模块或子系统提供一个外界访问的接口，客户调用接口，而不用管如何调用复杂的子系统&lt;?phpclass Facade{    private $subSystemA;    priva...</a></div>
+  <div class="detail"><a href="/tech/facade/">查看详情>></a></div>
+</div>
+
+<div class="item">
+  <h3><a href="/tech/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">命令模式</a></h3>
+  <small>
+    2020-01-13
+    
+        <a href="/tags/设计模式">设计模式</a>
+    
+  </small>
+  <div class="desc"><a href="/tech/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">命令模式是为了对多个方法进行管理而出现的。把命令拆分成命令的请求者（invoker）和命令的实际执行者（receiver）。在调用者里对执行者的方法进行管理控制。&lt;?phpinterfac...</a></div>
+  <div class="detail"><a href="/tech/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">查看详情>></a></div>
+</div>
+
+<div class="item">
+  <h3><a href="/tech/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">适配器模式</a></h3>
+  <small>
+    2020-01-11
+    
+        <a href="/tags/设计模式">设计模式</a>
+    
+  </small>
+  <div class="desc"><a href="/tech/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">适配器模式就是联通两个接口。客户端调用的接口，跟实际执行的接口不同的时候，使用适配器实现客户端接口，内部调用 实际执行对象的接口。&lt;?phpinterface Persion{    pu...</a></div>
+  <div class="detail"><a href="/tech/%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F/">查看详情>></a></div>
+</div>
 
 <div class="item">
   <h3><a href="/tech/%E8%A3%85%E9%A5%B0%E5%99%A8%E6%A8%A1%E5%BC%8F/">装饰器模式</a></h3>
@@ -251,66 +321,6 @@
   <div class="detail"><a href="/tech/websocket%E5%85%A5%E9%97%A8/">查看详情>></a></div>
 </div>
 
-<div class="item">
-  <h3><a href="/tech/ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">Ngrok内网穿透</a></h3>
-  <small>
-    2020-01-08
-    
-        <a href="/tags/服务器">服务器</a>
-    
-  </small>
-  <div class="desc"><a href="/tech/ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">ngrok使用教程ngrok 是一个反向代理，通过在公共端点和本地运行的 Web 服务器之间建立一个安全的通道，实现内网主机的服务可以暴露给外网。ngrok 可捕获和分析所有通道上的流量，便于后...</a></div>
-  <div class="detail"><a href="/tech/ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">查看详情>></a></div>
-</div>
-
-<div class="item">
-  <h3><a href="/tech/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/">状态模式</a></h3>
-  <small>
-    2020-01-07
-    
-        <a href="/tags/设计模式">设计模式</a>
-    
-  </small>
-  <div class="desc"><a href="/tech/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/">拆分状态跳转逻辑，每个状态在自己的内部，跳转到下一个状态。需要一个上下文类(Context)，状态基类(state)，具体状态类&lt;?phpclass Context{    private...</a></div>
-  <div class="detail"><a href="/tech/%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F/">查看详情>></a></div>
-</div>
-
-<div class="item">
-  <h3><a href="/tech/C-%E9%9D%A2%E8%AF%95/">C#面试</a></h3>
-  <small>
-    2020-01-05
-    
-        <a href="/tags/面试">面试</a>
-    
-  </small>
-  <div class="desc"><a href="/tech/C-%E9%9D%A2%E8%AF%95/">  值类型和引用类型的区别值类型表示实际数据，引用类型表示指向存储在内存堆中的数据的指针或引用值类型的数据存储在内存的栈中；引用类型的数据存储在内存的堆中，而内存单元中只存放堆中对象的地址。栈的...</a></div>
-  <div class="detail"><a href="/tech/C-%E9%9D%A2%E8%AF%95/">查看详情>></a></div>
-</div>
-
-<div class="item">
-  <h3><a href="/others/gamelife/">游戏人生</a></h3>
-  <small>
-    2020-01-01
-    
-        <a href="/tags/游戏">游戏</a>
-    
-  </small>
-  <div class="desc"><a href="/others/gamelife/">感觉人生就像一场不得不玩的游戏。有的人进入游戏就是HARD模式，有的人是EASY模式。一旦进入了游戏，就必须遵守游戏的规则。不遵守规则的结果就是GAME OVER。不论怎样，不论你是否擅长这个游...</a></div>
-  <div class="detail"><a href="/others/gamelife/">查看详情>></a></div>
-</div>
-
-<div class="item">
-  <h3><a href="/tech/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a></h3>
-  <small>
-    2020-01-01
-    
-        <a href="/tags/设计模式">设计模式</a>
-    
-  </small>
-  <div class="desc"><a href="/tech/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">转载：https://www.cnblogs.com/adamjwh/p/9033545.html本篇主要介绍一下设计模式的基本原则，并给出目录。一、什么是设计模式    设计模式是一套被反复使...</a></div>
-  <div class="detail"><a href="/tech/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">查看详情>></a></div>
-</div>
-
 
 <div class="tag page">
     
@@ -341,6 +351,10 @@
          <a href="/page6">6</a>
         
     
+        
+         <a href="/page7">7</a>
+        
+    
     
         <a href="/page4">下一页</a>
     
@@ -353,7 +367,7 @@
           <div class="me-info" >
     <img src="/assets/images/logo.jpg"/>
     <div class="detail">
-        9年程序猿，会php，.net，java，html，css，js。
+        程序猿，会php，.net，java，html，css，js。
         <p>QQ：1250307745</p>
         <p>邮箱：<a title="电子邮件" href="mailto:long275@126.com" target="_blank">long275@126.com</a></p>
     </div>
@@ -362,28 +376,38 @@
     <div class="title">最新</div>
     
     <div class="item">
-        <a href="/tech/php-create-image/">php生成图片问题</a>
+        <a href="/tech/mac/">mac笔记</a>
       </div>
     
     <div class="item">
-        <a href="/tech/footer/">HTML+CSS底部footer两种固定方式</a>
+        <a href="/tech/swift/">switf入门</a>
       </div>
     
     <div class="item">
-        <a href="/tech/template/">模板方法模式</a>
+        <a href="/tech/ios/">ios开发笔记</a>
       </div>
     
     <div class="item">
-        <a href="/tech/factory/">工厂模式</a>
+        <a href="/tech/shutcut/">phpstorm快捷键</a>
       </div>
     
     <div class="item">
-        <a href="/tech/interpret/">解释器模式</a>
+        <a href="/tech/idea/">开发计划想法</a>
       </div>
     
 </div>
 <div class="box">
     <div class="title">备忘</div>
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
     
         
     
@@ -537,6 +561,14 @@
         <a href="/tags/服务器" >服务器</a>
         
         <a href="/tags/css" >css</a>
+        
+        <a href="/tags/快捷键" >快捷键</a>
+        
+        <a href="/tags/ios" >ios</a>
+        
+        <a href="/tags/swift" >swift</a>
+        
+        <a href="/tags/mac" >mac</a>
         
     </div>
 </div>
