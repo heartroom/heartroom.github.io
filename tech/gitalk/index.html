@@ -10,7 +10,7 @@
     <meta name="description" content="编程知识积累" />
     <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
     <meta name="author" content="long" />
-    <title></title>
+    <title>通过gitalk为博客添加评论功能</title>
     <link rel="stylesheet" href="/assets/css/styles.css?v=3.0">
     <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
     <script src="/assets/js/jquery.js"></script>
@@ -33,7 +33,7 @@
   </li>
   
   <li>
-    <a href="/tech" >
+    <a href="/tech" class="on">
     技术
     </a>
   </li>
@@ -67,8 +67,99 @@
       </div>
       <div id="main">
         <div id="content">
-          <div class="list-title">足球相关</div>
+          <div class="list-title">
+    通过gitalk为博客添加评论功能
+</div>
+<div class="article">
+    <!-- <h3>通过gitalk为博客添加评论功能</h3> -->
+    <p>
+        <sapn>发布于：2020-01-30 06:00</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/jekyll">jekyll</a>
+            
+        
+    </p>
+    <p>主要参考了这两篇文章：</p>
 
+<p><a href="https://www.jianshu.com/p/4ac4ec6c45e6" target="_blank">Mac 一步一步教你在Jekyll博客添加评论系统</a></p>
+
+<p><a href="https://www.jianshu.com/p/656e6101bf0f">在个人博客里添加评论系统–Gitalk</a></p>
+
+<h2 id="一申请一个github-oauth-application">一、申请一个Github OAuth Application</h2>
+<p><img src="/assets/images/gitalk_oauth.webp" alt="gitalk" title="gitalk" /></p>
+
+<p><img src="/assets/images/gitalk_oauth_info.webp" alt="gitalk" title="gitalk" /></p>
+
+<h2 id="二在jekyll博客添加gitalk">二、在jekyll博客添加gitalk</h2>
+<p>在文章页模板(post.html)中，添加如下代码。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div id="gitalk-container"&gt;&lt;/div&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+var gitalk = new Gitalk({
+    id: '2020-01-30 06:00:00 +0000',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+&lt;/script&gt; 
+</code></pre></div></div>
+
+<h2 id="三添加鉴权代码">三、添加鉴权代码</h2>
+<p>在_config.yml里，添加下面的代码，clientID，clientSecret是第一步产生的</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gitalk:
+    enable: true
+    owner: heartroom
+    repo: heartroom.github.io
+    clientID: ****c08c2ec52afbcb30
+    clientSecret: *******79e7b42cf782a1d2d1b5a410d27c5ab57
+    admin: heartroom
+</code></pre></div></div>
+
+<p>成功了！看截图</p>
+
+<p><img src="/assets/images/comments.png" alt="comments" title="comments" /></p>
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/virtualbox-resize/">ubuntu虚拟机扩容</a><br/>
+    
+    
+</div>
+
+<!--//添加评论系统-->
+<link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2020-01-30 06:00:00 +0000',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
 
         </div>
         <div id="sidebar">
