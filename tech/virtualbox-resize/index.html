@@ -10,7 +10,7 @@
     <meta name="description" content="编程知识积累" />
     <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
     <meta name="author" content="long" />
-    <title>phpstorm快捷键</title>
+    <title>ubuntu虚拟机扩容</title>
     <link rel="stylesheet" href="/assets/css/styles.css?v=3.0">
     <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
     <script src="/assets/js/jquery.js"></script>
@@ -68,75 +68,65 @@
       <div id="main">
         <div id="content">
           <div class="list-title">
-    phpstorm快捷键
+    ubuntu虚拟机扩容
 </div>
 <div class="article">
-    <!-- <h3>phpstorm快捷键</h3> -->
+    <!-- <h3>ubuntu虚拟机扩容</h3> -->
     <p>
-        <sapn>发布于：2020-01-22 09:10</sapn> &nbsp;
+        <sapn>发布于：2020-01-29 09:00</sapn> &nbsp;
     
         
         标签分类：
             
-                <a href="/tags/快捷键">快捷键</a>
+                <a href="/tags/linux">linux</a>
+            
+                <a href="/tags/virtualbox">virtualbox</a>
             
         
     </p>
-    <p><strong>phpstorm快捷键</strong></p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>组合快捷键1：
+    <p>今天发现虚拟机的容量为0了，没办法之前给的容量太小了，所以需要扩容。</p>
 
-CTRL +O //在一个类中寻找相应方法，直接输入搜索
-CTRL +E //打开最近浏览记录
-CTRL +Space //打开语法提示
-CTRL + Y //删除当前行或选中内容所涉及的行
-CTRL + R //替换
-CTRL + F //查找
-CTRL + “-/+” //收缩展开代码
-CTRL + “.” //折叠选中的代码的代码
-CTRL + [] //匹配 {}[]
-CTRL + X //剪切行，不选中，直接剪切整个行，如果选中部分内容则剪切选中的内容
-SHIFT + ESC //当前激活的任意小窗口最小化，也可以是alt + '数字键'，数字在小窗口标题栏上有显示
-CTRL + J //输出代码模板
-CTRL + Q //显示函数注释说明文档
-CTRL + B //跳转到变量函数声明处
-CTRL + N //类名查找
-CTRL + F12 //显示当前文件的结构，在当前类文件中快速查找方法
-CTRL + G //跳转行，如：行:列
-ALT + F7 //显示structure所有一个类中的所有方法
-ALT + 上下箭头 //向上向下函数间切换
-CTRL + 鼠标 //代码追踪
-组合快捷键2：
-CTRL + ALT + L //格式化代码
-CTRL + ALT + J //添加标签
-CTRL + ALT + S //打开设置
-CTRL + ALT + F12 //跳转至当前文件所在磁盘上的位置（可以选择文件、目录、磁盘）
-CTRL + ALT + T //插入代码环绕（该快捷键和QQ广播键冲突，可修改QQ的为S+C+A+T）
-CTRL + ALT + L //格式化代码，选择内容则格式化选择内容代码，没选择内容就格式化该文件代码（该快捷键和QQ解锁键冲突，可修改QQ的为S+C+A+L）
-CTRL + SHIFT + R //快速查找该关键字在整个项目中的位置，并且替换整个项目目录中的匹配字符
-CTRL + SHIFT + F //快速查找该关键字在整个项目中的位置
-ALT + SHIFT + UP //行移动
-CTRL + SHIFT + UP //块移动，光标在{}()或if、while行上，进行块移动，在普通语句上行移动
-CTRL + SHIFT + I //重新格式化代码，不选择就一行行格式化，选择内容格式化选择的内容
-CTRL + SHIFT + U //字母大小写转换，选择内容转换选择内容，不选择内容自动判断选择单词转换
-CTRL + SHIFT + N //文件名查找，打开当前工程下任意目录的文件
-CTRL + SHIFT + ALT + N //函数名查找
-CTRL + SHIFT + V //显示最近粘贴板中的内容，选择后内容插入到光标位置
-CTRL + SHIFT + I //查看变量初始化的值，如果是css中的class则显示当前class详细信息,如果
+<p>网上找了很多文章，这篇最靠谱</p>
+
+<p><a href="https://www.cnblogs.com/z12568/p/10434930.html" target="_blank">Ubuntu14.0使用gparted调整分区大小</a></p>
+
+<p>基本按照这个文章写的顺序就可以了，但是其中的gparted版本太旧了，在ubuntu18.04.1上安装，会提示安装失败，e2fsck版本太低。</p>
+
+<p>需要到<a href="https://gparted.org/download.php" target="_blank">https://gparted.org/download.php</a> 这里下载最新的gparted版本。</p>
+
+<p>具体步骤和命令在这里简单记录一下</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 在windows命令行里输入下面的命令，先在windows端扩容
+cd C:\Program Files\Oracle\VirtualBox 
+
+VBoxManage list hdds
+
+// 0bd9c696-1735-48ce-81cf-04e9f64c2418 和 51200 根据自己机器和要扩容的大小 修改
+VBoxManage modifyhd 0bd9c696-1735-48ce-81cf-04e9f64c2418 --resize 51200
+
+下载最新的gparted
+
+https://sourceforge.net/projects/gparted/files/gparted-live-stable/1.1.0-1/gparted-live-1.1.0-1-i686.iso/download?use_mirror=jaist
+
+在虚拟机里选择ubuntu，点击“设置”，存储介质里，添加新的虚拟光驱（把下载的gparted ios文件加进来）。
+
+然后启动虚拟机
+
+在启动页面 按 esc。进入gparted安装页面
+
+一路按enter就行。
+
+然后正常会出现磁盘列表，在主分区上点击右键，选择resize。然后调整到最大，点击apply，然后等扩容完成后，点击Exit，reboot就行了。
+
 </code></pre></div></div>
-<p>作者：小棋子57</p>
 
-<p>链接：https://www.imooc.com/article/details/id/20380</p>
-
-<p>来源：慕课网</p>
-
+<p><img src="/assets/images/gparted.png" alt="gparted" title="gparted" /></p>
 
 </div>
 <div class="previous-next-bar">
     
-    上一篇：<a href="/tech/idea/">开发计划想法</a><br/>
+    上一篇：<a href="/tech/mac/">mac笔记</a><br/>
     
-    
-    下一篇：<a href="/tech/ios/">ios开发笔记</a>
     
 </div>
 
