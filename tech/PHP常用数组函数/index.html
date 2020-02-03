@@ -66,96 +66,6 @@
         </div>
       </div>
       <div id="main">
-        <div id="content">
-          <div class="list-title">
-    Php常用数组函数
-</div>
-<div class="article">
-    <!-- <h3>Php常用数组函数</h3> -->
-    <p>
-        <sapn>发布于：2019-12-28 00:00</sapn> &nbsp;
-    
-        
-        标签分类：
-            
-                <a href="/tags/php">php</a>
-            
-        
-    </p>
-    <ol>
-  <li>
-    <p>count函数</p>
-
-    <p>count函数是用来计算数组内的元素的数目的一个函数</p>
-  </li>
-  <li>
-    <p>array_chunk() array_chunk函数是用来将一个数组拆分为多个数组块的，语法如下：</p>
-
-    <p>array_chunk(“数组”，每个数组块元素的个数)</p>
-  </li>
-  <li>
-    <p>array_change_key_case() 函数 用于将数组内的所有键都转换为大写或者是小写，格式如下：array_change_key_case（“数组”，case）,例子如下</p>
-
-    <p>array_change_key_case($arr,CASE_UPPER);//将$arr这个数组的键都转换为大写CASE_UPPER表示大写，CASE_LOWER表示转换为小写。</p>
-  </li>
-  <li>
-    <p>array_keys() 函数用于取得数组内的所有键值，这是一个非常实用的数组函数，格式很简单：array_keys（数组），例子如下：array_keys（$arr）</p>
-  </li>
-  <li>
-    <p>array_pop() 函数 用于删除数组当中的最后一个元素，例子如下</p>
-
-    <p>array_pop($shuzu);//删除$shuzu这个数组内的最后一个元素，删除成功则会返回数组中的最后一个元素，例子如下：</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $shuzu=array("nihao","dfd","dfdf");
- array_pop($shuzu);
- 结果将会返回dfdf这个元素。
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>array_unique() 这个array_unique函数用于删除数组内重复的元素，这个在项目过程中也是经常用到的，格式：array_unique（数组），例子如下：</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
- <span class="nv">$shuzu5</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">"1"</span><span class="p">,</span><span class="s2">"2"</span><span class="p">,</span><span class="s2">"4"</span><span class="p">,</span><span class="s2">"4"</span><span class="p">,</span><span class="s2">"1"</span><span class="p">);</span>
- <span class="nb">array_unique</span><span class="p">(</span><span class="nv">$shuzu5</span><span class="p">)</span><span class="err">；</span>
- <span class="nx">原数组将变成</span><span class="err">：</span><span class="k">array</span><span class="p">(</span><span class="s2">"1"</span><span class="p">,</span><span class="s2">"2"</span><span class="p">,</span><span class="s2">"4"</span><span class="p">);</span>
- <span class="cp">?&gt;</span>
-</code></pre></div>    </div>
-  </li>
-</ol>
-
-</div>
-<div class="previous-next-bar">
-    
-    上一篇：<a href="/tech/PHP%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0/">Php常用字符串函数</a><br/>
-    
-    
-    下一篇：<a href="/tech/git-command/">Git常用命令</a>
-    
-</div>
-
-<!--   gitalk       -->
-
-<div class="comment">
-    <div id="gitalk-container"></div>
-<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
-<script src="/assets/js/gitalk.min.js"></script> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-var gitalk = new Gitalk({
-    id: '2019-12-28 00:00:00 +0000',
-    clientID: '29e59d091901a686d79e',
-    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
-    repo: 'heartroom.github.io',
-    owner: 'heartroom',
-    admin: ['heartroom'], 
-	labels: ['Gitalk'],
-})
-gitalk.render('gitalk-container')
-</script> 
-</div>
-
-        </div>
         <div id="sidebar">
           <div class="me-info" >
     <img src="/assets/images/logo.jpg"/>
@@ -167,6 +77,10 @@ gitalk.render('gitalk-container')
 </div>
 <div class="box">
     <div class="title">最新</div>
+    
+    <div class="item">
+        <a href="/tech/zip/">Linux文件文件夹的压缩和解压</a>
+      </div>
     
     <div class="item">
         <a href="/tech/gitalk/">通过gitalk为博客添加评论功能</a>
@@ -184,13 +98,11 @@ gitalk.render('gitalk-container')
         <a href="/tech/swift/">switf入门</a>
       </div>
     
-    <div class="item">
-        <a href="/tech/ios/">ios开发笔记</a>
-      </div>
-    
 </div>
 <div class="box">
     <div class="title">备忘</div>
+    
+        
     
         
     
@@ -377,6 +289,96 @@ gitalk.render('gitalk-container')
     <div class="title">小程序</div>
     <img src="/assets/images/bigbug.png"/>
 </div>
+        </div>
+        <div id="content">
+          <div class="list-title">
+    Php常用数组函数
+</div>
+<div class="article">
+    <!-- <h3>Php常用数组函数</h3> -->
+    <p>
+        <sapn>发布于：2019-12-28 00:00</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/php">php</a>
+            
+        
+    </p>
+    <ol>
+  <li>
+    <p>count函数</p>
+
+    <p>count函数是用来计算数组内的元素的数目的一个函数</p>
+  </li>
+  <li>
+    <p>array_chunk() array_chunk函数是用来将一个数组拆分为多个数组块的，语法如下：</p>
+
+    <p>array_chunk(“数组”，每个数组块元素的个数)</p>
+  </li>
+  <li>
+    <p>array_change_key_case() 函数 用于将数组内的所有键都转换为大写或者是小写，格式如下：array_change_key_case（“数组”，case）,例子如下</p>
+
+    <p>array_change_key_case($arr,CASE_UPPER);//将$arr这个数组的键都转换为大写CASE_UPPER表示大写，CASE_LOWER表示转换为小写。</p>
+  </li>
+  <li>
+    <p>array_keys() 函数用于取得数组内的所有键值，这是一个非常实用的数组函数，格式很简单：array_keys（数组），例子如下：array_keys（$arr）</p>
+  </li>
+  <li>
+    <p>array_pop() 函数 用于删除数组当中的最后一个元素，例子如下</p>
+
+    <p>array_pop($shuzu);//删除$shuzu这个数组内的最后一个元素，删除成功则会返回数组中的最后一个元素，例子如下：</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> $shuzu=array("nihao","dfd","dfdf");
+ array_pop($shuzu);
+ 结果将会返回dfdf这个元素。
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>array_unique() 这个array_unique函数用于删除数组内重复的元素，这个在项目过程中也是经常用到的，格式：array_unique（数组），例子如下：</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+ <span class="nv">$shuzu5</span><span class="o">=</span><span class="k">array</span><span class="p">(</span><span class="s2">"1"</span><span class="p">,</span><span class="s2">"2"</span><span class="p">,</span><span class="s2">"4"</span><span class="p">,</span><span class="s2">"4"</span><span class="p">,</span><span class="s2">"1"</span><span class="p">);</span>
+ <span class="nb">array_unique</span><span class="p">(</span><span class="nv">$shuzu5</span><span class="p">)</span><span class="err">；</span>
+ <span class="nx">原数组将变成</span><span class="err">：</span><span class="k">array</span><span class="p">(</span><span class="s2">"1"</span><span class="p">,</span><span class="s2">"2"</span><span class="p">,</span><span class="s2">"4"</span><span class="p">);</span>
+ <span class="cp">?&gt;</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/PHP%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0/">Php常用字符串函数</a><br/>
+    
+    
+    下一篇：<a href="/tech/git-command/">Git常用命令</a>
+    
+</div>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2019-12-28 00:00:00 +0000',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
+
         </div>
       </div>
     </div>

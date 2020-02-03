@@ -66,134 +66,6 @@
         </div>
       </div>
       <div id="main">
-        <div id="content">
-          <div class="list-title">
-    组合模式
-</div>
-<div class="article">
-    <!-- <h3>组合模式</h3> -->
-    <p>
-        <sapn>发布于：2020-01-16 23:10</sapn> &nbsp;
-    
-        
-        标签分类：
-            
-                <a href="/tags/设计模式">设计模式</a>
-            
-        
-    </p>
-    <p>把对象组合成树状结构，对单个对象和组合对象的使用具有一致性。Winform的容器控件就是这种模式。</p>
-
-<p><img src="/assets/images/composite.png" alt="组合模式" title="组合模式" /></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-<span class="k">abstract</span> <span class="kd">class</span> <span class="nc">Component</span>
-<span class="p">{</span>
-    <span class="k">protected</span> <span class="nv">$name</span><span class="p">;</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">display</span><span class="p">(</span><span class="nv">$level</span><span class="p">);</span>
-
-    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">add</span><span class="p">(</span><span class="nv">$component</span><span class="p">);</span>
-
-    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">$component</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="kd">class</span> <span class="nc">Composite</span> <span class="k">extends</span> <span class="nx">Component</span>
-<span class="p">{</span>
-    <span class="k">protected</span> <span class="nv">$childList</span> <span class="o">=</span> <span class="p">[];</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">display</span><span class="p">(</span><span class="nv">$level</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">for</span><span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span><span class="o">&lt;</span><span class="nv">$level</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">echo</span> <span class="s1">'--'</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-
-        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">childList</span> <span class="k">as</span> <span class="nv">$child</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$child</span><span class="o">-&gt;</span><span class="na">display</span><span class="p">(</span><span class="nv">$level</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">add</span><span class="p">(</span><span class="nv">$component</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">childList</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$component</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">$component</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$index</span> <span class="o">=</span> <span class="nb">array_search</span><span class="p">(</span><span class="nv">$component</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">childList</span><span class="p">);</span>
-        <span class="nb">array_splice</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">childList</span><span class="p">,</span> <span class="nv">$index</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Leaf</span> <span class="k">extends</span> <span class="nx">Component</span>
-<span class="p">{</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">display</span><span class="p">(</span><span class="nv">$level</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">for</span><span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span><span class="o">&lt;</span><span class="nv">$level</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">echo</span> <span class="s1">'--'</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">add</span><span class="p">(</span><span class="nv">$component</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s2">"leaf no add"</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">$component</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s2">"leaf no remove"</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="nv">$root</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Composite</span><span class="p">(</span><span class="s2">"root"</span><span class="p">);</span>
-<span class="nv">$root</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Leaf</span><span class="p">(</span><span class="s2">"l1"</span><span class="p">));</span>
-<span class="nv">$root</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Leaf</span><span class="p">(</span><span class="s2">"l2"</span><span class="p">));</span>
-<span class="nv">$composite1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Composite</span><span class="p">(</span><span class="s2">"com1"</span><span class="p">);</span>
-<span class="nv">$composite1</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Leaf</span><span class="p">(</span><span class="s2">"l3"</span><span class="p">));</span>
-<span class="nv">$root</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="nv">$composite1</span><span class="p">);</span>
-<span class="nv">$root</span><span class="o">-&gt;</span><span class="na">display</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-
-</code></pre></div></div>
-
-</div>
-<div class="previous-next-bar">
-    
-    上一篇：<a href="/tech/visitor/">访问者模式</a><br/>
-    
-    
-    下一篇：<a href="/tech/memento/">备忘录模式</a>
-    
-</div>
-
-<!--   gitalk       -->
-
-<div class="comment">
-    <div id="gitalk-container"></div>
-<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
-<script src="/assets/js/gitalk.min.js"></script> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-var gitalk = new Gitalk({
-    id: '2020-01-16 23:10:00 +0000',
-    clientID: '29e59d091901a686d79e',
-    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
-    repo: 'heartroom.github.io',
-    owner: 'heartroom',
-    admin: ['heartroom'], 
-	labels: ['Gitalk'],
-})
-gitalk.render('gitalk-container')
-</script> 
-</div>
-
-        </div>
         <div id="sidebar">
           <div class="me-info" >
     <img src="/assets/images/logo.jpg"/>
@@ -205,6 +77,10 @@ gitalk.render('gitalk-container')
 </div>
 <div class="box">
     <div class="title">最新</div>
+    
+    <div class="item">
+        <a href="/tech/zip/">Linux文件文件夹的压缩和解压</a>
+      </div>
     
     <div class="item">
         <a href="/tech/gitalk/">通过gitalk为博客添加评论功能</a>
@@ -222,13 +98,11 @@ gitalk.render('gitalk-container')
         <a href="/tech/swift/">switf入门</a>
       </div>
     
-    <div class="item">
-        <a href="/tech/ios/">ios开发笔记</a>
-      </div>
-    
 </div>
 <div class="box">
     <div class="title">备忘</div>
+    
+        
     
         
     
@@ -415,6 +289,134 @@ gitalk.render('gitalk-container')
     <div class="title">小程序</div>
     <img src="/assets/images/bigbug.png"/>
 </div>
+        </div>
+        <div id="content">
+          <div class="list-title">
+    组合模式
+</div>
+<div class="article">
+    <!-- <h3>组合模式</h3> -->
+    <p>
+        <sapn>发布于：2020-01-16 23:10</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/设计模式">设计模式</a>
+            
+        
+    </p>
+    <p>把对象组合成树状结构，对单个对象和组合对象的使用具有一致性。Winform的容器控件就是这种模式。</p>
+
+<p><img src="/assets/images/composite.png" alt="组合模式" title="组合模式" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="k">abstract</span> <span class="kd">class</span> <span class="nc">Component</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$name</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">display</span><span class="p">(</span><span class="nv">$level</span><span class="p">);</span>
+
+    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">add</span><span class="p">(</span><span class="nv">$component</span><span class="p">);</span>
+
+    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">$component</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nc">Composite</span> <span class="k">extends</span> <span class="nx">Component</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$childList</span> <span class="o">=</span> <span class="p">[];</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">display</span><span class="p">(</span><span class="nv">$level</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span><span class="o">&lt;</span><span class="nv">$level</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s1">'--'</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">childList</span> <span class="k">as</span> <span class="nv">$child</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$child</span><span class="o">-&gt;</span><span class="na">display</span><span class="p">(</span><span class="nv">$level</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">add</span><span class="p">(</span><span class="nv">$component</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">childList</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$component</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">$component</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$index</span> <span class="o">=</span> <span class="nb">array_search</span><span class="p">(</span><span class="nv">$component</span><span class="p">,</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">childList</span><span class="p">);</span>
+        <span class="nb">array_splice</span><span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">childList</span><span class="p">,</span> <span class="nv">$index</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Leaf</span> <span class="k">extends</span> <span class="nx">Component</span>
+<span class="p">{</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">display</span><span class="p">(</span><span class="nv">$level</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="nv">$i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nv">$i</span><span class="o">&lt;</span><span class="nv">$level</span><span class="p">;</span> <span class="nv">$i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">echo</span> <span class="s1">'--'</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">echo</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">add</span><span class="p">(</span><span class="nv">$component</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s2">"leaf no add"</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">$component</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nx">Exception</span><span class="p">(</span><span class="s2">"leaf no remove"</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="nv">$root</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Composite</span><span class="p">(</span><span class="s2">"root"</span><span class="p">);</span>
+<span class="nv">$root</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Leaf</span><span class="p">(</span><span class="s2">"l1"</span><span class="p">));</span>
+<span class="nv">$root</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Leaf</span><span class="p">(</span><span class="s2">"l2"</span><span class="p">));</span>
+<span class="nv">$composite1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Composite</span><span class="p">(</span><span class="s2">"com1"</span><span class="p">);</span>
+<span class="nv">$composite1</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">Leaf</span><span class="p">(</span><span class="s2">"l3"</span><span class="p">));</span>
+<span class="nv">$root</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="nv">$composite1</span><span class="p">);</span>
+<span class="nv">$root</span><span class="o">-&gt;</span><span class="na">display</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/visitor/">访问者模式</a><br/>
+    
+    
+    下一篇：<a href="/tech/memento/">备忘录模式</a>
+    
+</div>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2020-01-16 23:10:00 +0000',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
+
         </div>
       </div>
     </div>

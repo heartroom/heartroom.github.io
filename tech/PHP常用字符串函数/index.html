@@ -66,108 +66,6 @@
         </div>
       </div>
       <div id="main">
-        <div id="content">
-          <div class="list-title">
-    Php常用字符串函数
-</div>
-<div class="article">
-    <!-- <h3>Php常用字符串函数</h3> -->
-    <p>
-        <sapn>发布于：2019-12-27 00:00</sapn> &nbsp;
-    
-        
-        标签分类：
-            
-                <a href="/tags/php">php</a>
-            
-        
-    </p>
-    <ol>
-  <li>
-    <p>strlen() 获取字符串长度</p>
-
-    <p>strlen()、mb_strlen()，不同之处在于mb_strlen()第二个参数可以用于指定字符编码。</p>
-
-    <p>PHP内置的字符串长度函数strlen无法正确处理中文字符串，所以它得到的只是字符串所占的字节数。对于UTF-8编码的中文，一个汉字占三个字节。</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;?php
- 　　$a = '你好a';
- 　　echo strlen($a);//输出的结果是7
- ?&gt;
-    
- 我知道有时候你想要的结果是3。那么怎么解决呢？就是用mb_strlen()。例如：
- &lt;?php
- 　　$a = '你好a';
- 　　echo mb_strlen($a,utf-8);//输出是3
- ?&gt;
- 对于mb_strlen()如果不写第二个参数，就会使用内部编码，效果就和strlen()一样。
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>strpos() 在字符串内查找一个字符或字符串第一次出现的位置</p>
-  </li>
-  <li>
-    <p>trim() 函数 是使用来清除字符串前后的空格字符或其它预定义字符</p>
-  </li>
-  <li>
-    <p>htmlspecialchars() 将&lt; &gt;这些符号转为&lt;等等，htmlspecialchars_decode这个是htmlspecialchars函数的反函数</p>
-  </li>
-  <li>
-    <p>str_replace() 函数</p>
-
-    <p>把字符串 “Hello world!” 中的字符 “world” 替换为 “Shanghai”：</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;?php
- echo str_replace("world","Shanghai","Hello world!");
- ?&gt;
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p>substr() 从字符串中获取其中的一部分</p>
-
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
- <span class="k">echo</span> <span class="nb">substr</span><span class="p">(</span><span class="s1">'abcdef'</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>      <span class="c1">//输出 bcdef</span>
- <span class="k">echo</span> <span class="nb">substr</span><span class="p">(</span><span class="s1">'abcdef'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>   <span class="c1">//输出 bc</span>
- <span class="k">echo</span> <span class="nb">substr</span><span class="p">(</span><span class="s1">'abcdef'</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>  <span class="c1">//输出 de</span>
- <span class="k">echo</span> <span class="nb">substr</span><span class="p">(</span><span class="s1">'abcdef'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">);</span>  <span class="c1">//输出 bcd</span>
- <span class="cp">?&gt;</span>
-</code></pre></div>    </div>
-  </li>
-</ol>
-
-</div>
-<div class="previous-next-bar">
-    
-    上一篇：<a href="/tech/Linux%E4%B8%8B%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%9F%A5%E6%89%BE%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4/">Linux下文件搜索查找查看命令</a><br/>
-    
-    
-    下一篇：<a href="/tech/PHP%E5%B8%B8%E7%94%A8%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0/">Php常用数组函数</a>
-    
-</div>
-
-<!--   gitalk       -->
-
-<div class="comment">
-    <div id="gitalk-container"></div>
-<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
-<script src="/assets/js/gitalk.min.js"></script> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-var gitalk = new Gitalk({
-    id: '2019-12-27 00:00:00 +0000',
-    clientID: '29e59d091901a686d79e',
-    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
-    repo: 'heartroom.github.io',
-    owner: 'heartroom',
-    admin: ['heartroom'], 
-	labels: ['Gitalk'],
-})
-gitalk.render('gitalk-container')
-</script> 
-</div>
-
-        </div>
         <div id="sidebar">
           <div class="me-info" >
     <img src="/assets/images/logo.jpg"/>
@@ -179,6 +77,10 @@ gitalk.render('gitalk-container')
 </div>
 <div class="box">
     <div class="title">最新</div>
+    
+    <div class="item">
+        <a href="/tech/zip/">Linux文件文件夹的压缩和解压</a>
+      </div>
     
     <div class="item">
         <a href="/tech/gitalk/">通过gitalk为博客添加评论功能</a>
@@ -196,13 +98,11 @@ gitalk.render('gitalk-container')
         <a href="/tech/swift/">switf入门</a>
       </div>
     
-    <div class="item">
-        <a href="/tech/ios/">ios开发笔记</a>
-      </div>
-    
 </div>
 <div class="box">
     <div class="title">备忘</div>
+    
+        
     
         
     
@@ -389,6 +289,108 @@ gitalk.render('gitalk-container')
     <div class="title">小程序</div>
     <img src="/assets/images/bigbug.png"/>
 </div>
+        </div>
+        <div id="content">
+          <div class="list-title">
+    Php常用字符串函数
+</div>
+<div class="article">
+    <!-- <h3>Php常用字符串函数</h3> -->
+    <p>
+        <sapn>发布于：2019-12-27 00:00</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/php">php</a>
+            
+        
+    </p>
+    <ol>
+  <li>
+    <p>strlen() 获取字符串长度</p>
+
+    <p>strlen()、mb_strlen()，不同之处在于mb_strlen()第二个参数可以用于指定字符编码。</p>
+
+    <p>PHP内置的字符串长度函数strlen无法正确处理中文字符串，所以它得到的只是字符串所占的字节数。对于UTF-8编码的中文，一个汉字占三个字节。</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;?php
+ 　　$a = '你好a';
+ 　　echo strlen($a);//输出的结果是7
+ ?&gt;
+    
+ 我知道有时候你想要的结果是3。那么怎么解决呢？就是用mb_strlen()。例如：
+ &lt;?php
+ 　　$a = '你好a';
+ 　　echo mb_strlen($a,utf-8);//输出是3
+ ?&gt;
+ 对于mb_strlen()如果不写第二个参数，就会使用内部编码，效果就和strlen()一样。
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>strpos() 在字符串内查找一个字符或字符串第一次出现的位置</p>
+  </li>
+  <li>
+    <p>trim() 函数 是使用来清除字符串前后的空格字符或其它预定义字符</p>
+  </li>
+  <li>
+    <p>htmlspecialchars() 将&lt; &gt;这些符号转为&lt;等等，htmlspecialchars_decode这个是htmlspecialchars函数的反函数</p>
+  </li>
+  <li>
+    <p>str_replace() 函数</p>
+
+    <p>把字符串 “Hello world!” 中的字符 “world” 替换为 “Shanghai”：</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;?php
+ echo str_replace("world","Shanghai","Hello world!");
+ ?&gt;
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>substr() 从字符串中获取其中的一部分</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+ <span class="k">echo</span> <span class="nb">substr</span><span class="p">(</span><span class="s1">'abcdef'</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>      <span class="c1">//输出 bcdef</span>
+ <span class="k">echo</span> <span class="nb">substr</span><span class="p">(</span><span class="s1">'abcdef'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>   <span class="c1">//输出 bc</span>
+ <span class="k">echo</span> <span class="nb">substr</span><span class="p">(</span><span class="s1">'abcdef'</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>  <span class="c1">//输出 de</span>
+ <span class="k">echo</span> <span class="nb">substr</span><span class="p">(</span><span class="s1">'abcdef'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">);</span>  <span class="c1">//输出 bcd</span>
+ <span class="cp">?&gt;</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/Linux%E4%B8%8B%E6%96%87%E4%BB%B6%E6%90%9C%E7%B4%A2%E6%9F%A5%E6%89%BE%E6%9F%A5%E7%9C%8B%E5%91%BD%E4%BB%A4/">Linux下文件搜索查找查看命令</a><br/>
+    
+    
+    下一篇：<a href="/tech/PHP%E5%B8%B8%E7%94%A8%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0/">Php常用数组函数</a>
+    
+</div>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2019-12-27 00:00:00 +0000',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
+
         </div>
       </div>
     </div>

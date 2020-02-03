@@ -66,164 +66,6 @@
         </div>
       </div>
       <div id="main">
-        <div id="content">
-          <div class="list-title">
-    中介模式
-</div>
-<div class="article">
-    <!-- <h3>中介模式</h3> -->
-    <p>
-        <sapn>发布于：2020-01-11 00:00</sapn> &nbsp;
-    
-        
-        标签分类：
-            
-                <a href="/tags/设计模式">设计模式</a>
-            
-        
-    </p>
-    <p>中介者模式就是为了解决多个对象之间的复杂依赖关系。把依赖关系进行抽象，在中介对象里进行多个对象之间的复杂逻辑调用，降低了类之间的耦合，是迪米特法则(最少知道原则)的应用。MVC模式就是中介者模式，C是中介者。</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
-<span class="cp">&lt;?php</span>
-<span class="k">abstract</span> <span class="kd">class</span> <span class="nc">AbstractMediator</span>
-<span class="p">{</span>
-    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="nv">$action</span><span class="p">,</span> <span class="nv">$param</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Role</span>
-<span class="p">{</span>
-    <span class="k">protected</span> <span class="nv">$mediator</span><span class="p">;</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">setMediator</span><span class="p">(</span><span class="nv">$mediator</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mediator</span> <span class="o">=</span> <span class="nv">$mediator</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Programmer</span> <span class="k">extends</span> <span class="nx">Role</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">doWork</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nv">$codeLine</span> <span class="o">=</span> <span class="nb">mt_rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-        <span class="k">echo</span> <span class="s1">'程序员在努力工作中....'</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-        <span class="k">echo</span> <span class="s1">'写了'</span><span class="o">.</span><span class="nv">$codeLine</span><span class="o">.</span><span class="s1">'行代码'</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-        <span class="c1">// 请求发工资</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mediator</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">(</span><span class="s1">'salary_request'</span><span class="p">,</span> <span class="nv">$codeLine</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">getMoney</span><span class="p">(</span><span class="nv">$money</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">'收到工资'</span> <span class="o">.</span> <span class="nv">$money</span><span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Boss</span> <span class="k">extends</span> <span class="nx">Role</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">checkWork</span><span class="p">(</span><span class="nv">$codeLine</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">'老板检查工作'</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
-
-        <span class="nv">$money</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-        <span class="k">if</span> <span class="p">(</span><span class="nv">$codeLine</span><span class="o">&gt;=</span><span class="mi">90</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$money</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$codeLine</span><span class="o">&gt;=</span><span class="mi">60</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$money</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$codeLine</span><span class="o">&gt;=</span><span class="mi">40</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$money</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-        <span class="p">}</span>
-
-        <span class="c1">// 财务发工资</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mediator</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">(</span><span class="s1">'call_finance'</span><span class="p">,</span> <span class="nv">$money</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Finance</span> <span class="k">extends</span> <span class="nx">Role</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">giveMoney</span><span class="p">(</span><span class="nv">$money</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">'财务记账发工资'</span> <span class="o">.</span> <span class="nv">$money</span><span class="p">;</span>
-        <span class="nv">$money</span> <span class="o">-=</span> <span class="mi">100</span><span class="p">;</span><span class="c1">// 扣保险金</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mediator</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">(</span><span class="s1">'pay_salary'</span><span class="p">,</span> <span class="nv">$money</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Mediator</span> <span class="k">extends</span> <span class="nx">AbstractMediator</span>
-<span class="p">{</span>
-    <span class="k">private</span> <span class="nv">$programmer</span><span class="p">;</span>
-    <span class="k">private</span> <span class="nv">$boss</span><span class="p">;</span>
-    <span class="k">private</span> <span class="nv">$finance</span><span class="p">;</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">programmer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Programmer</span><span class="p">();</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">programmer</span><span class="o">-&gt;</span><span class="na">setMediator</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">boss</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Boss</span><span class="p">();</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">boss</span><span class="o">-&gt;</span><span class="na">setMediator</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">finance</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Finance</span><span class="p">();</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">finance</span><span class="o">-&gt;</span><span class="na">setMediator</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="nv">$action</span><span class="p">,</span> <span class="nv">$param</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">switch</span> <span class="p">(</span><span class="nv">$action</span><span class="p">)</span> <span class="p">{</span>
-            <span class="k">case</span> <span class="s1">'salary_request'</span><span class="o">:</span>
-                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">boss</span><span class="o">-&gt;</span><span class="na">checkWork</span><span class="p">(</span><span class="nv">$param</span><span class="p">);</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="k">case</span> <span class="s1">'call_finance'</span><span class="o">:</span>
-                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">finance</span><span class="o">-&gt;</span><span class="na">giveMoney</span><span class="p">(</span><span class="nv">$param</span><span class="p">);</span>
-                <span class="k">break</span><span class="p">;</span>
-            <span class="k">case</span> <span class="s1">'pay_salary'</span><span class="o">:</span>
-                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">programmer</span><span class="o">-&gt;</span><span class="na">getMoney</span><span class="p">(</span><span class="nv">$param</span><span class="p">);</span>
-                <span class="k">break</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">work</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">programmer</span><span class="o">-&gt;</span><span class="na">doWork</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nv">$mediator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Mediator</span><span class="p">();</span>
-<span class="nv">$mediator</span><span class="o">-&gt;</span><span class="na">work</span><span class="p">();</span>
-
-
-</code></pre></div></div>
-
-</div>
-<div class="previous-next-bar">
-    
-    上一篇：<a href="/tech/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">策略模式</a><br/>
-    
-    
-    下一篇：<a href="/tech/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/">代理模式</a>
-    
-</div>
-
-<!--   gitalk       -->
-
-<div class="comment">
-    <div id="gitalk-container"></div>
-<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
-<script src="/assets/js/gitalk.min.js"></script> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-var gitalk = new Gitalk({
-    id: '2020-01-11 00:00:00 +0000',
-    clientID: '29e59d091901a686d79e',
-    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
-    repo: 'heartroom.github.io',
-    owner: 'heartroom',
-    admin: ['heartroom'], 
-	labels: ['Gitalk'],
-})
-gitalk.render('gitalk-container')
-</script> 
-</div>
-
-        </div>
         <div id="sidebar">
           <div class="me-info" >
     <img src="/assets/images/logo.jpg"/>
@@ -235,6 +77,10 @@ gitalk.render('gitalk-container')
 </div>
 <div class="box">
     <div class="title">最新</div>
+    
+    <div class="item">
+        <a href="/tech/zip/">Linux文件文件夹的压缩和解压</a>
+      </div>
     
     <div class="item">
         <a href="/tech/gitalk/">通过gitalk为博客添加评论功能</a>
@@ -252,13 +98,11 @@ gitalk.render('gitalk-container')
         <a href="/tech/swift/">switf入门</a>
       </div>
     
-    <div class="item">
-        <a href="/tech/ios/">ios开发笔记</a>
-      </div>
-    
 </div>
 <div class="box">
     <div class="title">备忘</div>
+    
+        
     
         
     
@@ -445,6 +289,164 @@ gitalk.render('gitalk-container')
     <div class="title">小程序</div>
     <img src="/assets/images/bigbug.png"/>
 </div>
+        </div>
+        <div id="content">
+          <div class="list-title">
+    中介模式
+</div>
+<div class="article">
+    <!-- <h3>中介模式</h3> -->
+    <p>
+        <sapn>发布于：2020-01-11 00:00</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/设计模式">设计模式</a>
+            
+        
+    </p>
+    <p>中介者模式就是为了解决多个对象之间的复杂依赖关系。把依赖关系进行抽象，在中介对象里进行多个对象之间的复杂逻辑调用，降低了类之间的耦合，是迪米特法则(最少知道原则)的应用。MVC模式就是中介者模式，C是中介者。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="cp">&lt;?php</span>
+<span class="k">abstract</span> <span class="kd">class</span> <span class="nc">AbstractMediator</span>
+<span class="p">{</span>
+    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="nv">$action</span><span class="p">,</span> <span class="nv">$param</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Role</span>
+<span class="p">{</span>
+    <span class="k">protected</span> <span class="nv">$mediator</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setMediator</span><span class="p">(</span><span class="nv">$mediator</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mediator</span> <span class="o">=</span> <span class="nv">$mediator</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Programmer</span> <span class="k">extends</span> <span class="nx">Role</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">doWork</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$codeLine</span> <span class="o">=</span> <span class="nb">mt_rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+        <span class="k">echo</span> <span class="s1">'程序员在努力工作中....'</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="k">echo</span> <span class="s1">'写了'</span><span class="o">.</span><span class="nv">$codeLine</span><span class="o">.</span><span class="s1">'行代码'</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+        <span class="c1">// 请求发工资</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mediator</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">(</span><span class="s1">'salary_request'</span><span class="p">,</span> <span class="nv">$codeLine</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getMoney</span><span class="p">(</span><span class="nv">$money</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'收到工资'</span> <span class="o">.</span> <span class="nv">$money</span><span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Boss</span> <span class="k">extends</span> <span class="nx">Role</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">checkWork</span><span class="p">(</span><span class="nv">$codeLine</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'老板检查工作'</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+
+        <span class="nv">$money</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nv">$codeLine</span><span class="o">&gt;=</span><span class="mi">90</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$money</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$codeLine</span><span class="o">&gt;=</span><span class="mi">60</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$money</span> <span class="o">=</span> <span class="mi">500</span><span class="p">;</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nv">$codeLine</span><span class="o">&gt;=</span><span class="mi">40</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$money</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+        <span class="p">}</span>
+
+        <span class="c1">// 财务发工资</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mediator</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">(</span><span class="s1">'call_finance'</span><span class="p">,</span> <span class="nv">$money</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Finance</span> <span class="k">extends</span> <span class="nx">Role</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">giveMoney</span><span class="p">(</span><span class="nv">$money</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'财务记账发工资'</span> <span class="o">.</span> <span class="nv">$money</span><span class="p">;</span>
+        <span class="nv">$money</span> <span class="o">-=</span> <span class="mi">100</span><span class="p">;</span><span class="c1">// 扣保险金</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">mediator</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">(</span><span class="s1">'pay_salary'</span><span class="p">,</span> <span class="nv">$money</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Mediator</span> <span class="k">extends</span> <span class="nx">AbstractMediator</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$programmer</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$boss</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$finance</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">programmer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Programmer</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">programmer</span><span class="o">-&gt;</span><span class="na">setMediator</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">boss</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Boss</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">boss</span><span class="o">-&gt;</span><span class="na">setMediator</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">finance</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Finance</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">finance</span><span class="o">-&gt;</span><span class="na">setMediator</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="nv">$action</span><span class="p">,</span> <span class="nv">$param</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">switch</span> <span class="p">(</span><span class="nv">$action</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="s1">'salary_request'</span><span class="o">:</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">boss</span><span class="o">-&gt;</span><span class="na">checkWork</span><span class="p">(</span><span class="nv">$param</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="s1">'call_finance'</span><span class="o">:</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">finance</span><span class="o">-&gt;</span><span class="na">giveMoney</span><span class="p">(</span><span class="nv">$param</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="k">case</span> <span class="s1">'pay_salary'</span><span class="o">:</span>
+                <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">programmer</span><span class="o">-&gt;</span><span class="na">getMoney</span><span class="p">(</span><span class="nv">$param</span><span class="p">);</span>
+                <span class="k">break</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">work</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">programmer</span><span class="o">-&gt;</span><span class="na">doWork</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$mediator</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Mediator</span><span class="p">();</span>
+<span class="nv">$mediator</span><span class="o">-&gt;</span><span class="na">work</span><span class="p">();</span>
+
+
+</code></pre></div></div>
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">策略模式</a><br/>
+    
+    
+    下一篇：<a href="/tech/%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F/">代理模式</a>
+    
+</div>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2020-01-11 00:00:00 +0000',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
+
         </div>
       </div>
     </div>

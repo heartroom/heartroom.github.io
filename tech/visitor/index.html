@@ -66,154 +66,6 @@
         </div>
       </div>
       <div id="main">
-        <div id="content">
-          <div class="list-title">
-    访问者模式
-</div>
-<div class="article">
-    <!-- <h3>访问者模式</h3> -->
-    <p>
-        <sapn>发布于：2020-01-15 23:10</sapn> &nbsp;
-    
-        
-        标签分类：
-            
-                <a href="/tags/设计模式">设计模式</a>
-            
-        
-    </p>
-    <p>需要对一个对象结构中的对象进行很多不同的并且不相关的操作，而需要避免让这些操作“污染”这些对象的类时，可以采用访问者模式，被访问者把自己的数据提供给访问者(visitor)。在被访问的类里面添加一个对外提供接待访问者的接口。把处理从数据结构分离出来。</p>
-
-<p><img src="/assets/images/visitor.png" alt="访问者模式" title="访问者模式" /></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-<span class="kd">interface</span> <span class="nc">Visitor</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementA</span><span class="p">(</span><span class="nv">$elementA</span><span class="p">);</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementB</span><span class="p">(</span><span class="nv">$elementB</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">abstract</span> <span class="kd">class</span> <span class="nc">Element</span>
-<span class="p">{</span>
-    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">ElementA</span> <span class="k">extends</span> <span class="nx">Element</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="nv">$name</span><span class="p">;</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="cd">/**
-     * @param $visitor Visitor
-     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$visitor</span><span class="o">-&gt;</span><span class="na">visitElementA</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">ElementB</span> <span class="k">extends</span> <span class="nx">Element</span>
-<span class="p">{</span>
-    <span class="cd">/**
-     * @param $visitor Visitor
-     */</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$visitor</span><span class="o">-&gt;</span><span class="na">visitElementB</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Visitor1</span> <span class="k">implements</span> <span class="nx">Visitor</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementA</span><span class="p">(</span><span class="nv">$elementA</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">'Visitor1 访问了类型'</span><span class="o">.</span><span class="nv">$elementA</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementB</span><span class="p">(</span><span class="nv">$elementB</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">'Visitor1 访问了类型'</span><span class="o">.</span><span class="nv">$elementB</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">Visitor2</span> <span class="k">implements</span> <span class="nx">Visitor</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementA</span><span class="p">(</span><span class="nv">$elementA</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">'Visitor2 访问了类型'</span><span class="o">.</span><span class="nv">$elementA</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementB</span><span class="p">(</span><span class="nv">$elementB</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s1">'Visitor2 访问了类型'</span><span class="o">.</span><span class="nv">$elementB</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">ObjectStructure</span>
-<span class="p">{</span>
-    <span class="k">private</span> <span class="nv">$elementList</span> <span class="o">=</span> <span class="p">[];</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">add</span><span class="p">(</span><span class="nv">$element</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">elementList</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$element</span><span class="p">;</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">elementList</span> <span class="k">as</span> <span class="nv">$item</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nv">$item</span><span class="o">-&gt;</span><span class="na">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nv">$visitor1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Visitor1</span><span class="p">();</span>
-<span class="nv">$visitor2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Visitor2</span><span class="p">();</span>
-
-<span class="nv">$structure</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ObjectStructure</span><span class="p">();</span>
-<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">ElementA</span><span class="p">(</span><span class="s1">'aaa'</span><span class="p">));</span>
-<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">ElementA</span><span class="p">(</span><span class="s1">'aaa2'</span><span class="p">));</span>
-<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">ElementA</span><span class="p">(</span><span class="s1">'bbb2'</span><span class="p">));</span>
-<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">ElementA</span><span class="p">(</span><span class="s1">'ccc2'</span><span class="p">));</span>
-
-<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">accept</span><span class="p">(</span><span class="nv">$visitor1</span><span class="p">);</span>
-<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">accept</span><span class="p">(</span><span class="nv">$visitor2</span><span class="p">);</span>
-</code></pre></div></div>
-
-</div>
-<div class="previous-next-bar">
-    
-    上一篇：<a href="/tech/iterator/">迭代器模式</a><br/>
-    
-    
-    下一篇：<a href="/tech/composite/">组合模式</a>
-    
-</div>
-
-<!--   gitalk       -->
-
-<div class="comment">
-    <div id="gitalk-container"></div>
-<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
-<script src="/assets/js/gitalk.min.js"></script> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-var gitalk = new Gitalk({
-    id: '2020-01-15 23:10:00 +0000',
-    clientID: '29e59d091901a686d79e',
-    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
-    repo: 'heartroom.github.io',
-    owner: 'heartroom',
-    admin: ['heartroom'], 
-	labels: ['Gitalk'],
-})
-gitalk.render('gitalk-container')
-</script> 
-</div>
-
-        </div>
         <div id="sidebar">
           <div class="me-info" >
     <img src="/assets/images/logo.jpg"/>
@@ -225,6 +77,10 @@ gitalk.render('gitalk-container')
 </div>
 <div class="box">
     <div class="title">最新</div>
+    
+    <div class="item">
+        <a href="/tech/zip/">Linux文件文件夹的压缩和解压</a>
+      </div>
     
     <div class="item">
         <a href="/tech/gitalk/">通过gitalk为博客添加评论功能</a>
@@ -242,13 +98,11 @@ gitalk.render('gitalk-container')
         <a href="/tech/swift/">switf入门</a>
       </div>
     
-    <div class="item">
-        <a href="/tech/ios/">ios开发笔记</a>
-      </div>
-    
 </div>
 <div class="box">
     <div class="title">备忘</div>
+    
+        
     
         
     
@@ -435,6 +289,154 @@ gitalk.render('gitalk-container')
     <div class="title">小程序</div>
     <img src="/assets/images/bigbug.png"/>
 </div>
+        </div>
+        <div id="content">
+          <div class="list-title">
+    访问者模式
+</div>
+<div class="article">
+    <!-- <h3>访问者模式</h3> -->
+    <p>
+        <sapn>发布于：2020-01-15 23:10</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/设计模式">设计模式</a>
+            
+        
+    </p>
+    <p>需要对一个对象结构中的对象进行很多不同的并且不相关的操作，而需要避免让这些操作“污染”这些对象的类时，可以采用访问者模式，被访问者把自己的数据提供给访问者(visitor)。在被访问的类里面添加一个对外提供接待访问者的接口。把处理从数据结构分离出来。</p>
+
+<p><img src="/assets/images/visitor.png" alt="访问者模式" title="访问者模式" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kd">interface</span> <span class="nc">Visitor</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementA</span><span class="p">(</span><span class="nv">$elementA</span><span class="p">);</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementB</span><span class="p">(</span><span class="nv">$elementB</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">abstract</span> <span class="kd">class</span> <span class="nc">Element</span>
+<span class="p">{</span>
+    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">ElementA</span> <span class="k">extends</span> <span class="nx">Element</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cd">/**
+     * @param $visitor Visitor
+     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$visitor</span><span class="o">-&gt;</span><span class="na">visitElementA</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">ElementB</span> <span class="k">extends</span> <span class="nx">Element</span>
+<span class="p">{</span>
+    <span class="cd">/**
+     * @param $visitor Visitor
+     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$visitor</span><span class="o">-&gt;</span><span class="na">visitElementB</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Visitor1</span> <span class="k">implements</span> <span class="nx">Visitor</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementA</span><span class="p">(</span><span class="nv">$elementA</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'Visitor1 访问了类型'</span><span class="o">.</span><span class="nv">$elementA</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementB</span><span class="p">(</span><span class="nv">$elementB</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'Visitor1 访问了类型'</span><span class="o">.</span><span class="nv">$elementB</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Visitor2</span> <span class="k">implements</span> <span class="nx">Visitor</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementA</span><span class="p">(</span><span class="nv">$elementA</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'Visitor2 访问了类型'</span><span class="o">.</span><span class="nv">$elementA</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementB</span><span class="p">(</span><span class="nv">$elementB</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'Visitor2 访问了类型'</span><span class="o">.</span><span class="nv">$elementB</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">ObjectStructure</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$elementList</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">add</span><span class="p">(</span><span class="nv">$element</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">elementList</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$element</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">elementList</span> <span class="k">as</span> <span class="nv">$item</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$item</span><span class="o">-&gt;</span><span class="na">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$visitor1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Visitor1</span><span class="p">();</span>
+<span class="nv">$visitor2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Visitor2</span><span class="p">();</span>
+
+<span class="nv">$structure</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ObjectStructure</span><span class="p">();</span>
+<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">ElementA</span><span class="p">(</span><span class="s1">'aaa'</span><span class="p">));</span>
+<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">ElementA</span><span class="p">(</span><span class="s1">'aaa2'</span><span class="p">));</span>
+<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">ElementA</span><span class="p">(</span><span class="s1">'bbb2'</span><span class="p">));</span>
+<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">ElementA</span><span class="p">(</span><span class="s1">'ccc2'</span><span class="p">));</span>
+
+<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">accept</span><span class="p">(</span><span class="nv">$visitor1</span><span class="p">);</span>
+<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">accept</span><span class="p">(</span><span class="nv">$visitor2</span><span class="p">);</span>
+</code></pre></div></div>
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/iterator/">迭代器模式</a><br/>
+    
+    
+    下一篇：<a href="/tech/composite/">组合模式</a>
+    
+</div>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2020-01-15 23:10:00 +0000',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
+
         </div>
       </div>
     </div>

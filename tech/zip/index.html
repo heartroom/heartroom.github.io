@@ -10,7 +10,7 @@
     <meta name="description" content="编程知识积累" />
     <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
     <meta name="author" content="long" />
-    <title>供求世界网</title>
+    <title>Linux文件文件夹的压缩和解压</title>
     <link rel="stylesheet" href="/assets/css/styles.css?v=3.0">
     <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
     <script src="/assets/js/jquery.js"></script>
@@ -33,13 +33,13 @@
   </li>
   
   <li>
-    <a href="/tech" >
+    <a href="/tech" class="on">
     技术
     </a>
   </li>
   
   <li>
-    <a href="/works/" class="on">
+    <a href="/works/" >
     作品
     </a>
   </li>
@@ -292,40 +292,45 @@
         </div>
         <div id="content">
           <div class="list-title">
-    供求世界网
+    Linux文件文件夹的压缩和解压
 </div>
 <div class="article">
-    <!-- <h3>供求世界网</h3> -->
+    <!-- <h3>Linux文件文件夹的压缩和解压</h3> -->
     <p>
-        <sapn>发布于：2018-03-21 00:00</sapn> &nbsp;
+        <sapn>发布于：2020-02-03 00:00</sapn> &nbsp;
     
         
         标签分类：
             
-                <a href="/tags/网站">网站</a>
-            
-                <a href="/tags/APP">APP</a>
+                <a href="/tags/linux">linux</a>
             
         
     </p>
-    <p>网址：<a href="http://www.gqsj.cc" target="_blank">http://www.gqsj.cc</a></p>
+    <p>Linux文件文件夹的压缩和解压</p>
 
-<h3 id="功能">功能</h3>
-<p>分类信息平台，购买秒杀，领红包</p>
+<p>1.zip命令</p>
 
-<h3 id="担当">担当</h3>
-<p>网站前台（部分），vip后台（全部），公司后台（部分），APP接口（部分）</p>
+<p>例如：zip -r mysql.zip mysql 该句命令的含义是：将mysql文件夹压缩成mysql.zip</p>
 
-<h3 id="相关技术">相关技术</h3>
-<p>php(yii), mysql, redis, swoole, html, js, css, crontab</p>
+<p>zip -r abcdef.zip abc def.txt 这句命令的意思是将文件夹abc和文件def.txt压缩成一个压缩包abcdef.zip</p>
+
+<p>2.unzip命令</p>
+
+<p>与zip命令相反，这是解压命令，用起来很简单。 如：unzip mysql.zip 在当前目录下直接解压mysql.zip。</p>
+
+<p>3.tar命令</p>
+
+<p>例如：tar -cvf 123.tar file1 file2 dir1 该句命令实现一个tar压缩，它是将两个文件（file1和file2）和一个文件夹(dir1)压缩成一个123.tar文件。</p>
+
+<p>tar -zxvf apache-tomcat-7.0.75.tar.gz 该命令在解压安装tomcat时使用，是将apache-tomcat.7.0.75.tar.gz直接解压到当前目录下。tar同时具有压缩的解压的功能，使用时根据参数和命令结构区分。</p>
+
+<p>原文链接：https://baijiahao.baidu.com/s?id=1640987338729787489&amp;wfr=spider&amp;for=pc</p>
 
 </div>
 <div class="previous-next-bar">
     
-    上一篇：<a href="/others/%E5%BB%BA%E8%AE%AE%E8%A7%A3%E6%95%A3%E5%9B%BD%E5%AE%B6%E8%B6%B3%E7%90%83%E9%98%9F/">建议解散国家足球队</a><br/>
+    上一篇：<a href="/tech/gitalk/">通过gitalk为博客添加评论功能</a><br/>
     
-    
-    下一篇：<a href="/works/%E6%8E%92%E7%89%88%E7%B3%BB%E7%BB%9F/">排版系统</a>
     
 </div>
 
@@ -339,7 +344,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
 var gitalk = new Gitalk({
-    id: '2018-03-21 00:00:00 +0000',
+    id: '2020-02-03 00:00:00 +0000',
     clientID: '29e59d091901a686d79e',
     clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
     repo: 'heartroom.github.io',

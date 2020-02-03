@@ -66,177 +66,6 @@
         </div>
       </div>
       <div id="main">
-        <div id="content">
-          <div class="list-title">
-    责任链模式
-</div>
-<div class="article">
-    <!-- <h3>责任链模式</h3> -->
-    <p>
-        <sapn>发布于：2020-01-15 23:10</sapn> &nbsp;
-    
-        
-        标签分类：
-            
-                <a href="/tags/设计模式">设计模式</a>
-            
-        
-    </p>
-    <p>请求会被一组对象（handler）处理，这组对象组成一个链表，如果不是自己处理，就调用下一个对象处理，直到最后。这样如果增加新的请求，新的处理，不需要修改原来的逻辑，只添加新的handler到链里就可以了。</p>
-
-<p><img src="/assets/images/handler.png" alt="责任链模式" title="责任链模式" /></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Request
-{
-    public $name;
-    private $level;
-    public function __construct($name, $level)
-    {
-        $this-&gt;name = $name;
-        $this-&gt;level = $level;
-    }
-
-    public function getLevel()
-    {
-        return $this-&gt;level;
-    }
-}
-class Response
-{
-    public $content;
-
-    public function __construct($content)
-    {
-        $this-&gt;content = $content;
-    }
-}
-abstract class Handler
-{
-    /** @var Handler */
-    protected $next;
-
-    /**
-     * @param $request Request
-     * @return Response|null
-     */
-    public function handleRequest($request)
-    {
-        if ($this-&gt;getLevel() == $request-&gt;getLevel()) {
-            return $this-&gt;getResponse($request);
-        } else if ($this-&gt;next != null) {
-            return $this-&gt;next-&gt;handleRequest($request);
-        }
-        return null;
-    }
-
-    abstract public function getLevel();
-
-    abstract public function getResponse($request);
-
-    public function getNext()
-    {
-        return $this-&gt;next;
-    }
-
-    public function setNext($next)
-    {
-        $this-&gt;next = $next;
-    }
-}
-
-class ConcreteHandler1 extends Handler
-{
-    public function getLevel()
-    {
-        return 1;
-    }
-
-    /**
-     * @param $request Request
-     * @return Response
-     */
-    public function getResponse($request)
-    {
-        return new Response($request-&gt;name . '的处理返回');
-    }
-}
-
-class ConcreteHandler2 extends Handler
-{
-    public function getLevel()
-    {
-        return 2;
-    }
-
-    /**
-     * @param $request Request
-     * @return Response
-     */
-    public function getResponse($request)
-    {
-        return new Response($request-&gt;name . '的处理返回2');
-    }
-}
-
-class ConcreteHandler3 extends Handler
-{
-    public function getLevel()
-    {
-        return 3;
-    }
-
-    /**
-     * @param $request Request
-     * @return Response
-     */
-    public function getResponse($request)
-    {
-        return new Response($request-&gt;name . '的处理返回3');
-    }
-}
-$request = new Request("test", 2);
-$handler1 = new ConcreteHandler1();
-$handler2 = new ConcreteHandler2();
-$handler3 = new ConcreteHandler3();
-$handler1-&gt;setNext($handler2);
-$handler2-&gt;setNext($handler3);
-$response = $handler1-&gt;handleRequest($request);
-echo $response-&gt;content;
-</code></pre></div></div>
-
-</div>
-<div class="previous-next-bar">
-    
-    上一篇：<a href="/tech/observer/">观察者模式</a><br/>
-    
-    
-    下一篇：<a href="/tech/iterator/">迭代器模式</a>
-    
-</div>
-
-<!--   gitalk       -->
-
-<div class="comment">
-    <div id="gitalk-container"></div>
-<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
-<script src="/assets/js/gitalk.min.js"></script> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-var gitalk = new Gitalk({
-    id: '2020-01-15 23:10:00 +0000',
-    clientID: '29e59d091901a686d79e',
-    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
-    repo: 'heartroom.github.io',
-    owner: 'heartroom',
-    admin: ['heartroom'], 
-	labels: ['Gitalk'],
-})
-gitalk.render('gitalk-container')
-</script> 
-</div>
-
-        </div>
         <div id="sidebar">
           <div class="me-info" >
     <img src="/assets/images/logo.jpg"/>
@@ -248,6 +77,10 @@ gitalk.render('gitalk-container')
 </div>
 <div class="box">
     <div class="title">最新</div>
+    
+    <div class="item">
+        <a href="/tech/zip/">Linux文件文件夹的压缩和解压</a>
+      </div>
     
     <div class="item">
         <a href="/tech/gitalk/">通过gitalk为博客添加评论功能</a>
@@ -265,13 +98,11 @@ gitalk.render('gitalk-container')
         <a href="/tech/swift/">switf入门</a>
       </div>
     
-    <div class="item">
-        <a href="/tech/ios/">ios开发笔记</a>
-      </div>
-    
 </div>
 <div class="box">
     <div class="title">备忘</div>
+    
+        
     
         
     
@@ -458,6 +289,177 @@ gitalk.render('gitalk-container')
     <div class="title">小程序</div>
     <img src="/assets/images/bigbug.png"/>
 </div>
+        </div>
+        <div id="content">
+          <div class="list-title">
+    责任链模式
+</div>
+<div class="article">
+    <!-- <h3>责任链模式</h3> -->
+    <p>
+        <sapn>发布于：2020-01-15 23:10</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/设计模式">设计模式</a>
+            
+        
+    </p>
+    <p>请求会被一组对象（handler）处理，这组对象组成一个链表，如果不是自己处理，就调用下一个对象处理，直到最后。这样如果增加新的请求，新的处理，不需要修改原来的逻辑，只添加新的handler到链里就可以了。</p>
+
+<p><img src="/assets/images/handler.png" alt="责任链模式" title="责任链模式" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Request
+{
+    public $name;
+    private $level;
+    public function __construct($name, $level)
+    {
+        $this-&gt;name = $name;
+        $this-&gt;level = $level;
+    }
+
+    public function getLevel()
+    {
+        return $this-&gt;level;
+    }
+}
+class Response
+{
+    public $content;
+
+    public function __construct($content)
+    {
+        $this-&gt;content = $content;
+    }
+}
+abstract class Handler
+{
+    /** @var Handler */
+    protected $next;
+
+    /**
+     * @param $request Request
+     * @return Response|null
+     */
+    public function handleRequest($request)
+    {
+        if ($this-&gt;getLevel() == $request-&gt;getLevel()) {
+            return $this-&gt;getResponse($request);
+        } else if ($this-&gt;next != null) {
+            return $this-&gt;next-&gt;handleRequest($request);
+        }
+        return null;
+    }
+
+    abstract public function getLevel();
+
+    abstract public function getResponse($request);
+
+    public function getNext()
+    {
+        return $this-&gt;next;
+    }
+
+    public function setNext($next)
+    {
+        $this-&gt;next = $next;
+    }
+}
+
+class ConcreteHandler1 extends Handler
+{
+    public function getLevel()
+    {
+        return 1;
+    }
+
+    /**
+     * @param $request Request
+     * @return Response
+     */
+    public function getResponse($request)
+    {
+        return new Response($request-&gt;name . '的处理返回');
+    }
+}
+
+class ConcreteHandler2 extends Handler
+{
+    public function getLevel()
+    {
+        return 2;
+    }
+
+    /**
+     * @param $request Request
+     * @return Response
+     */
+    public function getResponse($request)
+    {
+        return new Response($request-&gt;name . '的处理返回2');
+    }
+}
+
+class ConcreteHandler3 extends Handler
+{
+    public function getLevel()
+    {
+        return 3;
+    }
+
+    /**
+     * @param $request Request
+     * @return Response
+     */
+    public function getResponse($request)
+    {
+        return new Response($request-&gt;name . '的处理返回3');
+    }
+}
+$request = new Request("test", 2);
+$handler1 = new ConcreteHandler1();
+$handler2 = new ConcreteHandler2();
+$handler3 = new ConcreteHandler3();
+$handler1-&gt;setNext($handler2);
+$handler2-&gt;setNext($handler3);
+$response = $handler1-&gt;handleRequest($request);
+echo $response-&gt;content;
+</code></pre></div></div>
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/observer/">观察者模式</a><br/>
+    
+    
+    下一篇：<a href="/tech/iterator/">迭代器模式</a>
+    
+</div>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2020-01-15 23:10:00 +0000',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
+
         </div>
       </div>
     </div>

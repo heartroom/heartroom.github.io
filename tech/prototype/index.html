@@ -66,82 +66,6 @@
         </div>
       </div>
       <div id="main">
-        <div id="content">
-          <div class="list-title">
-    原型模式
-</div>
-<div class="article">
-    <!-- <h3>原型模式</h3> -->
-    <p>
-        <sapn>发布于：2020-01-15 09:10</sapn> &nbsp;
-    
-        
-        标签分类：
-            
-                <a href="/tags/设计模式">设计模式</a>
-            
-        
-    </p>
-    <p>根据一个对象创建一个完全相同的对象。clone。</p>
-
-<p><img src="/assets/images/prototype.png" alt="原型模式" title="原型模式" /></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-<span class="kd">class</span> <span class="nc">Prototype</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">getClone</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="k">return</span> <span class="k">clone</span> <span class="nv">$this</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="kd">class</span> <span class="nc">ConcretePrototype</span> <span class="k">extends</span> <span class="nx">Prototype</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="nv">$name</span><span class="p">;</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="nv">$p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ConcretePrototype</span><span class="p">(</span><span class="s1">'xxx'</span><span class="p">);</span>
-<span class="nv">$p2</span> <span class="o">=</span> <span class="nv">$p1</span><span class="o">-&gt;</span><span class="na">getClone</span><span class="p">();</span>
-<span class="k">echo</span> <span class="nv">$p2</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
-</code></pre></div></div>
-
-</div>
-<div class="previous-next-bar">
-    
-    上一篇：<a href="/tech/builder/">建造者模式</a><br/>
-    
-    
-    下一篇：<a href="/tech/observer/">观察者模式</a>
-    
-</div>
-
-<!--   gitalk       -->
-
-<div class="comment">
-    <div id="gitalk-container"></div>
-<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
-<script src="/assets/js/gitalk.min.js"></script> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-var gitalk = new Gitalk({
-    id: '2020-01-15 09:10:00 +0000',
-    clientID: '29e59d091901a686d79e',
-    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
-    repo: 'heartroom.github.io',
-    owner: 'heartroom',
-    admin: ['heartroom'], 
-	labels: ['Gitalk'],
-})
-gitalk.render('gitalk-container')
-</script> 
-</div>
-
-        </div>
         <div id="sidebar">
           <div class="me-info" >
     <img src="/assets/images/logo.jpg"/>
@@ -153,6 +77,10 @@ gitalk.render('gitalk-container')
 </div>
 <div class="box">
     <div class="title">最新</div>
+    
+    <div class="item">
+        <a href="/tech/zip/">Linux文件文件夹的压缩和解压</a>
+      </div>
     
     <div class="item">
         <a href="/tech/gitalk/">通过gitalk为博客添加评论功能</a>
@@ -170,13 +98,11 @@ gitalk.render('gitalk-container')
         <a href="/tech/swift/">switf入门</a>
       </div>
     
-    <div class="item">
-        <a href="/tech/ios/">ios开发笔记</a>
-      </div>
-    
 </div>
 <div class="box">
     <div class="title">备忘</div>
+    
+        
     
         
     
@@ -363,6 +289,82 @@ gitalk.render('gitalk-container')
     <div class="title">小程序</div>
     <img src="/assets/images/bigbug.png"/>
 </div>
+        </div>
+        <div id="content">
+          <div class="list-title">
+    原型模式
+</div>
+<div class="article">
+    <!-- <h3>原型模式</h3> -->
+    <p>
+        <sapn>发布于：2020-01-15 09:10</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/设计模式">设计模式</a>
+            
+        
+    </p>
+    <p>根据一个对象创建一个完全相同的对象。clone。</p>
+
+<p><img src="/assets/images/prototype.png" alt="原型模式" title="原型模式" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kd">class</span> <span class="nc">Prototype</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">getClone</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="k">clone</span> <span class="nv">$this</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="nc">ConcretePrototype</span> <span class="k">extends</span> <span class="nx">Prototype</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$name</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$p1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ConcretePrototype</span><span class="p">(</span><span class="s1">'xxx'</span><span class="p">);</span>
+<span class="nv">$p2</span> <span class="o">=</span> <span class="nv">$p1</span><span class="o">-&gt;</span><span class="na">getClone</span><span class="p">();</span>
+<span class="k">echo</span> <span class="nv">$p2</span><span class="o">-&gt;</span><span class="na">name</span><span class="p">;</span>
+</code></pre></div></div>
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/builder/">建造者模式</a><br/>
+    
+    
+    下一篇：<a href="/tech/observer/">观察者模式</a>
+    
+</div>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2020-01-15 09:10:00 +0000',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
+
         </div>
       </div>
     </div>

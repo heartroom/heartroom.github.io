@@ -66,116 +66,6 @@
         </div>
       </div>
       <div id="main">
-        <div id="content">
-          <div class="list-title">
-    外观模式
-</div>
-<div class="article">
-    <!-- <h3>外观模式</h3> -->
-    <p>
-        <sapn>发布于：2020-01-14 00:00</sapn> &nbsp;
-    
-        
-        标签分类：
-            
-                <a href="/tags/设计模式">设计模式</a>
-            
-        
-    </p>
-    <p>为复杂的模块或子系统提供一个外界访问的接口，客户调用接口，而不用管如何调用复杂的子系统</p>
-
-<p><img src="/assets/images/facade.png" alt="facade uml" title="外观模式" /></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
-<span class="kd">class</span> <span class="nc">Facade</span>
-<span class="p">{</span>
-    <span class="k">private</span> <span class="nv">$subSystemA</span><span class="p">;</span>
-    <span class="k">private</span> <span class="nv">$subSystemB</span><span class="p">;</span>
-    <span class="k">private</span> <span class="nv">$subSystemC</span><span class="p">;</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">subSystemA</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubSystemA</span><span class="p">();</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">subSystemB</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubSystemB</span><span class="p">();</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">subSystemC</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubSystemC</span><span class="p">();</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">doSome</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">subSystemA</span><span class="o">-&gt;</span><span class="na">doSomeA</span><span class="p">();</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">subSystemB</span><span class="o">-&gt;</span><span class="na">doSomeB</span><span class="p">();</span>
-    <span class="p">}</span>
-
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">doOther</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">subSystemA</span><span class="o">-&gt;</span><span class="na">doSomeA</span><span class="p">();</span>
-        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">subSystemC</span><span class="o">-&gt;</span><span class="na">doSomeC</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">SubSystemA</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">doSomeA</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s2">"做什么复杂事情XXX"</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">SubSystemB</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">doSomeB</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s2">"做什么复杂事情YYY"</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-<span class="kd">class</span> <span class="nc">SubSystemC</span>
-<span class="p">{</span>
-    <span class="k">public</span> <span class="k">function</span> <span class="nf">doSomeC</span><span class="p">()</span>
-    <span class="p">{</span>
-        <span class="k">echo</span> <span class="s2">"做什么复杂事情ZZZ"</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-
-
-<span class="nv">$facade</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Facade</span><span class="p">();</span>
-<span class="nv">$facade</span><span class="o">-&gt;</span><span class="na">doSome</span><span class="p">();</span>
-<span class="nv">$facade</span><span class="o">-&gt;</span><span class="na">doOther</span><span class="p">();</span>
-
-</code></pre></div></div>
-
-</div>
-<div class="previous-next-bar">
-    
-    上一篇：<a href="/tech/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">命令模式</a><br/>
-    
-    
-    下一篇：<a href="/tech/flyweight/">享元模式</a>
-    
-</div>
-
-<!--   gitalk       -->
-
-<div class="comment">
-    <div id="gitalk-container"></div>
-<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
-<script src="/assets/js/gitalk.min.js"></script> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-var gitalk = new Gitalk({
-    id: '2020-01-14 00:00:00 +0000',
-    clientID: '29e59d091901a686d79e',
-    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
-    repo: 'heartroom.github.io',
-    owner: 'heartroom',
-    admin: ['heartroom'], 
-	labels: ['Gitalk'],
-})
-gitalk.render('gitalk-container')
-</script> 
-</div>
-
-        </div>
         <div id="sidebar">
           <div class="me-info" >
     <img src="/assets/images/logo.jpg"/>
@@ -187,6 +77,10 @@ gitalk.render('gitalk-container')
 </div>
 <div class="box">
     <div class="title">最新</div>
+    
+    <div class="item">
+        <a href="/tech/zip/">Linux文件文件夹的压缩和解压</a>
+      </div>
     
     <div class="item">
         <a href="/tech/gitalk/">通过gitalk为博客添加评论功能</a>
@@ -204,13 +98,11 @@ gitalk.render('gitalk-container')
         <a href="/tech/swift/">switf入门</a>
       </div>
     
-    <div class="item">
-        <a href="/tech/ios/">ios开发笔记</a>
-      </div>
-    
 </div>
 <div class="box">
     <div class="title">备忘</div>
+    
+        
     
         
     
@@ -397,6 +289,116 @@ gitalk.render('gitalk-container')
     <div class="title">小程序</div>
     <img src="/assets/images/bigbug.png"/>
 </div>
+        </div>
+        <div id="content">
+          <div class="list-title">
+    外观模式
+</div>
+<div class="article">
+    <!-- <h3>外观模式</h3> -->
+    <p>
+        <sapn>发布于：2020-01-14 00:00</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/设计模式">设计模式</a>
+            
+        
+    </p>
+    <p>为复杂的模块或子系统提供一个外界访问的接口，客户调用接口，而不用管如何调用复杂的子系统</p>
+
+<p><img src="/assets/images/facade.png" alt="facade uml" title="外观模式" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kd">class</span> <span class="nc">Facade</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$subSystemA</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$subSystemB</span><span class="p">;</span>
+    <span class="k">private</span> <span class="nv">$subSystemC</span><span class="p">;</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">subSystemA</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubSystemA</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">subSystemB</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubSystemB</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">subSystemC</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SubSystemC</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">doSome</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">subSystemA</span><span class="o">-&gt;</span><span class="na">doSomeA</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">subSystemB</span><span class="o">-&gt;</span><span class="na">doSomeB</span><span class="p">();</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">doOther</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">subSystemA</span><span class="o">-&gt;</span><span class="na">doSomeA</span><span class="p">();</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">subSystemC</span><span class="o">-&gt;</span><span class="na">doSomeC</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">SubSystemA</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">doSomeA</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">"做什么复杂事情XXX"</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">SubSystemB</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">doSomeB</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">"做什么复杂事情YYY"</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">SubSystemC</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">doSomeC</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">"做什么复杂事情ZZZ"</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="nv">$facade</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Facade</span><span class="p">();</span>
+<span class="nv">$facade</span><span class="o">-&gt;</span><span class="na">doSome</span><span class="p">();</span>
+<span class="nv">$facade</span><span class="o">-&gt;</span><span class="na">doOther</span><span class="p">();</span>
+
+</code></pre></div></div>
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F/">命令模式</a><br/>
+    
+    
+    下一篇：<a href="/tech/flyweight/">享元模式</a>
+    
+</div>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2020-01-14 00:00:00 +0000',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
+
         </div>
       </div>
     </div>

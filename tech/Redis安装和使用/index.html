@@ -66,125 +66,6 @@
         </div>
       </div>
       <div id="main">
-        <div id="content">
-          <div class="list-title">
-    Redis安装和使用
-</div>
-<div class="article">
-    <!-- <h3>Redis安装和使用</h3> -->
-    <p>
-        <sapn>发布于：2019-09-12 00:00</sapn> &nbsp;
-    
-        
-        标签分类：
-            
-                <a href="/tags/redis">redis</a>
-            
-        
-    </p>
-    <p>安装
-sudo apt-get install redis-server</p>
-
-<p>启动 redis
-$ redis-server</p>
-
-<p>查看 redis 的运行状态
-$ service redis-server status</p>
-
-<p>查看 redis 的是否启动
-redis-cli</p>
-
-<p>redis 配置文件redis.conf在/etc/redis目录下，可以通过修改文件修改 redis 的配置，或者通过命令修改。</p>
-
-<p>redis设置密码访问</p>
-
-<p>你的redis在真是环境中不可以谁想访问就可以访问，所以必须要设置密码</p>
-
-<p>设置密码的流程如下：</p>
-
-<p>vim /etc/redis.conf</p>
-
-<p>#requirepass foobared去掉注释，foobared改为自己的密码，我在这里改为</p>
-
-<p>requirepass 123456</p>
-
-<p>然后保存，重启服务</p>
-
-<p>cd /usr/local/bin</p>
-
-<p>./redis-server /etc/redis.conf</p>
-
-<p>测试连接：./redis-cli</p>
-
-<p>输入命令 会提示(error) NOAUTH Authentication required. 这是属于正常现象。</p>
-
-<p>我们输入 auth 123456#你刚才设置的密码</p>
-
-<p>在远程服务上执行命令</p>
-
-<p>redis-cli -h host -p port -a password</p>
-
-<p>yii链接redis</p>
-
-<p>composer require yiisoft/yii2-redis</p>
-
-<p>redis开启外网访问</p>
-
-<p>redis默认只允许本地访问，要使redis可以远程访问可以修改redis.conf</p>
-
-<p>打开redis.conf文件在NETWORK部分有说明</p>
-
-<p>解决办法：注释掉bind 127.0.0.1可以使所有的ip访问redis</p>
-
-<p>若是想指定多个ip访问，但并不是全部的ip访问，可以bind</p>
-
-<p>配置Yii2的redis扩展</p>
-
-<p>php composer.phar require –prefer-dist yiisoft/yii2-redis</p>
-
-<p>插入队列数据：</p>
-
-<p>$redis-&gt;lpush(queueName, data);</p>
-
-<p>读取队列数据(阻塞列表直到等待超时或发现可弹出元素为止)：</p>
-
-<p>ini_set(‘default_socket_timeout’, -1); //socket不超时</p>
-
-<p>$message = \Yii::$app-&gt;redis-&gt;brpop(queueName, 0);</p>
-
-</div>
-<div class="previous-next-bar">
-    
-    上一篇：<a href="/tech/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/">Linux常用命令大全</a><br/>
-    
-    
-    下一篇：<a href="/works/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%B7%A5%E5%85%B7/">正则表达式工具</a>
-    
-</div>
-
-<!--   gitalk       -->
-
-<div class="comment">
-    <div id="gitalk-container"></div>
-<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
-<script src="/assets/js/gitalk.min.js"></script> -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script>
-var gitalk = new Gitalk({
-    id: '2019-09-12 00:00:00 +0000',
-    clientID: '29e59d091901a686d79e',
-    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
-    repo: 'heartroom.github.io',
-    owner: 'heartroom',
-    admin: ['heartroom'], 
-	labels: ['Gitalk'],
-})
-gitalk.render('gitalk-container')
-</script> 
-</div>
-
-        </div>
         <div id="sidebar">
           <div class="me-info" >
     <img src="/assets/images/logo.jpg"/>
@@ -196,6 +77,10 @@ gitalk.render('gitalk-container')
 </div>
 <div class="box">
     <div class="title">最新</div>
+    
+    <div class="item">
+        <a href="/tech/zip/">Linux文件文件夹的压缩和解压</a>
+      </div>
     
     <div class="item">
         <a href="/tech/gitalk/">通过gitalk为博客添加评论功能</a>
@@ -213,13 +98,11 @@ gitalk.render('gitalk-container')
         <a href="/tech/swift/">switf入门</a>
       </div>
     
-    <div class="item">
-        <a href="/tech/ios/">ios开发笔记</a>
-      </div>
-    
 </div>
 <div class="box">
     <div class="title">备忘</div>
+    
+        
     
         
     
@@ -406,6 +289,125 @@ gitalk.render('gitalk-container')
     <div class="title">小程序</div>
     <img src="/assets/images/bigbug.png"/>
 </div>
+        </div>
+        <div id="content">
+          <div class="list-title">
+    Redis安装和使用
+</div>
+<div class="article">
+    <!-- <h3>Redis安装和使用</h3> -->
+    <p>
+        <sapn>发布于：2019-09-12 00:00</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/redis">redis</a>
+            
+        
+    </p>
+    <p>安装
+sudo apt-get install redis-server</p>
+
+<p>启动 redis
+$ redis-server</p>
+
+<p>查看 redis 的运行状态
+$ service redis-server status</p>
+
+<p>查看 redis 的是否启动
+redis-cli</p>
+
+<p>redis 配置文件redis.conf在/etc/redis目录下，可以通过修改文件修改 redis 的配置，或者通过命令修改。</p>
+
+<p>redis设置密码访问</p>
+
+<p>你的redis在真是环境中不可以谁想访问就可以访问，所以必须要设置密码</p>
+
+<p>设置密码的流程如下：</p>
+
+<p>vim /etc/redis.conf</p>
+
+<p>#requirepass foobared去掉注释，foobared改为自己的密码，我在这里改为</p>
+
+<p>requirepass 123456</p>
+
+<p>然后保存，重启服务</p>
+
+<p>cd /usr/local/bin</p>
+
+<p>./redis-server /etc/redis.conf</p>
+
+<p>测试连接：./redis-cli</p>
+
+<p>输入命令 会提示(error) NOAUTH Authentication required. 这是属于正常现象。</p>
+
+<p>我们输入 auth 123456#你刚才设置的密码</p>
+
+<p>在远程服务上执行命令</p>
+
+<p>redis-cli -h host -p port -a password</p>
+
+<p>yii链接redis</p>
+
+<p>composer require yiisoft/yii2-redis</p>
+
+<p>redis开启外网访问</p>
+
+<p>redis默认只允许本地访问，要使redis可以远程访问可以修改redis.conf</p>
+
+<p>打开redis.conf文件在NETWORK部分有说明</p>
+
+<p>解决办法：注释掉bind 127.0.0.1可以使所有的ip访问redis</p>
+
+<p>若是想指定多个ip访问，但并不是全部的ip访问，可以bind</p>
+
+<p>配置Yii2的redis扩展</p>
+
+<p>php composer.phar require –prefer-dist yiisoft/yii2-redis</p>
+
+<p>插入队列数据：</p>
+
+<p>$redis-&gt;lpush(queueName, data);</p>
+
+<p>读取队列数据(阻塞列表直到等待超时或发现可弹出元素为止)：</p>
+
+<p>ini_set(‘default_socket_timeout’, -1); //socket不超时</p>
+
+<p>$message = \Yii::$app-&gt;redis-&gt;brpop(queueName, 0);</p>
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/">Linux常用命令大全</a><br/>
+    
+    
+    下一篇：<a href="/works/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%B7%A5%E5%85%B7/">正则表达式工具</a>
+    
+</div>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2019-09-12 00:00:00 +0000',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
+
         </div>
       </div>
     </div>
