@@ -10,7 +10,7 @@
     <meta name="description" content="编程知识积累" />
     <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
     <meta name="author" content="long" />
-    <title>正则表达式工具</title>
+    <title>mysql触发器</title>
     <link rel="stylesheet" href="/assets/css/styles.css?v=3.0">
     <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
     <script src="/assets/js/jquery.js"></script>
@@ -33,13 +33,13 @@
   </li>
   
   <li>
-    <a href="/tech" >
+    <a href="/tech" class="on">
     技术
     </a>
   </li>
   
   <li>
-    <a href="/works/" class="on">
+    <a href="/works/" >
     作品
     </a>
   </li>
@@ -304,40 +304,32 @@
         </div>
         <div id="content">
           <div class="list-title">
-    正则表达式工具
+    mysql触发器
 </div>
 <div class="article">
-    <!-- <h3>正则表达式工具</h3> -->
+    <!-- <h3>mysql触发器</h3> -->
     <p>
-        <sapn>发布于：2019-09-12 00:00</sapn> &nbsp;
+        <sapn>发布于：2020-02-14 00:00</sapn> &nbsp;
     
         
         标签分类：
             
-                <a href="/tags/软件">软件</a>
+                <a href="/tags/mysql">mysql</a>
             
         
     </p>
-    <h3 id="功能">功能</h3>
-<p>正则表达式测试工具</p>
+    <p>eg:在添加的时候，根据addTime的值，设置updTime</p>
 
-<h3 id="担当">担当</h3>
-<p>所有功能。</p>
-
-<h3 id="相关技术">相关技术</h3>
-<p>winform,sqlite</p>
-
-<p><img src="/assets/images/regex.png" alt="正则表达式工具" title="正则表达式工具" /></p>
-
-<p><a href="http://long275.gitee.io/data/tools/regex_tool.zip" target="_blank">下载地址</a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE TRIGGER `RESUME_LIST_TIME` BEFORE INSERT ON `resume` FOR EACH ROW BEGIN
+	SET NEW.updTime = NEW.addTime;
+END;
+</code></pre></div></div>
 
 </div>
 <div class="previous-next-bar">
     
-    上一篇：<a href="/tech/Redis%E5%AE%89%E8%A3%85%E5%92%8C%E4%BD%BF%E7%94%A8/">Redis安装和使用</a><br/>
+    上一篇：<a href="/others/hikaru-no-go/">棋魂-日本精神</a><br/>
     
-    
-    下一篇：<a href="/works/%E9%87%87%E9%9B%86%E5%B7%A5%E5%85%B7/">采集工具</a>
     
 </div>
 
@@ -351,7 +343,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
 var gitalk = new Gitalk({
-    id: '2019-09-12 00:00:00 +0000',
+    id: '2020-02-14 00:00:00 +0000',
     clientID: '29e59d091901a686d79e',
     clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
     repo: 'heartroom.github.io',
