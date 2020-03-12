@@ -10,7 +10,7 @@
     <meta name="description" content="编程知识积累" />
     <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
     <meta name="author" content="long" />
-    <title>新型冠状病毒肺炎</title>
+    <title>微信支付遇到的问题</title>
     <link rel="stylesheet" href="/assets/css/styles.css?v=3.0">
     <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
     <script src="/assets/js/jquery.js"></script>
@@ -33,7 +33,7 @@
   </li>
   
   <li>
-    <a href="/tech" >
+    <a href="/tech" class="on">
     技术
     </a>
   </li>
@@ -45,7 +45,7 @@
   </li>
   
   <li>
-    <a href="/others" class="on">
+    <a href="/others" >
     其他
     </a>
   </li>
@@ -306,39 +306,51 @@
         </div>
         <div id="content">
           <div class="list-title">
-    新型冠状病毒肺炎
+    微信支付遇到的问题
 </div>
 <div class="article">
-    <!-- <h3>新型冠状病毒肺炎</h3> -->
+    <!-- <h3>微信支付遇到的问题</h3> -->
     <p>
-        <sapn>发布于：2020-02-08 00:00</sapn> &nbsp;
+        <sapn>发布于：2020-03-12 00:00</sapn> &nbsp;
     
         
         标签分类：
             
-                <a href="/tags/生活">生活</a>
+                <a href="/tags/微信支付">微信支付</a>
             
         
     </p>
-    <p>没想到会这么严重，目前官方34640确诊，723死亡。真实死亡人数还会更多。感染地区已经蔓延到全国。</p>
+    <p>支付需要定义4个常量</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WX_APPID
+WX_SECRET
+WX_MCHID
+WX_KEY
+</code></pre></div></div>
 
-<p>感染了只能靠自己的抵抗力。。。</p>
+<p>支付回调重写的NotifyProcess方法，需要写返回值。成功返回true，失败返回false。</p>
 
-<p>我在想能做些什么。</p>
+<p>返回false。微信还会再次回调。回调的间隔会越来越长。</p>
 
-<p>目前能做的就是少外出、外出戴口罩、勤洗手、勤通风。</p>
+<p>退款需要3个证书路径常量</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WEIXIN_CERT_SSLCERT_PATH
+WEIXIN_CERT_SSLKEY_PATH
+WEIXIN_CERT_CAINFO_PATH
+</code></pre></div></div>
 
-<p>从初一开始基本一直在家里。</p>
+<p>退款的路径要正确。</p>
 
-<p>哎，不知道这场疫情什么时候能结束。</p>
+<p>退款接口请求成功，并不代表真正退款了成功。我试过全部金额退款后，调用退款接口还能返回SUCCESS。真正的退款结果，好像需要设置回调URL。</p>
+
+<p>相关文档：
+https://www.cnblogs.com/yclimb/p/9934046.html</p>
+
+<p>https://pay.weixin.qq.com/wiki/doc/api/jsapi.php?chapter=9_4</p>
 
 </div>
 <div class="previous-next-bar">
     
-    上一篇：<a href="/others/the-end-of-the-fucking-world/">去他*的世界</a><br/>
+    上一篇：<a href="/others/hikaru-no-go/">棋魂-日本精神</a><br/>
     
-    
-    下一篇：<a href="/others/hikaru-no-go/">棋魂-日本精神</a>
     
 </div>
 
@@ -352,7 +364,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
 var gitalk = new Gitalk({
-    id: '2020-02-08 00:00:00 +0800',
+    id: '2020-03-12 00:00:00 +0800',
     clientID: '29e59d091901a686d79e',
     clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
     repo: 'heartroom.github.io',
