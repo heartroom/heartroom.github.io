@@ -10,7 +10,7 @@
     <meta name="description" content="编程知识积累" />
     <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
     <meta name="author" content="long" />
-    <title>开发计划想法</title>
+    <title>centos7 添加账号并赋予root权限</title>
     <link rel="stylesheet" href="/assets/css/styles.css?v=3.0">
     <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
     <script src="/assets/js/jquery.js"></script>
@@ -322,50 +322,64 @@
         </div>
         <div id="content">
           <div class="list-title">
-    开发计划想法
+    centos7 添加账号并赋予root权限
 </div>
 <div class="article">
-    <!-- <h3>开发计划想法</h3> -->
+    <!-- <h3>centos7 添加账号并赋予root权限</h3> -->
     <p>
-        <sapn>发布于：2020-01-22 09:10</sapn> &nbsp;
+        <sapn>发布于：2020-03-17 08:00</sapn> &nbsp;
     
         
         标签分类：
             
-                <a href="/tags/css">css</a>
+                <a href="/tags/服务器">服务器</a>
+            
+                <a href="/tags/linux">linux</a>
             
         
     </p>
-    <p>工具类应用</p>
+    <p>原文链接：https://www.cnblogs.com/catyuang/p/11510363.html</p>
 
-<p>tcp</p>
+<h1 id="root-用户操作">root 用户操作</h1>
+<p>$ 普通用户操作</p>
 
-<p>linux command</p>
+<p>创建用户</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># adduser USERNAME
+# passwd USERNAME (输入密码)
+</code></pre></div></div>
 
-<p>手机版postman?</p>
+<p>授权 root 权限
+sudo 命令的授权管理是在sudoers文件里的。查看 sudoers 位置：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># whereis sudoers
+</code></pre></div></div>
+<p>查看 sudoers 的读写权限：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># ls -l /etc/sudoers
+</code></pre></div></div>
+<p>如果 sudoers 没有写权限则添加：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># chmod -v u+w /etc/sudoers
+</code></pre></div></div>
+<p>修改 sudoers：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># vim /etc/sudoers
+</code></pre></div></div>
 
-<p>名人名言</p>
+<p>找到 ## Allow root to run any commands anywher ，修改如下：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>root ALL=(ALL) ALL
+USERNAME ALL=(ALL) ALL # 这个是新增的用户
+</code></pre></div></div>
 
-<p>社交聊天？</p>
+<p>回收 sudoers 写权限：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># chmod -v u-w /etc/sudoers
+</code></pre></div></div>
 
-<p>手机版爬虫？</p>
-
-<p>浏览器？</p>
-
-<p>某类信息的搜索引擎？</p>
-
-<p>数据库客户端(redis)？</p>
-
-<p>Docker</p>
-
+<p>使用$ sudo su命令，输入密码切换 root 用户</p>
 
 </div>
 <div class="previous-next-bar">
     
-    上一篇：<a href="/tech/php-create-image/">php生成图片问题</a><br/>
+    上一篇：<a href="/tech/nginx-php-fpm/">centos7 nginx php7环境搭建及权限配置</a><br/>
     
     
-    下一篇：<a href="/tech/shutcut/">快捷键</a>
+    下一篇：<a href="/tech/virtual-box-error/">virtual box启动错误：不能为虚拟电脑打开一个新任务</a>
     
 </div>
 
@@ -379,7 +393,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
 var gitalk = new Gitalk({
-    id: '2020-01-22 09:10:00 +0800',
+    id: '2020-03-17 08:00:00 +0800',
     clientID: '29e59d091901a686d79e',
     clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
     repo: 'heartroom.github.io',

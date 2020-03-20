@@ -10,7 +10,7 @@
     <meta name="description" content="编程知识积累" />
     <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
     <meta name="author" content="long" />
-    <title>开发计划想法</title>
+    <title>virtual box启动错误：不能为虚拟电脑打开一个新任务</title>
     <link rel="stylesheet" href="/assets/css/styles.css?v=3.0">
     <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
     <script src="/assets/js/jquery.js"></script>
@@ -322,50 +322,46 @@
         </div>
         <div id="content">
           <div class="list-title">
-    开发计划想法
+    virtual box启动错误：不能为虚拟电脑打开一个新任务
 </div>
 <div class="article">
-    <!-- <h3>开发计划想法</h3> -->
+    <!-- <h3>virtual box启动错误：不能为虚拟电脑打开一个新任务</h3> -->
     <p>
-        <sapn>发布于：2020-01-22 09:10</sapn> &nbsp;
+        <sapn>发布于：2020-03-20 08:00</sapn> &nbsp;
     
         
         标签分类：
             
-                <a href="/tags/css">css</a>
+                <a href="/tags/服务器">服务器</a>
+            
+                <a href="/tags/linux">linux</a>
             
         
     </p>
-    <p>工具类应用</p>
+    <p>启动虚拟机的时候提示错误：</p>
 
-<p>tcp</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The configuration constructor in main failed due to a COM error. Check the release log of the VM for further details. (VERR_MAIN_CONFIG_CONSTRUCTOR_COM_ERROR).
 
-<p>linux command</p>
 
-<p>手机版postman?</p>
+返回 代码: 
+E_FAIL (0x80004005)
+组件: 
+ConsoleWrap
+界面: 
+IConsole {872da645-4a9b-1727-bee2-5585105b9eed}
+</code></pre></div></div>
 
-<p>名人名言</p>
+<p>解决方法：</p>
 
-<p>社交聊天？</p>
+<p>到官网查看是否有最新的版本，更新一下版本。</p>
 
-<p>手机版爬虫？</p>
-
-<p>浏览器？</p>
-
-<p>某类信息的搜索引擎？</p>
-
-<p>数据库客户端(redis)？</p>
-
-<p>Docker</p>
-
+<p>https://www.virtualbox.org/wiki/Downloads</p>
 
 </div>
 <div class="previous-next-bar">
     
-    上一篇：<a href="/tech/php-create-image/">php生成图片问题</a><br/>
+    上一篇：<a href="/tech/adduser/">centos7 添加账号并赋予root权限</a><br/>
     
-    
-    下一篇：<a href="/tech/shutcut/">快捷键</a>
     
 </div>
 
@@ -379,7 +375,7 @@
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script>
 var gitalk = new Gitalk({
-    id: '2020-01-22 09:10:00 +0800',
+    id: '2020-03-20 08:00:00 +0800',
     clientID: '29e59d091901a686d79e',
     clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
     repo: 'heartroom.github.io',
