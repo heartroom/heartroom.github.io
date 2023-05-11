@@ -1,0 +1,599 @@
+<html lang="zh-CN">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta name="description" content="编程知识积累" />
+    <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
+    <meta name="author" content="long" />
+    <title>Git常用命令</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=3.0">
+    <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/common.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <div id="banner">
+          <span id="logo">心空间</span>
+          <span id="sub">we can assert that there is no passion,no great cause will not be completed.-Hegel</span>
+        </div>
+        <div id="menu">
+          <ul>
+  
+  <li>
+    <a href="/" >
+    首页
+    </a>
+  </li>
+  
+  <li>
+    <a href="/tech" class="on">
+    技术
+    </a>
+  </li>
+  
+  <li>
+    <a href="/works/" >
+    作品
+    </a>
+  </li>
+  
+  <li>
+    <a href="/others" >
+    其他
+    </a>
+  </li>
+  
+  <li>
+    <a href="/url" >
+    收藏夹
+    </a>
+  </li>
+  
+  <li>
+    <a href="/about" >
+    关于
+    </a>
+  </li>
+  
+</ul>
+        </div>
+      </div>
+      <div id="main">
+        <div id="sidebar">
+          <div class="me-info" >
+    <img src="/assets/images/logo.jpg"/>
+    <div class="detail">
+        Tech Stack: php,c#,java,html,css,js,object-c。
+    </div>
+</div>
+<div class="box">
+    <div class="title">News</div>
+    
+    <div class="item">
+        <a href="/tech/run-jekyll-in-docker/">How to use jekyll by docker</a>
+      </div>
+    
+    <div class="item">
+        <a href="/others/ai-time-is-comming/">AI Times is comming, To be, or not to be that is the question</a>
+      </div>
+    
+    <div class="item">
+        <a href="/others/i-am-back/">I am back</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/virtual-box-error/">virtual box启动错误：不能为虚拟电脑打开一个新任务</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/adduser/">centos7 添加账号并赋予root权限</a>
+      </div>
+    
+</div>
+<div class="box">
+    <div class="title">Memo</div>
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <div class="item">
+            <a href="/tech/php-Interview/">php面试总结</a>
+        </div>
+        
+    
+        
+    
+        
+    
+</div>
+<div class="box">
+    <div class="title">Tags</div>
+    <div class="tag">
+        
+        <a href="/tags/足球" >足球</a>
+        
+        <a href="/tags/linux" >linux</a>
+        
+        <a href="/tags/vim" >vim</a>
+        
+        <a href="/tags/php" >php</a>
+        
+        <a href="/tags/面试" >面试</a>
+        
+        <a href="/tags/redis" >redis</a>
+        
+        <a href="/tags/软件" >软件</a>
+        
+        <a href="/tags/APP" >APP</a>
+        
+        <a href="/tags/mysql" >mysql</a>
+        
+        <a href="/tags/读书笔记" >读书笔记</a>
+        
+        <a href="/tags/设计模式" >设计模式</a>
+        
+        <a href="/tags/游戏" >游戏</a>
+        
+        <a href="/tags/服务器" >服务器</a>
+        
+        <a href="/tags/css" >css</a>
+        
+        <a href="/tags/快捷键" >快捷键</a>
+        
+        <a href="/tags/ios" >ios</a>
+        
+        <a href="/tags/swift" >swift</a>
+        
+        <a href="/tags/mac" >mac</a>
+        
+        <a href="/tags/virtualbox" >virtualbox</a>
+        
+        <a href="/tags/jekyll" >jekyll</a>
+        
+        <a href="/tags/影评" >影评</a>
+        
+        <a href="/tags/生活" >生活</a>
+        
+        <a href="/tags/微信支付" >微信支付</a>
+        
+        <a href="/tags/life" >life</a>
+        
+    </div>
+</div>
+        </div>
+        <div id="content">
+          <div class="list-title">
+    Git常用命令
+</div>
+<div class="article">
+    <!-- <h3>Git常用命令</h3> -->
+    <p>
+        <sapn>发布于：2019-12-29 00:00</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/linux">linux</a>
+            
+        
+    </p>
+    <p>原文链接：<a href="https://www.jianshu.com/p/cdccfef91ae1" target="_blank">https://www.jianshu.com/p/cdccfef91ae1</a></p>
+
+<p><strong>git config</strong></p>
+
+<p>git config命令的作用是配置git的相关信息。</p>
+
+<p>设置用户名：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global user.name "name"
+</code></pre></div></div>
+<p>设置用户邮箱：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git config --global user.email "eamil"
+</code></pre></div></div>
+
+<p><strong>git init</strong></p>
+
+<p>git init命令的作用是在当前目录中初始化仓库，并且创建一个名为.git的子目录，该目录含有你初始化的Git仓库中所有的必须文件。</p>
+
+<p><strong>git status</strong></p>
+
+<p>git status命令的作用是显示文件状态，红色表示工作目录的文件被修改但还没有提交到暂存区，绿色表示已经提交到暂存区。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>以极简的方式显示文件状态：git status -s
+A：本地新增的文件（服务器上没有）
+C：文件的一个新拷贝
+D：本地删除的文件（服务器上还在）
+M：红色为修改过未被添加进暂存区的，绿色为已经添加进暂存区的
+R：文件名被修改
+T：文件的类型被修改
+U：文件没有被合并(你需要完成合并才能进行提交)
+X：未知状态(很可能是遇到git的bug了，你可以向git提交bug report)
+?：未被git进行管理，可以使用git add fileName把文件添加进来进行管理
+已经被修改但还没提交到暂存区的文件，可以通过命令git checkout -- fileName撤销更改。
+</code></pre></div></div>
+
+<p><strong>git add</strong></p>
+
+<p>git add命令的作用是将文件从工作目录添加至暂存区</p>
+
+<p>把所有修改的信息添加到暂存区：git add .</p>
+
+<p>已经被提交到暂存区的文件，可以通过命令git reset HEAD – fileName撤销提交。</p>
+
+<p><strong>git commit</strong></p>
+
+<p>git commit命令的作用是将暂存区的修改提交到本地仓库，同时会生成一个commmit-id。</p>
+
+<p>将暂存区的修改提交到本地仓库：git commit -m “message”，”message”是本次提交的简述内容，比如添加新功能或修复bug等</p>
+
+<p>将本地工作区中修改后还未使用git add .命令添加到暂存区中的文件也提交到本地仓库：git commit –a –m “message”，该命令相当于以下两条命令：</p>
+
+<p>git add . 把所有修改的信息添加到暂存区</p>
+
+<p>git commit -m “message”：将暂存区的修改提交到本地仓库</p>
+
+<p>修改最后一次提交（可用于漏掉某个文件的提交或重新编辑信息）：git commit –amend</p>
+
+<p><strong>git pull</strong></p>
+
+<p>git pull命令的作用是获取远程主机某个分支的更新，再与本地指定分支合并。git pull <远程主机名><远程分支名>:<本地分支名></本地分支名></远程分支名></远程主机名></p>
+
+<p>取回远程主机上的dev分支与本地的master分支合并：git pull origin dev:master</p>
+
+<p>取回远程主机上的dev分支与当前分支合并：git pull origin dev，该命令相当于以下两条命令：</p>
+
+<p>git fetch origin：获取远程主机上所有分支的更新，也可以用git fetch origin dev表示获取远程主机上dev分支的更新</p>
+
+<p>git merge origin/dev：当前分支合并dev分支</p>
+
+<p>注意：通过git fetch所取回的更新，在本地主机上需要用“远程主机名/分支名”的形式读取，比如origin主机的master分支，就需要用origin/master来读取。</p>
+
+<p><strong>git fetch</strong></p>
+
+<p>git fetch命令的作用是将远程主机上所有分支的更新取回本地，并记录在.git/FETCH_HEAD中</p>
+
+<p>获取远程主机上master分支的代码：git fetch origin</p>
+
+<p>在本地新建test分支，并将远程主机上master分支代码下载到本地test分支：git fetch origin master:test</p>
+
+<p><strong>git push</strong></p>
+
+<p>git push命令的作用是将本地分支的更新推送到远程主机上。</p>
+
+<p>将本地master分支的更新推送到远程主机上：git push origin master</p>
+
+<p>删除远程dev分支：git push origin –delete dev</p>
+
+<p><strong>git branch</strong></p>
+
+<p>git branch命令的作用主要是做分支管理操作。</p>
+
+<p>查看本地分支：git branch</p>
+
+<p>查看本地和远程分支：git branch -a</p>
+
+<p>新建名字为test的分支：git branch test</p>
+
+<p>将test分支名字改为dev：git branch -m test dev</p>
+
+<p>删除名字为dev的分支：git branch -d dev</p>
+
+<p>强制删除名字为dev的分支：git branch -D dev</p>
+
+<p>以上命令都是针对本地仓库操作，不影响远程仓库。</p>
+
+<p><strong>git checkout</strong></p>
+
+<p>git checkout命令最常用的情形是创建和切换分支以及撤销工作区的修改。</p>
+
+<p>切换到tag为v1.0.0时对应的代码：git checkout v1.0.0</p>
+
+<p>在tag为v1.0.0的基础上创建分支名为test的分支：git checkout -b test v1.0.0。该命令相当于以下两条命令：</p>
+
+<p>git branch test v1.0.0：在v1.0.0的基础上创建分支test</p>
+
+<p>git checkout v1.0.0：切换到分支test</p>
+
+<p>把当前目录所有修改的文件从HEAD中移除并且把它恢复成未修改时的样子：git checkout .</p>
+
+<p>撤销工作目录中文件的修改（文件有改动但还未git add）：git checkout – fileName，或者撤销所有修
+改使用git checkout .</p>
+
+<p><strong>git tag</strong></p>
+
+<p>git tag命令主要是对项目标签进行管理。</p>
+
+<p>查看已有的标签历史记录：git tag</p>
+
+<p>给当前最新的commit打上标签：git tag <标签的定义></标签的定义></p>
+
+<p>给对应的commit id打上标签：git tag <标签定义> <commit></commit></标签定义></p>
+
+<p>切换到tag：git checkout tagName (此时不在任何分支)</p>
+
+<p>推送tag到远程服务器：git push origin tagName</p>
+
+<p><strong>git log</strong></p>
+
+<p>git log命令的作用是查看历史提交记录</p>
+
+<p>查看历史提交记录：git log</p>
+
+<p>将每条历史提交记录展示成一行：git log –oneline</p>
+
+<p>查看某个人的提交记录：git log –author=”name”</p>
+
+<p>显示ASCII图形表示的分支合并历史：git log –graph</p>
+
+<p>显示前n条记录：git log -n</p>
+
+<p>显示某个日期之后的记录：git log –after=”2018-10-1”，包含2018年10月1号的记录</p>
+
+<p>显示某个日期之前的记录：git log –after=”2018-10-1，包含2018年10月1号的记录</p>
+
+<p>显示某两个日期之间的记录：git log –after=”2018-10-1” –before=”2018-10-7”</p>
+
+<p><strong>git reset</strong></p>
+
+<p>git reset命令的作用是撤销暂存区的修改或本地仓库的提交。</p>
+
+<p>撤销已经提交到暂存区的文件（已经git add但还未git commit）:</p>
+
+<p>撤销已经提交到暂存区的文件：git reset HEAD fileName或git reset –mixed HEAD fileName</p>
+
+<p>撤销所有提交：git reset HEAD .或git reset –mixed HEAD .</p>
+
+<p>对已经提交到本地仓库做撤销（已经git commit但还未git push）：</p>
+
+<p>将头指针恢复，已经提交到暂存区以及工作区的内容都不变：git reset –soft commit-id或git reset -soft HEAD~1</p>
+
+<p>将头指针恢复并且撤销暂存区的提交，但是工作区的内容不变：git reset –mixed commit-id或git reset –mixed HEAD~1</p>
+
+<p>将所有内容恢复到指定版本：git reset –hard commit-id或git reset –hard HEAD~1</p>
+
+<p>注意：commit-id可通过git log查看（取前六位即可），HEAD~1表示前一次提交（可以此类推）。</p>
+
+<p><strong>git remote</strong></p>
+
+<p>git remote命令的作用主要是管理远程仓库。</p>
+
+<p>查看关联的远程仓库的名称：git remote</p>
+
+<p>查看关联的远程仓库的详细信息：git remote -v</p>
+
+<p>添加远程仓库的关联：git remote add origin <远程仓库地址></远程仓库地址></p>
+
+<p>删除远程仓库的关联：git remote remove <远程仓库名称></远程仓库名称></p>
+
+<p>修改远程仓库的关联：git remote set-url origin <新的远程仓库地址></新的远程仓库地址></p>
+
+<p>更新远程仓库的分支：git remote update origin –prune</p>
+
+<p><strong>git merge</strong></p>
+
+<p>git merge命令的作用主要是分支的合并。</p>
+
+<p>1：如果当前是master分支，需要合并dev分支：git merge dev</p>
+
+<p><strong>git stash</strong></p>
+
+<p>git stash命令的作用主要如果当前分支所做的修改你还不想提交，但又需要切换到其他分支去查看，就可以使用git stash保存当前的修改。</p>
+
+<p>保存当前进度：git stash</p>
+
+<p>查看已经保存的历史记录：git stash list</p>
+
+<p>重新应用某个已经保存的进度，并且删除进度记录：git stash pop <历史进度id>，</历史进度id></p>
+
+<p>重新应用某个已经保存的进度，但不删除进度记录：git stash apply <历史进度id>，如果直接使用git 
+stash默认是使用最近的保存</历史进度id></p>
+
+<p>删除某个历史进度：git stash drop <历史进度id></历史进度id></p>
+
+<p>删除所有的历史进度：git stash clear</p>
+
+<p><strong>gitignore</strong></p>
+
+<p>.gitignore文件的作用是忽略那些没必要的提交，比如系统环境或程序运行时产生的文件。GitHub为我们提供了各个语言的gitignore合集github/gitignore，其中也包括Android.gitignore。</p>
+
+<p>将本地新建的项目提交到远程仓库的步骤</p>
+
+<p>初始化本地仓库git init</p>
+
+<p>将本地内容添加至git本地暂存区中git add .</p>
+
+<p>将暂存区添加至本地仓库中git commit -m “first commit”</p>
+
+<p>添加远程仓库路径git remote add origin https://github.com/gybguohao/test.git</p>
+
+<p>将本地内容push至远程仓库中git push -u origin master</p>
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/PHP%E5%B8%B8%E7%94%A8%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0/">Php常用数组函数</a><br/>
+    
+    
+    下一篇：<a href="/others/%E5%8F%8D%E8%84%86%E5%BC%B1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">反脆弱读书笔记</a>
+    
+</div>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2019-12-29 00:00:00 -0600',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
+
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      Designed & Powerd by long | Create by <a href="https://jekyllrb.com/" target="_blank">jekyll</a>.
+    </div>
+    <a id="btnTop" title="返回顶部">
+      <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-up" width="1em" height="1em" fill="white" aria-hidden="true"><path d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"></path></svg>
+    </a>
+  </body>
+</html>

@@ -1,0 +1,468 @@
+<html lang="zh-CN">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta name="description" content="编程知识积累" />
+    <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
+    <meta name="author" content="long" />
+    <title>访问者模式</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=3.0">
+    <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/common.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <div id="banner">
+          <span id="logo">心空间</span>
+          <span id="sub">we can assert that there is no passion,no great cause will not be completed.-Hegel</span>
+        </div>
+        <div id="menu">
+          <ul>
+  
+  <li>
+    <a href="/" >
+    首页
+    </a>
+  </li>
+  
+  <li>
+    <a href="/tech" class="on">
+    技术
+    </a>
+  </li>
+  
+  <li>
+    <a href="/works/" >
+    作品
+    </a>
+  </li>
+  
+  <li>
+    <a href="/others" >
+    其他
+    </a>
+  </li>
+  
+  <li>
+    <a href="/url" >
+    收藏夹
+    </a>
+  </li>
+  
+  <li>
+    <a href="/about" >
+    关于
+    </a>
+  </li>
+  
+</ul>
+        </div>
+      </div>
+      <div id="main">
+        <div id="sidebar">
+          <div class="me-info" >
+    <img src="/assets/images/logo.jpg"/>
+    <div class="detail">
+        Tech Stack: php,c#,java,html,css,js,object-c。
+    </div>
+</div>
+<div class="box">
+    <div class="title">News</div>
+    
+    <div class="item">
+        <a href="/tech/run-jekyll-in-docker/">How to use jekyll by docker</a>
+      </div>
+    
+    <div class="item">
+        <a href="/others/ai-time-is-comming/">AI Times is comming, To be, or not to be that is the question</a>
+      </div>
+    
+    <div class="item">
+        <a href="/others/i-am-back/">I am back</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/virtual-box-error/">virtual box启动错误：不能为虚拟电脑打开一个新任务</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/adduser/">centos7 添加账号并赋予root权限</a>
+      </div>
+    
+</div>
+<div class="box">
+    <div class="title">Memo</div>
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <div class="item">
+            <a href="/tech/php-Interview/">php面试总结</a>
+        </div>
+        
+    
+        
+    
+        
+    
+</div>
+<div class="box">
+    <div class="title">Tags</div>
+    <div class="tag">
+        
+        <a href="/tags/足球" >足球</a>
+        
+        <a href="/tags/linux" >linux</a>
+        
+        <a href="/tags/vim" >vim</a>
+        
+        <a href="/tags/php" >php</a>
+        
+        <a href="/tags/面试" >面试</a>
+        
+        <a href="/tags/redis" >redis</a>
+        
+        <a href="/tags/软件" >软件</a>
+        
+        <a href="/tags/APP" >APP</a>
+        
+        <a href="/tags/mysql" >mysql</a>
+        
+        <a href="/tags/读书笔记" >读书笔记</a>
+        
+        <a href="/tags/设计模式" >设计模式</a>
+        
+        <a href="/tags/游戏" >游戏</a>
+        
+        <a href="/tags/服务器" >服务器</a>
+        
+        <a href="/tags/css" >css</a>
+        
+        <a href="/tags/快捷键" >快捷键</a>
+        
+        <a href="/tags/ios" >ios</a>
+        
+        <a href="/tags/swift" >swift</a>
+        
+        <a href="/tags/mac" >mac</a>
+        
+        <a href="/tags/virtualbox" >virtualbox</a>
+        
+        <a href="/tags/jekyll" >jekyll</a>
+        
+        <a href="/tags/影评" >影评</a>
+        
+        <a href="/tags/生活" >生活</a>
+        
+        <a href="/tags/微信支付" >微信支付</a>
+        
+        <a href="/tags/life" >life</a>
+        
+    </div>
+</div>
+        </div>
+        <div id="content">
+          <div class="list-title">
+    访问者模式
+</div>
+<div class="article">
+    <!-- <h3>访问者模式</h3> -->
+    <p>
+        <sapn>发布于：2020-01-15 23:10</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/设计模式">设计模式</a>
+            
+        
+    </p>
+    <p>需要对一个对象结构中的对象进行很多不同的并且不相关的操作，而需要避免让这些操作“污染”这些对象的类时，可以采用访问者模式，被访问者把自己的数据提供给访问者(visitor)。在被访问的类里面添加一个对外提供接待访问者的接口。把处理从数据结构分离出来。</p>
+
+<p><img src="/assets/images/visitor.png" alt="访问者模式" title="访问者模式" /></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kd">interface</span> <span class="nc">Visitor</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementA</span><span class="p">(</span><span class="nv">$elementA</span><span class="p">);</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementB</span><span class="p">(</span><span class="nv">$elementB</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">abstract</span> <span class="kd">class</span> <span class="nc">Element</span>
+<span class="p">{</span>
+    <span class="k">abstract</span> <span class="k">public</span> <span class="k">function</span> <span class="nf">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">ElementA</span> <span class="k">extends</span> <span class="nx">Element</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">__construct</span><span class="p">(</span><span class="nv">$name</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">name</span> <span class="o">=</span> <span class="nv">$name</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="cd">/**
+     * @param $visitor Visitor
+     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$visitor</span><span class="o">-&gt;</span><span class="na">visitElementA</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">ElementB</span> <span class="k">extends</span> <span class="nx">Element</span>
+<span class="p">{</span>
+    <span class="cd">/**
+     * @param $visitor Visitor
+     */</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$visitor</span><span class="o">-&gt;</span><span class="na">visitElementB</span><span class="p">(</span><span class="nv">$this</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Visitor1</span> <span class="k">implements</span> <span class="nx">Visitor</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementA</span><span class="p">(</span><span class="nv">$elementA</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'Visitor1 访问了类型'</span><span class="o">.</span><span class="nv">$elementA</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementB</span><span class="p">(</span><span class="nv">$elementB</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'Visitor1 访问了类型'</span><span class="o">.</span><span class="nv">$elementB</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Visitor2</span> <span class="k">implements</span> <span class="nx">Visitor</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementA</span><span class="p">(</span><span class="nv">$elementA</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'Visitor2 访问了类型'</span><span class="o">.</span><span class="nv">$elementA</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">visitElementB</span><span class="p">(</span><span class="nv">$elementB</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">echo</span> <span class="s1">'Visitor2 访问了类型'</span><span class="o">.</span><span class="nv">$elementB</span><span class="o">-&gt;</span><span class="na">name</span><span class="o">.</span><span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">ObjectStructure</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$elementList</span> <span class="o">=</span> <span class="p">[];</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">add</span><span class="p">(</span><span class="nv">$element</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">elementList</span><span class="p">[]</span> <span class="o">=</span> <span class="nv">$element</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">foreach</span> <span class="p">(</span><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">elementList</span> <span class="k">as</span> <span class="nv">$item</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nv">$item</span><span class="o">-&gt;</span><span class="na">accept</span><span class="p">(</span><span class="nv">$visitor</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$visitor1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Visitor1</span><span class="p">();</span>
+<span class="nv">$visitor2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Visitor2</span><span class="p">();</span>
+
+<span class="nv">$structure</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ObjectStructure</span><span class="p">();</span>
+<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">ElementA</span><span class="p">(</span><span class="s1">'aaa'</span><span class="p">));</span>
+<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">ElementA</span><span class="p">(</span><span class="s1">'aaa2'</span><span class="p">));</span>
+<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">ElementA</span><span class="p">(</span><span class="s1">'bbb2'</span><span class="p">));</span>
+<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">add</span><span class="p">(</span><span class="k">new</span> <span class="nx">ElementA</span><span class="p">(</span><span class="s1">'ccc2'</span><span class="p">));</span>
+
+<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">accept</span><span class="p">(</span><span class="nv">$visitor1</span><span class="p">);</span>
+<span class="nv">$structure</span><span class="o">-&gt;</span><span class="na">accept</span><span class="p">(</span><span class="nv">$visitor2</span><span class="p">);</span>
+</code></pre></div></div>
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/iterator/">迭代器模式</a><br/>
+    
+    
+    下一篇：<a href="/tech/composite/">组合模式</a>
+    
+</div>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2020-01-15 23:10:00 -0600',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
+
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      Designed & Powerd by long | Create by <a href="https://jekyllrb.com/" target="_blank">jekyll</a>.
+    </div>
+    <a id="btnTop" title="返回顶部">
+      <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-up" width="1em" height="1em" fill="white" aria-hidden="true"><path d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"></path></svg>
+    </a>
+  </body>
+</html>

@@ -1,0 +1,528 @@
+<html lang="zh-CN">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta name="description" content="编程知识积累" />
+    <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
+    <meta name="author" content="long" />
+    <title>设计模式</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=3.0">
+    <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/common.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <div id="banner">
+          <span id="logo">心空间</span>
+          <span id="sub">we can assert that there is no passion,no great cause will not be completed.-Hegel</span>
+        </div>
+        <div id="menu">
+          <ul>
+  
+  <li>
+    <a href="/" >
+    首页
+    </a>
+  </li>
+  
+  <li>
+    <a href="/tech" class="on">
+    技术
+    </a>
+  </li>
+  
+  <li>
+    <a href="/works/" >
+    作品
+    </a>
+  </li>
+  
+  <li>
+    <a href="/others" >
+    其他
+    </a>
+  </li>
+  
+  <li>
+    <a href="/url" >
+    收藏夹
+    </a>
+  </li>
+  
+  <li>
+    <a href="/about" >
+    关于
+    </a>
+  </li>
+  
+</ul>
+        </div>
+      </div>
+      <div id="main">
+        <div id="sidebar">
+          <div class="me-info" >
+    <img src="/assets/images/logo.jpg"/>
+    <div class="detail">
+        Tech Stack: php,c#,java,html,css,js,object-c。
+    </div>
+</div>
+<div class="box">
+    <div class="title">News</div>
+    
+    <div class="item">
+        <a href="/tech/run-jekyll-in-docker/">How to use jekyll by docker</a>
+      </div>
+    
+    <div class="item">
+        <a href="/others/ai-time-is-comming/">AI Times is comming, To be, or not to be that is the question</a>
+      </div>
+    
+    <div class="item">
+        <a href="/others/i-am-back/">I am back</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/virtual-box-error/">virtual box启动错误：不能为虚拟电脑打开一个新任务</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/adduser/">centos7 添加账号并赋予root权限</a>
+      </div>
+    
+</div>
+<div class="box">
+    <div class="title">Memo</div>
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <div class="item">
+            <a href="/tech/php-Interview/">php面试总结</a>
+        </div>
+        
+    
+        
+    
+        
+    
+</div>
+<div class="box">
+    <div class="title">Tags</div>
+    <div class="tag">
+        
+        <a href="/tags/足球" >足球</a>
+        
+        <a href="/tags/linux" >linux</a>
+        
+        <a href="/tags/vim" >vim</a>
+        
+        <a href="/tags/php" >php</a>
+        
+        <a href="/tags/面试" >面试</a>
+        
+        <a href="/tags/redis" >redis</a>
+        
+        <a href="/tags/软件" >软件</a>
+        
+        <a href="/tags/APP" >APP</a>
+        
+        <a href="/tags/mysql" >mysql</a>
+        
+        <a href="/tags/读书笔记" >读书笔记</a>
+        
+        <a href="/tags/设计模式" >设计模式</a>
+        
+        <a href="/tags/游戏" >游戏</a>
+        
+        <a href="/tags/服务器" >服务器</a>
+        
+        <a href="/tags/css" >css</a>
+        
+        <a href="/tags/快捷键" >快捷键</a>
+        
+        <a href="/tags/ios" >ios</a>
+        
+        <a href="/tags/swift" >swift</a>
+        
+        <a href="/tags/mac" >mac</a>
+        
+        <a href="/tags/virtualbox" >virtualbox</a>
+        
+        <a href="/tags/jekyll" >jekyll</a>
+        
+        <a href="/tags/影评" >影评</a>
+        
+        <a href="/tags/生活" >生活</a>
+        
+        <a href="/tags/微信支付" >微信支付</a>
+        
+        <a href="/tags/life" >life</a>
+        
+    </div>
+</div>
+        </div>
+        <div id="content">
+          <div class="list-title">
+    设计模式
+</div>
+<div class="article">
+    <!-- <h3>设计模式</h3> -->
+    <p>
+        <sapn>发布于：2020-01-01 00:00</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/设计模式">设计模式</a>
+            
+        
+    </p>
+    <p>转载：<a href="https://www.cnblogs.com/adamjwh/p/9033545.html" target="_blank">https://www.cnblogs.com/adamjwh/p/9033545.html</a></p>
+
+<p>本篇主要介绍一下设计模式的基本原则，并给出目录。</p>
+
+<p>一、什么是设计模式
+    设计模式是一套被反复使用的、多数人知晓的、经过分类编目的、代码设计经验的总结。使用设计模式是为了重用代码、让代码更容易被他人理解、保证代码可靠性。</p>
+
+<p>二、设计模式的基本原则</p>
+
+<p>　　1. 单一职责原则（Single Responsibility Principle，SRP）
+       类的职责要单一。就一个类而言，应该仅有一个引起它变化的原因。
+       举个简单的例子，我们现在很多时候都直接使用手机拍照，但新闻、时尚杂志等的拍照使用的是相机。手机其实就相当于把相机耦合到手机中去了，而相机却只有拍照这一个职责。大多数时候，一件产品简单一些，职责单一一些，或许是更好的选择，这就是单一职责原则。
+       如果一个类承担的职责过多，就等于把这些职责耦合在一起，一个职责的变化可能会削弱或者抑制这个类完成其它职责的能力。</p>
+
+<p>　　2. 开闭原则（Open Close Principle，OCP）
+       软件实体可扩展，但不可修改。
+       就好比“一国两制”，一个国家有两种制度，没有修改原有的管理制度，而是增加了一种新的制度。正所谓对于扩展的开放的，对于更改是封闭的。</p>
+
+<p>　　3. 依赖倒转原则（Dependence Inversion Principle，DIP）
+       高层模块不应该依赖底层模块，两个都应该依赖抽象；抽象不应该依赖细节，细节应该依赖抽象。后面这句话换个方式说就是针对接口编程，不要对实现编程。
+       举个例子，就好比你的电脑，如果CPU、内存、硬盘都需要依赖具体的主板，主板坏了，所有的部件都不能用了，这显然是不合理的。
+       换句话说，即谁也不要依赖谁，除了约定的接口，大家都可以灵活自如。</p>
+
+<p>　　4. 里氏代换原则（Liskov Substitution Principle，LSP）
+       子类型必须能够替换掉它们的父类型。
+       举个例子，假如现在父类是鸟类，有个属性是可以飞，子类有个企鹅类，那么很明显企鹅类不能继承鸟类，因为鸟类有会飞的属性，如果子类企鹅类继承父类鸟类，则企鹅必须会飞。</p>
+
+<p>　　5. 接口隔离原则（Interface Segregation Principle，ISP）
+       接口尽量细化，同时接口中的方法尽量少。
+       举个设计模式之禅中的例子，星探找美女，星探要去找美女，他需要通过一个标准来找，比如可以分为外形美女和气质美女（即两个接口），这样不管以后是要气质美女还是外形美女，都可以保持接口的稳定。</p>
+
+<p>　　6. 迪米特法则（Law of Demeter，LoD）/最少知识原则（Least Knowledge Principle，LKP）
+       一个类对自己依赖的类知道的越少越好；一个对象应该对其他对象有最少的了解。
+       比如体育老师上课前清点人数，他让体育委员来替他清点人数，之后再由体育委员告知结果即可，老师本身并没有接触到其他学生。
+       换句话说，每个类都应该尽量降低成员的访问权限，强调了类之间的松耦合。</p>
+
+<p>　　7. 合成/聚合复用原则（Composite/Aggregate Reuse Principle，CARP）
+       尽量使用合成/聚合，尽量不要使用类继承。
+       合成表示一种强的“拥有”关系，体现了严格的部分与整体的关系，他们的生命周期相同；而聚合表示一种弱的“拥有”关系，体现的是A对象可以包含B对象，但B对象不是A对象的一部分。
+       这里再举个简单的例子，大雁与翅膀是合成关系；而每只大雁都属于一个雁群，即一个雁群可以有多只大雁，所以大雁和雁群是聚合关系。</p>
+
+<p>三、设计模式的类型
+       常见的设计模式有23种，这些模式可分为三大类：创建型模式、结构型模式、行为型模式。
+       创建型模式提供了一种在创建对象的同时隐藏创建逻辑的方式，而不是使用new运算符直接实例化对象；结构型模式主要关注类和对象的组合；行为型模式特别关注对象间的通信。
+       下面给出一个目录，至于扩展的新模式后续有机会会继续更新。</p>
+
+<p>创建型模式：</p>
+
+<ul>
+  <li>
+    <p>单例模式</p>
+  </li>
+  <li>
+    <p>工厂方法模式（工厂模式）</p>
+  </li>
+  <li>
+    <p>抽象工厂模式</p>
+  </li>
+  <li>
+    <p>建造者模式（生成器模式）</p>
+  </li>
+  <li>
+    <p>原型模式</p>
+  </li>
+</ul>
+
+<p>结构型模式：</p>
+
+<p>适配器模式（变压器模式/包装模式）</p>
+
+<p>桥接模式（桥梁模式）</p>
+
+<p>组合模式（合成模式/部分-整体模式）</p>
+
+<p>装饰模式（装饰器模式）</p>
+
+<p>外观模式（门面模式）</p>
+
+<p>享元模式</p>
+
+<p>代理模式（委托模式）</p>
+
+<p>行为型模式：</p>
+
+<p>观察者模式（发布订阅模式）</p>
+
+<p>模板方法模式</p>
+
+<p>命令模式</p>
+
+<p>状态模式</p>
+
+<p>职责链模式（责任链模式）</p>
+
+<p>解释器模式</p>
+
+<p>中介者模式</p>
+
+<p>访问者模式</p>
+
+<p>策略模式（政策模式）</p>
+
+<p>备忘录模式</p>
+
+<p>迭代器模式</p>
+
+<hr />
+
+<p>工厂模式</p>
+
+<p><strong>单例模式</strong></p>
+
+<p><strong>构造者模式</strong></p>
+
+<p><strong>原型模式</strong></p>
+
+<p><strong>适配器模式</strong></p>
+
+<p><strong>桥接模式</strong></p>
+
+<p><strong>过滤器模式</strong></p>
+
+<p><strong>组合模式</strong></p>
+
+<p><strong>装饰器模式</strong></p>
+
+<p><strong>外观模式</strong></p>
+
+<p><strong>享元模式</strong></p>
+
+<p><strong>代理模式</strong></p>
+
+<p><strong>责任链模式</strong></p>
+
+<p><strong>命令模式</strong></p>
+
+<p>解释器模式</p>
+
+<p><strong>迭代器模式</strong></p>
+
+<p><strong>中介模式</strong></p>
+
+<p>备忘录模式</p>
+
+<p><strong>观察者模式</strong></p>
+
+<p><strong>状态模式</strong></p>
+
+<p>空对象模式</p>
+
+<p><strong>策略模式</strong></p>
+
+<p>模板模式</p>
+
+<p><strong>访问者模式</strong></p>
+
+<p>服务定位器模式</p>
+
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/others/%E5%8F%8D%E8%84%86%E5%BC%B1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">反脆弱读书笔记</a><br/>
+    
+    
+    下一篇：<a href="/others/gamelife/">游戏人生</a>
+    
+</div>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2020-01-01 00:00:00 -0600',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
+
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      Designed & Powerd by long | Create by <a href="https://jekyllrb.com/" target="_blank">jekyll</a>.
+    </div>
+    <a id="btnTop" title="返回顶部">
+      <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-up" width="1em" height="1em" fill="white" aria-hidden="true"><path d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"></path></svg>
+    </a>
+  </body>
+</html>

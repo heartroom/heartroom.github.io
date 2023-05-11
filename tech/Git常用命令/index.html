@@ -1,0 +1,570 @@
+<html lang="zh-CN">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta name="description" content="编程知识积累" />
+    <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
+    <meta name="author" content="long" />
+    <title>Git常用命令</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=3.0">
+    <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/common.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <div id="banner">
+          <span id="logo">心空间</span>
+          <span id="sub">we can assert that there is no passion,no great cause will not be completed.-Hegel</span>
+        </div>
+        <div id="menu">
+          <ul>
+  
+  <li>
+    <a href="/" >
+    首页
+    </a>
+  </li>
+  
+  <li>
+    <a href="/tech" class="on">
+    技术
+    </a>
+  </li>
+  
+  <li>
+    <a href="/works/" >
+    作品
+    </a>
+  </li>
+  
+  <li>
+    <a href="/others" >
+    其他
+    </a>
+  </li>
+  
+  <li>
+    <a href="/about" >
+    关于
+    </a>
+  </li>
+  
+</ul>
+        </div>
+      </div>
+      <div id="main">
+        <div id="content">
+          <div class="list-title">
+    Git常用命令
+</div>
+<div class="article">
+    <!-- <h3>Git常用命令</h3> -->
+    <p>
+        <sapn>发布于：2019-12-29 00:00</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/linux">linux</a>
+            
+        
+    </p>
+    原文链接：<a href="https://www.jianshu.com/p/cdccfef91ae1" target="_blank">https://www.jianshu.com/p/cdccfef91ae1</a>
+
+<h3><code>git config</code></h3>
+<p>  <code>git config</code>命令的作用是配置git的相关信息。</p>
+<ol>
+<li>配置全局的用户名和邮箱，mac下可通过终端输入命令<code>cat ~/.gitconfig</code>查看配置信息。
+<ul>
+<li>设置用户名：<code>git config --global user.name "name"</code>
+</li>
+<li>设置用户邮箱：<code>git config --global user.email "eamil"</code>
+</li>
+</ul>
+</li>
+<li>针对单个仓库配置用户名和邮箱，mac下可通过终端进入到项目的根目录中，然后输入命令<code>cat .git/config</code>查看配置信息。
+<ul>
+<li>设置用户名：<code>git config user.name "name"</code>
+</li>
+<li>设置用户邮箱：<code>git config user.email "eamil"</code>
+</li>
+</ul>
+</li>
+<li>查看git所有配置信息：<code>git config --list</code>
+</li>
+<li>查看配置的用户名：<code>git config user.name</code>
+</li>
+<li>查看配置的用户邮箱：<code>git config user.email</code>
+</li>
+<li>定义命令别名：
+<ul>
+<li>
+<code>git config --global alias.st status</code>：则<code>git status</code>可用<code>git st</code>代替</li>
+<li>
+<code>git config --global alias.co checkout</code>：则<code>git checkout</code>可用<code>git co</code>代替</li>
+<li>
+<code>git config --global alias.ci commit</code>：则<code>git commit</code>可用<code>git ci</code>代替</li>
+<li>
+<code>git config --global alias.br branch</code>：则<code>git branch</code>可用<code>git br</code>代替</li>
+</ul>
+</li>
+</ol>
+<p>也可以自定义其他命令的别名，主要合理且方便操作即可。</p>
+<h3><code>git init</code></h3>
+<p>  <code>git init</code>命令的作用是在当前目录中初始化仓库，并且创建一个名为<code>.git</code>的子目录，该目录含有你初始化的<code>Git</code>仓库中所有的必须文件。</p>
+<h3><code>git status</code></h3>
+<p>  <code>git status</code>命令的作用是显示文件状态，红色表示工作目录的文件被修改但还没有提交到暂存区，绿色表示已经提交到暂存区。</p>
+<ol>
+<li>以极简的方式显示文件状态：<code>git status -s</code>
+<ul>
+<li>A：本地新增的文件（服务器上没有）</li>
+<li>C：文件的一个新拷贝</li>
+<li>D：本地删除的文件（服务器上还在）</li>
+<li>M：红色为修改过未被添加进暂存区的，绿色为已经添加进暂存区的</li>
+<li>R：文件名被修改</li>
+<li>T：文件的类型被修改</li>
+<li>U：文件没有被合并(你需要完成合并才能进行提交)</li>
+<li>X：未知状态(很可能是遇到git的bug了，你可以向git提交bug report)</li>
+<li>?：未被git进行管理，可以使用<code>git add fileName</code>把文件添加进来进行管理</li>
+</ul>
+</li>
+</ol>
+<p>已经被修改但还没提交到暂存区的文件，可以通过命令<code>git checkout -- fileName</code>撤销更改。</p>
+<h3><code>git add</code></h3>
+<p>  <code>git add</code>命令的作用是将文件从工作目录添加至暂存区</p>
+<ol>
+<li>把所有修改的信息添加到暂存区：<code>git add .</code>
+</li>
+<li>把所有跟踪文件中被修改过或已删除的文件信息添加至暂存区：<code>git add -u</code>或<code>git add --update</code>，它不会处理那些没有被跟踪的文件</li>
+<li>把所有跟踪文件中被修改过或已删除文件和所有未跟踪的文件信息添加到暂存区：<code>git add -A</code>或<code>git add --all</code>
+</li>
+</ol>
+<p>注意：<code>git add .</code>和<code>git add -A</code>在2.x版本中提交类型方面功能相同，但会因为所在目录不同产生差异：</p>
+<ul>
+<li>
+<code>git add .</code>只会提交当前目录或者子目录下相应文件。</li>
+<li>
+<code>git add -A</code>无论在哪个目录执行都会提交相应文件。</li>
+</ul>
+<p>已经被提交到暂存区的文件，可以通过命令<code>git reset HEAD -- fileName</code>撤销提交。</p>
+<h3><code>git commit</code></h3>
+<p>  <code>git commit</code>命令的作用是将暂存区的修改提交到本地仓库，同时会生成一个commmit-id。</p>
+<ol>
+<li>将暂存区的修改提交到本地仓库：<code>git commit -m "message"</code>，"message"是本次提交的简述内容，比如添加新功能或修复bug等</li>
+<li>将本地工作区中修改后还未使用<code>git add .</code>命令添加到暂存区中的文件也提交到本地仓库：<code>git commit –a –m "message"</code>，该命令相当于以下两条命令：
+<ul>
+<li>
+<code>git add .</code>：把所有修改的信息添加到暂存区</li>
+<li>
+<code>git add -m "message"</code>：将暂存区的修改提交到本地仓库</li>
+</ul>
+</li>
+<li>修改最后一次提交（可用于漏掉某个文件的提交或重新编辑信息）：<code>git commit --amend</code>
+</li>
+</ol>
+<h3><code>git pull</code></h3>
+<p>  <code>git pull</code>命令的作用是获取远程主机某个分支的更新，再与本地指定分支合并。<code>git pull &lt;远程主机名&gt;&lt;远程分支名&gt;:&lt;本地分支名&gt;</code></p>
+<ol>
+<li>取回远程主机上的dev分支与本地的master分支合并：<code>git pull origin dev:master</code>
+</li>
+<li>取回远程主机上的dev分支与当前分支合并：<code>git pull origin dev</code>，该命令相当于以下两条命令：
+<ul>
+<li>
+<code>git fetch origin</code>：获取远程主机上所有分支的更新，也可以用<code>git fetch origin dev</code>表示获取远程主机上dev分支的更新</li>
+<li>
+<code>git merge origin/dev</code>：当前分支合并dev分支</li>
+</ul>
+</li>
+</ol>
+<p>注意：通过<code>git fetch</code>所取回的更新，在本地主机上需要用“远程主机名/分支名”的形式读取，比如origin主机的master分支，就需要用<code>origin/master</code>来读取。</p>
+<h3><code>git fetch</code></h3>
+<p>  <code>git fetch</code>命令的作用是将远程主机上所有分支的更新取回本地，并记录在<code>.git/FETCH_HEAD</code>中</p>
+<ol>
+<li>获取远程主机上master分支的代码：<code>git fetch origin</code>
+</li>
+<li>在本地新建test分支，并将远程主机上master分支代码下载到本地test分支：<code>git fetch origin master:test</code>
+</li>
+</ol>
+<h3><code>git push</code></h3>
+<p>  <code>git push</code>命令的作用是将本地分支的更新推送到远程主机上。</p>
+<ol>
+<li>将本地<code>master</code>分支的更新推送到远程主机上：<code>git push origin master</code>
+</li>
+<li>删除远程dev分支：<code>git push origin --delete dev</code>
+</li>
+</ol>
+<h3><code>git branch</code></h3>
+<p>  <code>git branch</code>命令的作用主要是做分支管理操作。</p>
+<ol>
+<li>查看本地分支：<code>git branch</code>
+</li>
+<li>查看本地和远程分支：<code>git branch -a</code>
+</li>
+<li>新建名字为test的分支：<code>git branch test</code>
+</li>
+<li>将test分支名字改为dev：<code>git branch -m test dev</code>
+</li>
+<li>删除名字为dev的分支：<code>git branch -d dev</code>
+</li>
+<li>强制删除名字为dev的分支：<code>git branch -D dev</code>
+</li>
+</ol>
+<p>以上命令都是针对本地仓库操作，不影响远程仓库。</p>
+<h3><code>git checkout</code></h3>
+<p>  <code>git checkout</code>命令最常用的情形是创建和切换分支以及撤销工作区的修改。</p>
+<ol>
+<li>切换到tag为v1.0.0时对应的代码：<code>git checkout v1.0.0</code>
+</li>
+<li>在tag为v1.0.0的基础上创建分支名为test的分支：<code>git checkout -b test v1.0.0</code>。该命令相当于以下两条命令：
+<ul>
+<li>
+<code>git branch test v1.0.0</code>：在v1.0.0的基础上创建分支test</li>
+<li>
+<code>git checkout v1.0.0</code>：切换到分支test</li>
+</ul>
+</li>
+<li>把当前目录所有修改的文件从HEAD中移除并且把它恢复成未修改时的样子：<code>git checkout .</code>
+</li>
+<li>撤销工作目录中文件的修改（文件有改动但还未<code>git add</code>）：<code>git checkout -- fileName</code>，或者撤销所有修改使用<code>git checkout .</code>
+</li>
+</ol>
+<h3><code>git tag</code></h3>
+<p>  <code>git tag</code>命令主要是对项目标签进行管理。</p>
+<ol>
+<li>查看已有的标签历史记录：<code>git tag</code>
+</li>
+<li>给当前最新的commit打上标签：<code>git tag &lt;标签的定义&gt;</code>
+</li>
+<li>给对应的commit id打上标签：<code>git tag &lt;标签定义&gt; &lt;commit id&gt;</code>
+</li>
+</ol>
+<h3><code>git log</code></h3>
+<p>  <code>git log</code>命令的作用是查看历史提交记录</p>
+<ol>
+<li>查看历史提交记录：<code>git log</code>
+</li>
+<li>将每条历史提交记录展示成一行：<code>git log --oneline</code>
+</li>
+<li>查看某个人的提交记录：<code>git log --author="name"</code>
+</li>
+<li>显示ASCII图形表示的分支合并历史：<code>git log --graph</code>
+</li>
+<li>显示前n条记录：<code>git log -n</code>
+</li>
+<li>显示某个日期之后的记录：<code>git log --after="2018-10-1"</code>，包含2018年10月1号的记录</li>
+<li>显示某个日期之前的记录：<code>git log --after="2018-10-1</code>，包含2018年10月1号的记录</li>
+<li>显示某两个日期之间的记录：<code>git log --after="2018-10-1" --before="2018-10-7"</code>
+</li>
+</ol>
+<h3><code>git reset</code></h3>
+<p>  <code>git reset</code>命令的作用是撤销暂存区的修改或本地仓库的提交。</p>
+<ol>
+<li>撤销已经提交到暂存区的文件（已经<code>git add</code>但还未<code>git commit</code>）:
+<ul>
+<li>撤销已经提交到暂存区的文件：<code>git reset HEAD fileName</code>或<code>git reset --mixed HEAD fileName</code>
+</li>
+<li>撤销所有提交：<code>git reset HEAD .</code>或<code>git reset --mixed HEAD .</code>
+</li>
+</ul>
+</li>
+<li>对已经提交到本地仓库做撤销（已经<code>git commit</code>但还未<code>git push</code>）：
+<ul>
+<li>将头指针恢复，已经提交到暂存区以及工作区的内容都不变：<code>git reset --soft commit-id</code>或<code>git reset --soft HEAD~1</code>
+</li>
+<li>将头指针恢复并且撤销暂存区的提交，但是工作区的内容不变：<code>git reset --mixed commit-id</code>或<code>git reset --mixed HEAD~1</code>
+</li>
+<li>将所有内容恢复到指定版本：<code>git reset --hard commit-id</code>或<code>git reset --hard HEAD~1</code>
+</li>
+</ul>
+</li>
+</ol>
+<p>注意：<code>commit-id</code>可通过<code>git log</code>查看（取前六位即可），<code>HEAD~1</code>表示前一次提交（可以此类推）。</p>
+<h3><code>git remote</code></h3>
+<p>  <code>git remote</code>命令的作用主要是管理远程仓库。</p>
+<ol>
+<li>查看关联的远程仓库的名称：<code>git remote</code>
+</li>
+<li>查看关联的远程仓库的详细信息：<code>git remote -v</code>
+</li>
+<li>添加远程仓库的关联：<code>git remote add origin &lt;远程仓库地址&gt;</code>
+</li>
+<li>删除远程仓库的关联：<code>git remote remove &lt;远程仓库名称&gt;</code>
+</li>
+<li>修改远程仓库的关联：<code>git remote set-url origin &lt;新的远程仓库地址&gt;</code>
+</li>
+<li>更新远程仓库的分支：<code>git remote update origin --prune</code>
+</li>
+</ol>
+<h3><code>git merge</code></h3>
+<p>  <code>git merge</code>命令的作用主要是分支的合并。</p>
+<p>1：如果当前是master分支，需要合并dev分支：<code>git merge dev</code></p>
+<h3><code>git stash</code></h3>
+<p>  <code>git stash</code>命令的作用主要如果当前分支所做的修改你还不想提交，但又需要切换到其他分支去查看，就可以使用<code>git stash</code>保存当前的修改。</p>
+<ol>
+<li>保存当前进度：<code>git stash</code>
+</li>
+<li>查看已经保存的历史记录：<code>git stash list</code>
+</li>
+<li>重新应用某个已经保存的进度，并且删除进度记录：<code>git stash pop &lt;历史进度id&gt;</code>，</li>
+<li>重新应用某个已经保存的进度，但不删除进度记录：<code>git stash apply &lt;历史进度id&gt;</code>，如果直接使用<code>git stash</code>默认是使用最近的保存</li>
+<li>删除某个历史进度：<code>git stash drop &lt;历史进度id&gt;</code>
+</li>
+<li>删除所有的历史进度：<code>git stash clear</code>
+</li>
+</ol>
+<h3><code>gitignore</code></h3>
+<p>  <code>.gitignore</code>文件的作用是忽略那些没必要的提交，比如系统环境或程序运行时产生的文件。GitHub为我们提供了各个语言的gitignore合集<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fgithub%2Fgitignore" target="_blank">github/gitignore</a>，其中也包括<a href="https://links.jianshu.com/go?to=https%3A%2F%2Fgithub.com%2Fgithub%2Fgitignore%2Fblob%2Fmaster%2FAndroid.gitignore" target="_blank">Android.gitignore</a>。</p>
+<h3>将本地新建的项目提交到远程仓库的步骤</h3>
+<ul>
+<li>初始化本地仓库<code>git init</code>
+</li>
+<li>将本地内容添加至git本地暂存区中<code>git add .</code>
+</li>
+<li>将暂存区添加至本地仓库中<code>git commit -m "first commit"</code>
+</li>
+<li>添加远程仓库路径<code>git remote add origin https://github.com/gybguohao/test.git</code>
+</li>
+<li>将本地内容push至远程仓库中<code>git push -u origin master</code>
+</li>
+</ul>
+<h3>秘钥配置</h3>
+<ul>
+<li><p>mac终端查看是否已经存在SSH密钥：<code>cd ~/.ssh</code>，如果没有密钥则不会有此文件夹。</p></li>
+<li>
+<p>生成新的秘钥, 命令如下<br>
+<code>ssh-keygen -t rsa -C "eamil"</code><br>
+你需要把邮件地址换成你自己的邮件地址，然后一路回车，使用默认值即可，因为这个个Key仅仅用于简单的服务，所以也无需设置密码。</p>
+<p>完成后会有如下显示</p>
+<p>Enter passphrase (empty for no passphrase):<br>
+Enter same passphrase again:<br>
+Your identification has been saved in /Users/gybguohao/.ssh/id_rsa。<br>
+Your public key has been saved in /Users/gybguohao/.ssh/id_rsa.pub。<br>
+The key fingerprint is:<br>
+SHA256:5V6ZCQNS/3bVdl0GjGgQpWMFLazxTslnKbW2B1mbC+E eamil</p>
+<p>如果服务器端需要公钥,  直接复制.ssh目录下的id_rsa.pub内容即可。</p>
+</li>
+</ul>
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/PHP%E5%B8%B8%E7%94%A8%E6%95%B0%E7%BB%84%E5%87%BD%E6%95%B0/">Php常用数组函数</a><br/>
+    
+    
+    下一篇：<a href="/others/%E5%8F%8D%E8%84%86%E5%BC%B1%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">反脆弱读书笔记</a>
+    
+</div>
+
+        </div>
+        <div id="sidebar">
+          <div class="me-info" >
+    <img src="/assets/images/logo.jpg"/>
+    <div class="detail">
+        9年程序猿，会php，.net，java，html，css，js。
+        <p>QQ：1250307745</p>
+        <p>邮箱：<a title="电子邮件" href="mailto:long275@126.com" target="_blank">long275@126.com</a></p>
+    </div>
+</div>
+<div class="box">
+    <div class="title">最新</div>
+    
+    <div class="item">
+        <a href="/tech/php-create-image/">php生成图片问题</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/footer/">HTML+CSS底部footer两种固定方式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/template/">模板方法模式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/factory/">工厂模式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/interpret/">解释器模式</a>
+      </div>
+    
+</div>
+<div class="box">
+    <div class="title">备忘</div>
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <div class="item">
+            <a href="/tech/php-Interview/">php面试总结</a>
+        </div>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+<div class="box">
+    <div class="title">标签</div>
+    <div class="tag">
+        
+        <a href="/tags/网站" >网站</a>
+        
+        <a href="/tags/游戏" >游戏</a>
+        
+        <a href="/tags/足球" >足球</a>
+        
+        <a href="/tags/APP" >APP</a>
+        
+        <a href="/tags/软件" >软件</a>
+        
+        <a href="/tags/linux" >linux</a>
+        
+        <a href="/tags/vim" >vim</a>
+        
+        <a href="/tags/php" >php</a>
+        
+        <a href="/tags/面试" >面试</a>
+        
+        <a href="/tags/redis" >redis</a>
+        
+        <a href="/tags/mysql" >mysql</a>
+        
+        <a href="/tags/读书笔记" >读书笔记</a>
+        
+        <a href="/tags/设计模式" >设计模式</a>
+        
+        <a href="/tags/服务器" >服务器</a>
+        
+        <a href="/tags/css" >css</a>
+        
+    </div>
+</div>
+<div class="box">
+    <div class="title">小程序</div>
+    <img src="/assets/images/bigbug.png"/>
+</div>
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      Designed & Powerd by long | Create by <a href="https://jekyllrb.com/" target="_blank">jekyll</a>.
+    </div>
+    <a id="btnTop" title="返回顶部">
+      <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-up" width="1em" height="1em" fill="white" aria-hidden="true"><path d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"></path></svg>
+    </a>
+  </body>
+</html>

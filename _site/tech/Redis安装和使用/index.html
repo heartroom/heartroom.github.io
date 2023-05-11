@@ -1,0 +1,325 @@
+<html lang="zh-CN">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta name="description" content="编程知识积累" />
+    <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
+    <meta name="author" content="long" />
+    <title>Redis安装和使用</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=2.5">
+    <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/common.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <div id="banner">
+          <span id="logo">心空间</span>
+          <span id="sub">we can assert that there is no passion,no great cause will not be completed.-Hegel</span>
+        </div>
+        <div id="menu">
+          <ul>
+  
+  <li>
+    <a href="/" >
+    首页
+    </a>
+  </li>
+  
+  <li>
+    <a href="/tech" class="on">
+    技术
+    </a>
+  </li>
+  
+  <li>
+    <a href="/works/" >
+    作品
+    </a>
+  </li>
+  
+  <li>
+    <a href="/others" >
+    其他
+    </a>
+  </li>
+  
+  <li>
+    <a href="/about" >
+    关于
+    </a>
+  </li>
+  
+</ul>
+        </div>
+      </div>
+      <div id="main">
+        <div id="content">
+          <h3>Redis安装和使用</h3>
+<p>
+    <sapn>发布于：2019-09-12 00:00</sapn> &nbsp;
+
+    
+    标签分类：
+        
+            <a href="/tags/redis">redis</a>
+        
+    
+</p>
+<p>安装
+sudo apt-get install redis-server</p>
+
+<p>启动 redis
+$ redis-server</p>
+
+<p>查看 redis 的运行状态
+$ service redis-server status</p>
+
+<p>查看 redis 的是否启动
+redis-cli</p>
+
+<p>redis 配置文件redis.conf在/etc/redis目录下，可以通过修改文件修改 redis 的配置，或者通过命令修改。</p>
+
+<p>redis设置密码访问</p>
+
+<p>你的redis在真是环境中不可以谁想访问就可以访问，所以必须要设置密码</p>
+
+<p>设置密码的流程如下：</p>
+
+<p>vim /etc/redis.conf</p>
+
+<p>#requirepass foobared去掉注释，foobared改为自己的密码，我在这里改为</p>
+
+<p>requirepass 123456</p>
+
+<p>然后保存，重启服务</p>
+
+<p>cd /usr/local/bin</p>
+
+<p>./redis-server /etc/redis.conf</p>
+
+<p>测试连接：./redis-cli</p>
+
+<p>输入命令 会提示(error) NOAUTH Authentication required. 这是属于正常现象。</p>
+
+<p>我们输入 auth 123456#你刚才设置的密码</p>
+
+<p>在远程服务上执行命令</p>
+
+<p>redis-cli -h host -p port -a password</p>
+
+<p>yii链接redis</p>
+
+<p>composer require yiisoft/yii2-redis</p>
+
+<p>redis开启外网访问</p>
+
+<p>redis默认只允许本地访问，要使redis可以远程访问可以修改redis.conf</p>
+
+<p>打开redis.conf文件在NETWORK部分有说明</p>
+
+<p>解决办法：注释掉bind 127.0.0.1可以使所有的ip访问redis</p>
+
+<p>若是想指定多个ip访问，但并不是全部的ip访问，可以bind</p>
+
+<p>配置Yii2的redis扩展</p>
+
+<p>php composer.phar require –prefer-dist yiisoft/yii2-redis</p>
+
+<p>插入队列数据：</p>
+
+<p>$redis-&gt;lpush(queueName, data);</p>
+
+<p>读取队列数据(阻塞列表直到等待超时或发现可弹出元素为止)：</p>
+
+<p>ini_set(‘default_socket_timeout’, -1); //socket不超时</p>
+
+<p>$message = \Yii::$app-&gt;redis-&gt;brpop(queueName, 0);</p>
+
+
+        </div>
+        <div id="sidebar">
+          <div class="me-info" >
+    <img src="/assets/images/logo.jpg"/>
+    <div class="detail">
+        9年程序猿，会php，.net，java，html，css，js。
+        <p>QQ&nbsp;:&nbsp;1250307745</p>
+        <p>E-Mail&nbsp;:&nbsp;long275@126.com</p>
+    </div>
+</div>
+<div class="box">
+    <div class="title">最新</div>
+    
+    <div class="item">
+        <a href="/tech/responsibility/">责任链模式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/observer/">观察者模式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/prototype/">原型模式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/builder/">建造者模式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/%E8%BF%87%E6%BB%A4%E5%99%A8%E6%A8%A1%E5%BC%8F/">过滤器模式</a>
+      </div>
+    
+</div>
+<div class="box">
+    <div class="title">备忘</div>
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <div class="item">
+            <a href="/tech/PHP%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">Php面试总结</a>
+        </div>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+<div class="box">
+    <div class="title">标签</div>
+    <div class="tag">
+        
+        <a href="/tags/网站" >网站</a>
+        
+        <a href="/tags/游戏" >游戏</a>
+        
+        <a href="/tags/足球" >足球</a>
+        
+        <a href="/tags/APP" >APP</a>
+        
+        <a href="/tags/软件" >软件</a>
+        
+        <a href="/tags/linux" >linux</a>
+        
+        <a href="/tags/vim" >vim</a>
+        
+        <a href="/tags/php" >php</a>
+        
+        <a href="/tags/面试" >面试</a>
+        
+        <a href="/tags/redis" >redis</a>
+        
+        <a href="/tags/mysql" >mysql</a>
+        
+        <a href="/tags/读书笔记" >读书笔记</a>
+        
+        <a href="/tags/设计模式" >设计模式</a>
+        
+        <a href="/tags/服务器" >服务器</a>
+        
+    </div>
+</div>
+        </div>
+      </div>
+      <div id="footer">
+        Designed & Powerd by long | Create by jekyll.
+      </div>
+    </div>
+  </body>
+</html>

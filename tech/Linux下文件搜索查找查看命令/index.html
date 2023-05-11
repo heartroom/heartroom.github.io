@@ -1,0 +1,644 @@
+<html lang="zh-CN">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta name="description" content="编程知识积累" />
+    <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
+    <meta name="author" content="long" />
+    <title>Linux下文件搜索查找查看命令</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=3.0">
+    <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/common.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <div id="banner">
+          <span id="logo">心空间</span>
+          <span id="sub">we can assert that there is no passion,no great cause will not be completed.-Hegel</span>
+        </div>
+        <div id="menu">
+          <ul>
+  
+  <li>
+    <a href="/" >
+    首页
+    </a>
+  </li>
+  
+  <li>
+    <a href="/tech" class="on">
+    技术
+    </a>
+  </li>
+  
+  <li>
+    <a href="/works/" >
+    作品
+    </a>
+  </li>
+  
+  <li>
+    <a href="/others" >
+    其他
+    </a>
+  </li>
+  
+  <li>
+    <a href="/url" >
+    收藏夹
+    </a>
+  </li>
+  
+  <li>
+    <a href="/about" >
+    关于
+    </a>
+  </li>
+  
+</ul>
+        </div>
+      </div>
+      <div id="main">
+        <div id="sidebar">
+          <div class="me-info" >
+    <img src="/assets/images/logo.jpg"/>
+    <div class="detail">
+        Tech Stack: php,c#,java,html,css,js,object-c。
+    </div>
+</div>
+<div class="box">
+    <div class="title">News</div>
+    
+    <div class="item">
+        <a href="/tech/run-jekyll-in-docker/">How to use jekyll by docker</a>
+      </div>
+    
+    <div class="item">
+        <a href="/others/ai-time-is-comming/">AI Times is comming, To be, or not to be that is the question</a>
+      </div>
+    
+    <div class="item">
+        <a href="/others/i-am-back/">I am back</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/virtual-box-error/">virtual box启动错误：不能为虚拟电脑打开一个新任务</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/adduser/">centos7 添加账号并赋予root权限</a>
+      </div>
+    
+</div>
+<div class="box">
+    <div class="title">Memo</div>
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <div class="item">
+            <a href="/tech/php-Interview/">php面试总结</a>
+        </div>
+        
+    
+        
+    
+        
+    
+</div>
+<div class="box">
+    <div class="title">Tags</div>
+    <div class="tag">
+        
+        <a href="/tags/足球" >足球</a>
+        
+        <a href="/tags/linux" >linux</a>
+        
+        <a href="/tags/vim" >vim</a>
+        
+        <a href="/tags/php" >php</a>
+        
+        <a href="/tags/面试" >面试</a>
+        
+        <a href="/tags/redis" >redis</a>
+        
+        <a href="/tags/软件" >软件</a>
+        
+        <a href="/tags/APP" >APP</a>
+        
+        <a href="/tags/mysql" >mysql</a>
+        
+        <a href="/tags/读书笔记" >读书笔记</a>
+        
+        <a href="/tags/设计模式" >设计模式</a>
+        
+        <a href="/tags/游戏" >游戏</a>
+        
+        <a href="/tags/服务器" >服务器</a>
+        
+        <a href="/tags/css" >css</a>
+        
+        <a href="/tags/快捷键" >快捷键</a>
+        
+        <a href="/tags/ios" >ios</a>
+        
+        <a href="/tags/swift" >swift</a>
+        
+        <a href="/tags/mac" >mac</a>
+        
+        <a href="/tags/virtualbox" >virtualbox</a>
+        
+        <a href="/tags/jekyll" >jekyll</a>
+        
+        <a href="/tags/影评" >影评</a>
+        
+        <a href="/tags/生活" >生活</a>
+        
+        <a href="/tags/微信支付" >微信支付</a>
+        
+        <a href="/tags/life" >life</a>
+        
+    </div>
+</div>
+        </div>
+        <div id="content">
+          <div class="list-title">
+    Linux下文件搜索查找查看命令
+</div>
+<div class="article">
+    <!-- <h3>Linux下文件搜索查找查看命令</h3> -->
+    <p>
+        <sapn>发布于：2019-12-27 00:00</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/linux">linux</a>
+            
+        
+    </p>
+    <p>原文链接:<a href="https://blog.csdn.net/qq_33205418/article/details/83026617" target="_blank">https://blog.csdn.net/qq_33205418/article/details/83026617</a></p>
+
+<h4 id="目录">目录</h4>
+
+<p>1.<a href="#jump1">最强大的搜索命令：find 查找各种文件的命令</a>　</p>
+
+<p>2.<a href="#jump2">在文件资料中查找文件：locate</a>　　</p>
+
+<p>3.<a href="#jump3">搜索命令所在的目录及别名信息：which</a>　</p>
+
+<p>4.<a href="#jump4">搜索命令所在的目录及帮助文档路径：whereis</a></p>
+
+<p>5.<a href="#jump5">在文件中搜寻字符串匹配的行并输出：grep</a></p>
+
+<p>6.<a href="#jump6">分页显示一个文件或任何输出结果：more</a></p>
+
+<p>7.<a href="#jump7">分页显示一个文件并且可以回头：less</a></p>
+
+<p>8.<a href="#jump8">指定显示前多少行文件内容：head</a></p>
+
+<p>9.<a href="#jump9">指定显示文件后多少行内容：tail</a></p>
+
+<p>10.<a href="#jump10">查看一个文件：cat</a></p>
+
+<p>11.<a href="#jump11">查看文件内容多少字符多少行多少字节：wc</a></p>
+
+<p>12.<a href="#jump12">排序文件内容：sort</a></p>
+
+<ol>
+  <li><strong><span id="jump1">最强大的搜索命令：find 查找各种文件的命令</span></strong>
+    <ul>
+      <li>
+        <p><strong>根据 文件或目录名称 搜索</strong></p>
+
+        <p>find 【搜索目录】【-name或者-iname】【搜索字符】：-name和-iname的区别一个区分大小写，一个不区分大小写</p>
+
+        <p>eg：在/etc 目录下搜索名字为init的文件或目录</p>
+
+        <p>①、find /etc -name init (精准搜索，名字必须为 init 才能搜索的到)</p>
+
+        <p>②、find /etc -iname init (精准搜索，名字必须为 init或者有字母大写也能搜索的到)</p>
+
+        <p>③、find /etc -name *init (模糊搜索，以 init 结尾的文件或目录名)</p>
+
+        <p>④、find /etc -name init??? (模糊搜索，？ 表示单个字符，即搜索到 init___)</p>
+      </li>
+      <li>
+        <p><strong>根据 文件大小 搜索</strong></p>
+      </li>
+    </ul>
+
+    <p>eg：在根目录下查找大于 100M 的文件</p>
+
+    <p>find / -size +204800</p>
+
+    <p>这里 +n 表示大于，-n 表示小于，n 表示等于</p>
+
+    <p>1 数据块 == 512 字节 0.5KB，也就是1KB等于2数据块</p>
+
+    <p>100MB == 102400KB204800数据块</p>
+
+    <ul>
+      <li><strong>根据 所有者和所属组 搜索</strong></li>
+    </ul>
+
+    <p>①、在home目录下查询所属组为 root 的文件.</p>
+
+    <p>　　　　find /home -group root</p>
+
+    <p>②、在home目录下查询所有者为 root 的文件</p>
+
+    <p>　　　　find /home -user root</p>
+
+    <ul>
+      <li><strong>根据 时间属性 搜索</strong></li>
+    </ul>
+
+    <p>find 【路径】【选项】【时间】</p>
+
+    <p>选项有下面三种：-amin 访问时间 -cmin 文件属性被更改 -mmin 文件内容被修改时间：+n,-n,n分别表示超过n分钟，n分钟以内和n分钟</p>
+
+    <p>eg：在 /etc 目录下查找5 分钟内被修改过属性的文件和目录</p>
+
+    <p>　　　　find /etc -cmin -5</p>
+
+    <ul>
+      <li><strong>根据 文件类型或i节点 搜索</strong></li>
+    </ul>
+
+    <p>　-type 根据文件类型查找：</p>
+
+    <p>　f表示文件，d表示目录，l表示软链接</p>
+
+    <p>eg：查找 /home 目录下文件类型是目录的</p>
+
+    <p>find /home -type d</p>
+
+    <p>　　-inum 根据i节点查找</p>
+
+    <p>eg：查找 /tmp 目录下i节点为400342的文件或目录</p>
+
+    <p>　 find /tmp -inum 400342</p>
+
+    <ul>
+      <li><strong>组合条件 搜索</strong>　　</li>
+    </ul>
+
+    <p>　　这里有两个参数：</p>
+
+    <p>　　①、-a 表示两个条件同时满足（and）</p>
+
+    <p>　　②、-o 表示两个条件满足任意一个即可（or）</p>
+
+    <p>　　范例：查找/etc目录下大于80MB同时小于100MB的文件</p>
+
+    <p>　　find /etc -size +163840 -a -size -204800</p>
+  </li>
+  <li>
+    <p><strong><span id="jump2">在文件资料中查找文件：locate</span></strong></p>
+
+    <p>语法：locate【文件名】 -i 不区分大小写</p>
+
+    <p>注意：这里和 find 命令是有区别的，find是全盘检索，而locate 是在文件资料库中进行搜索。所以locate命令的执行要比find命令执行速度快很多。但是这里有个问题，文件资料库是需要不断更新的。我们新创建的文件如果不更新 文件资料库，使用 locate 是查找不到的。</p>
+
+    <p>updatedb 手动更新资料库，但是对于/tmp目录下的新建文件，是更新不到文件资料库的，因为/tmp目录不属于文件资料库的收录范围。</p>
+
+    <p>eg：locate hcf</p>
+
+    <p>在这里插入图片描述</p>
+  </li>
+  <li>
+    <p><strong><span id="jump3">搜索命令所在的目录及别名信息：which</span></strong></p>
+
+    <p>功能描述：搜索命令所在的目录及别名信息</p>
+
+    <p>　语法：which【命令】</p>
+
+    <p>　eg：which ls</p>
+
+    <p>　在这里插入图片描述</p>
+  </li>
+  <li>
+    <p><strong><span id="jump4">搜索命令所在的目录及帮助文档路径：whereis**</span></strong></p>
+
+    <p>功能描述：搜索命令所在的目录及帮助文档路径</p>
+
+    <p>　语法：whereis【命令】</p>
+
+    <p>　eg：whereis ls</p>
+
+    <p>　在这里插入图片描述</p>
+  </li>
+  <li>
+    <p><strong><span id="jump5">在文件中搜寻字符串匹配的行并输出：grep</span></strong></p>
+
+    <p>功能描述：在文件中搜寻字符串匹配的行并输出</p>
+
+    <p>　语法：grep -iv 【指定字符串】【文件】
+ 　　　　　　　　-i 不区分大小写
+ 　　　　　　　　-v 排除指定字符串
+               -n 显示行号</p>
+
+    <p>　eg：查找 /root/install.log 文件中包含 mysql 字符串的行，并输出
+ 　　　　grep mysql /root/install.log</p>
+
+    <p>本搜索工具，根据用户指定的模式，对目标文件逐行进行匹配检查，打印匹配到的行</p>
+
+    <p>grep是在文件中搜索匹配的字符串，是在文件中进行内容搜索，这个命令后面用到的比较多</p>
+  </li>
+  <li>
+    <p><strong><span id="jump6">分页显示一个文件或任何输出结果：more</span></strong></p>
+
+    <p>描述：</p>
+
+    <p>分页显示一个文件或任何输出结果</p>
+
+    <p>用于查看纯文本文件(较长的)格式</p>
+
+    <p>格式：</p>
+
+    <p>more[选项] 文件</p>
+  </li>
+  <li>
+    <p><strong><span id="jump7">分页显示一个文件并且可以回头：less</span></strong></p>
+
+    <p>less 与 more 类似，但使用 less 可以随意浏览文件，而 more 仅能向前移动，却不能向后移动，而且 less 在查看之前不会加载整个文件。</p>
+
+    <p>空格键：向下翻动一页</p>
+
+    <p>[PageDown]：向下翻动一页</p>
+
+    <p>[PageUp]：向上翻动一页</p>
+
+    <p>/字符串：向下查询“字符串”的功能</p>
+
+    <p>?字符串：向上查询“字符串”的功能</p>
+
+    <p>n：重复前一个查询</p>
+
+    <p>N：反向重复前一个查询</p>
+
+    <p>q：离开</p>
+  </li>
+  <li>
+    <p><strong><span id="jump8">显示前几行文件内容：head</span></strong></p>
+
+    <p>head[必要参数][选择参数][文件]</p>
+
+    <p>用于显示指定文件开始多少行内容</p>
+
+    <p>命令参数：</p>
+
+    <p>-n 10 显示前10行</p>
+
+    <p>-n -10 正常输出但不显示最后的10行</p>
+
+    <p>eg：显示new.txt的前两行内容</p>
+
+    <p>head -n 2 new.txt</p>
+
+    <p>head -2 new.txt</p>
+  </li>
+  <li>
+    <p><strong><span id="jump9">指定显示文件后多少行内容：tail</span></strong></p>
+
+    <p>tail[必要参数][选择参数][文件]</p>
+
+    <p>用于显示指定文件末尾多少行内容</p>
+
+    <p>命令参数：</p>
+
+    <p>-n 10 显示后面10行</p>
+
+    <p>-f 持续刷新显示的内容</p>
+
+    <p>eg：显示new.txt的末尾两行内容</p>
+
+    <p>tail -n 2 new.txt</p>
+
+    <p>tail -2 new.txt</p>
+
+    <p>eg：指定从第二行开始显示</p>
+
+    <p>tail -n +2 new.txt</p>
+  </li>
+  <li>
+    <p><strong><span id="jump10">查看一个文件：cat</span></strong></p>
+
+    <p>描述：一次显示整个文件内容</p>
+
+    <p>cat 命令 用于查看纯文本文件(较短)</p>
+
+    <p>　cat [选项] [文件]…</p>
+
+    <p>在这里插入图片描述</p>
+  </li>
+  <li>
+    <p><strong><span id="jump11">查看文件内容多少字符多少行多少字节：wc</span></strong></p>
+
+    <p>描述：wc 命令默认情况下会打印换行符数、单词数和字符数。</p>
+
+    <p>　用法：wc [选项] [文件]</p>
+
+    <p>在这里插入图片描述</p>
+  </li>
+  <li>
+    <p><strong><span id="jump12">排序文件内容：sort</span></strong></p>
+
+    <p>用法：sort [选项] [文件]
+　在这里插入图片描述</p>
+
+    <p>eg：sort -b h.txt</p>
+  </li>
+</ol>
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB-SQL%E6%94%BB%E5%87%BB-XSS-CSRF-DDos/">网络攻击（sql攻击、xss、csrf、ddos）</a><br/>
+    
+    
+    下一篇：<a href="/tech/PHP%E5%B8%B8%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%87%BD%E6%95%B0/">Php常用字符串函数</a>
+    
+</div>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2019-12-27 00:00:00 -0600',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
+
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      Designed & Powerd by long | Create by <a href="https://jekyllrb.com/" target="_blank">jekyll</a>.
+    </div>
+    <a id="btnTop" title="返回顶部">
+      <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-up" width="1em" height="1em" fill="white" aria-hidden="true"><path d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"></path></svg>
+    </a>
+  </body>
+</html>

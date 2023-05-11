@@ -1,0 +1,409 @@
+<html lang="zh-CN">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta name="description" content="编程知识积累" />
+    <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
+    <meta name="author" content="long" />
+    <title>ubuntu虚拟机扩容</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=3.0">
+    <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/common.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <div id="banner">
+          <span id="logo">心空间</span>
+          <span id="sub">we can assert that there is no passion,no great cause will not be completed.-Hegel</span>
+        </div>
+        <div id="menu">
+          <ul>
+  
+  <li>
+    <a href="/" >
+    首页
+    </a>
+  </li>
+  
+  <li>
+    <a href="/tech" class="on">
+    技术
+    </a>
+  </li>
+  
+  <li>
+    <a href="/works/" >
+    作品
+    </a>
+  </li>
+  
+  <li>
+    <a href="/others" >
+    其他
+    </a>
+  </li>
+  
+  <li>
+    <a href="/url" >
+    收藏夹
+    </a>
+  </li>
+  
+  <li>
+    <a href="/about" >
+    关于
+    </a>
+  </li>
+  
+</ul>
+        </div>
+      </div>
+      <div id="main">
+        <div id="sidebar">
+          <div class="me-info" >
+    <img src="/assets/images/logo.jpg"/>
+    <div class="detail">
+        Tech Stack: php,c#,java,html,css,js,object-c。
+    </div>
+</div>
+<div class="box">
+    <div class="title">News</div>
+    
+    <div class="item">
+        <a href="/tech/run-jekyll-in-docker/">How to use jekyll by docker</a>
+      </div>
+    
+    <div class="item">
+        <a href="/others/ai-time-is-comming/">AI Times is comming, To be, or not to be that is the question</a>
+      </div>
+    
+    <div class="item">
+        <a href="/others/i-am-back/">I am back</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/virtual-box-error/">virtual box启动错误：不能为虚拟电脑打开一个新任务</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/adduser/">centos7 添加账号并赋予root权限</a>
+      </div>
+    
+</div>
+<div class="box">
+    <div class="title">Memo</div>
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <div class="item">
+            <a href="/tech/php-Interview/">php面试总结</a>
+        </div>
+        
+    
+        
+    
+        
+    
+</div>
+<div class="box">
+    <div class="title">Tags</div>
+    <div class="tag">
+        
+        <a href="/tags/足球" >足球</a>
+        
+        <a href="/tags/linux" >linux</a>
+        
+        <a href="/tags/vim" >vim</a>
+        
+        <a href="/tags/php" >php</a>
+        
+        <a href="/tags/面试" >面试</a>
+        
+        <a href="/tags/redis" >redis</a>
+        
+        <a href="/tags/软件" >软件</a>
+        
+        <a href="/tags/APP" >APP</a>
+        
+        <a href="/tags/mysql" >mysql</a>
+        
+        <a href="/tags/读书笔记" >读书笔记</a>
+        
+        <a href="/tags/设计模式" >设计模式</a>
+        
+        <a href="/tags/游戏" >游戏</a>
+        
+        <a href="/tags/服务器" >服务器</a>
+        
+        <a href="/tags/css" >css</a>
+        
+        <a href="/tags/快捷键" >快捷键</a>
+        
+        <a href="/tags/ios" >ios</a>
+        
+        <a href="/tags/swift" >swift</a>
+        
+        <a href="/tags/mac" >mac</a>
+        
+        <a href="/tags/virtualbox" >virtualbox</a>
+        
+        <a href="/tags/jekyll" >jekyll</a>
+        
+        <a href="/tags/影评" >影评</a>
+        
+        <a href="/tags/生活" >生活</a>
+        
+        <a href="/tags/微信支付" >微信支付</a>
+        
+        <a href="/tags/life" >life</a>
+        
+    </div>
+</div>
+        </div>
+        <div id="content">
+          <div class="list-title">
+    ubuntu虚拟机扩容
+</div>
+<div class="article">
+    <!-- <h3>ubuntu虚拟机扩容</h3> -->
+    <p>
+        <sapn>发布于：2020-01-29 09:00</sapn> &nbsp;
+    
+        
+        标签分类：
+            
+                <a href="/tags/linux">linux</a>
+            
+                <a href="/tags/virtualbox">virtualbox</a>
+            
+        
+    </p>
+    <p>今天发现虚拟机的容量为0了，没办法之前给的容量太小了，所以需要扩容。</p>
+
+<p>网上找了很多文章，这篇最靠谱</p>
+
+<p><a href="https://www.cnblogs.com/z12568/p/10434930.html" target="_blank">Ubuntu14.0使用gparted调整分区大小</a></p>
+
+<p>基本按照这个文章写的顺序就可以了，但是其中的gparted版本太旧了，在ubuntu18.04.1上安装，会提示安装失败，e2fsck版本太低。</p>
+
+<p>需要到<a href="https://gparted.org/download.php" target="_blank">https://gparted.org/download.php</a> 这里下载最新的gparted版本。</p>
+
+<p>具体步骤和命令在这里简单记录一下</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 在windows命令行里输入下面的命令，先在windows端扩容
+cd C:\Program Files\Oracle\VirtualBox 
+
+VBoxManage list hdds
+
+// 0bd9c696-1735-48ce-81cf-04e9f64c2418 和 51200 根据自己机器和要扩容的大小 修改
+VBoxManage modifyhd 0bd9c696-1735-48ce-81cf-04e9f64c2418 --resize 51200
+
+下载最新的gparted
+
+https://sourceforge.net/projects/gparted/files/gparted-live-stable/1.1.0-1/gparted-live-1.1.0-1-i686.iso/download?use_mirror=jaist
+
+在虚拟机里选择ubuntu，点击“设置”，存储介质里，添加新的虚拟光驱（把下载的gparted ios文件加进来）。
+
+然后启动虚拟机
+
+在启动页面 按 esc。进入gparted安装页面
+
+一路按enter就行。
+
+然后正常会出现磁盘列表，在主分区上点击右键，选择resize。然后调整到最大，点击apply，然后等扩容完成后，点击Exit，reboot就行了。
+
+</code></pre></div></div>
+
+<p><img src="/assets/images/gparted.png" alt="gparted" title="gparted" /></p>
+
+</div>
+<div class="previous-next-bar">
+    
+    上一篇：<a href="/tech/mac/">mac键盘快捷键</a><br/>
+    
+    
+    下一篇：<a href="/tech/gitalk/">通过gitalk为博客添加评论功能</a>
+    
+</div>
+
+<!--   gitalk       -->
+
+<div class="comment">
+    <div id="gitalk-container"></div>
+<!-- <link rel="stylesheet" href="/assets/css/gitalk.css">
+<script src="/assets/js/gitalk.min.js"></script> -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var gitalk = new Gitalk({
+    id: '2020-01-29 09:00:00 -0600',
+    clientID: '29e59d091901a686d79e',
+    clientSecret: 'f771ab0b454e0fbd1f8356d3f400e571172118f3',
+    repo: 'heartroom.github.io',
+    owner: 'heartroom',
+    admin: ['heartroom'], 
+	labels: ['Gitalk'],
+})
+gitalk.render('gitalk-container')
+</script> 
+</div>
+
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      Designed & Powerd by long | Create by <a href="https://jekyllrb.com/" target="_blank">jekyll</a>.
+    </div>
+    <a id="btnTop" title="返回顶部">
+      <svg viewBox="0 0 1024 1024" focusable="false" class="" data-icon="caret-up" width="1em" height="1em" fill="white" aria-hidden="true"><path d="M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"></path></svg>
+    </a>
+  </body>
+</html>

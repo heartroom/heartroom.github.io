@@ -1,0 +1,404 @@
+<html lang="zh-CN">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta name="description" content="编程知识积累" />
+    <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
+    <meta name="author" content="long" />
+    <title>网络攻击（sql攻击、xss、csrf、ddos）</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=2.5">
+    <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/common.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <div id="banner">
+          <span id="logo">心空间</span>
+          <span id="sub">we can assert that there is no passion,no great cause will not be completed.-Hegel</span>
+        </div>
+        <div id="menu">
+          <ul>
+  
+  <li>
+    <a href="/" >
+    首页
+    </a>
+  </li>
+  
+  <li>
+    <a href="/tech" class="on">
+    技术
+    </a>
+  </li>
+  
+  <li>
+    <a href="/works/" >
+    作品
+    </a>
+  </li>
+  
+  <li>
+    <a href="/others" >
+    其他
+    </a>
+  </li>
+  
+  <li>
+    <a href="/about" >
+    关于
+    </a>
+  </li>
+  
+</ul>
+        </div>
+      </div>
+      <div id="main">
+        <div id="content">
+          <h3>网络攻击（sql攻击、xss、csrf、ddos）</h3>
+<p>
+    <sapn>发布于：2019-12-26 00:00</sapn> &nbsp;
+
+    
+    标签分类：
+        
+            <a href="/tags/php">php</a>
+        
+    
+</p>
+<p>原文链接:<a href="https://blog.csdn.net/beauty5188/article/details/79558809" target="_blank">https://blog.csdn.net/beauty5188/article/details/79558809</a></p>
+
+<p>1)   SQL注入攻击(SQLInjection)</p>
+
+<p>攻击方法:</p>
+
+<p>攻击者在HTTP请求中注入恶意SQL命令，服务器用请求参数构造数据库SQL命令时，恶意SQL被一起构造，并在数据库中执行。</p>
+
+<p>防范方法:</p>
+
+<p>1.      检查变量数据类型和格式，过滤特殊语句</p>
+
+<p>和防XSS攻击一样，请求参数消毒是一种比较简单粗暴又有效的手段。通过正则匹配，过滤请求数据中可能注入的SQL，如：drop table 等。</p>
+
+<p>2.      参数绑定</p>
+
+<p>使用预编译手段，绑定参数是最好的防SQL注入的方法。目前许多数据访问层框架，如Hibernate, TP, yii 等，都实现SQL预编译和参数绑定，攻击者的恶意SQL会被当做SQL测参数，而不是SQL命令被执行。</p>
+
+<p>注：PDO解释</p>
+
+<p>PHP 数据对象 （PDO） 扩展为PHP访问数据库定义了一个轻量级的一致接口。PDO 提供了一个数据访问抽象层，这意味着，不管使用哪种数据库，都可以用相同的函数（方法）来查询和获取数据。</p>
+
+<p>pdo的处理方法是在prepare函数调用时，将预处理好的sql模板（包含占位符）通过mysql协议传递给mysqlserver，告诉mysql server模板的结构以及语义。当调用execute时，将两个参数传递给mysql server。由mysql server完成变量的转移处理。将sql模板和变量分两次传递，即解决了sql注入问题。</p>
+
+<p>$pdo = new PDO(‘mysql:host=localhost;dbname=test’, $user, $pass);
+$stmt = $dbh-&gt;prepare(“INSERT INTO REGISTRY (name, value) VALUES (?, ?)”);//预处理
+$stmt-&gt;bindParam(1, $name);//参数绑定
+$stmt-&gt;bindParam(2, $value);
+ 
+// 插入一行
+$name = ‘one’;
+$value = 1;
+$stmt-&gt;execute();
+2)   跨网站脚本攻击(CrossSite Scripting, XSS)</p>
+
+<p>攻击方法:</p>
+
+<p>恶意攻击者通过往Web页面里插入恶意代码，当用户浏览该页之时，嵌入其中Web里面的代码会被执行，从而达到恶意攻击用户的特殊目的。这些恶意代码通常是JavaScript、HTML以及其他客户端脚本语言。</p>
+
+<p>常见的XSS攻击类型有两种。一种是反射型，攻击者诱使用户点击一个嵌入恶意脚本的连接，达到攻击的目的。攻击者还可以偷取用户cookie、密码等重要数据，进而伪造交易、盗窃用户财产、窃取情报。另一种是持久型XSS攻击，黑客提交含有恶意脚本的请求，保存在被攻击的WEB站点的数据库中，用户浏览网页时，恶意脚本被包含在正常页面中，达到攻击的目的。此种攻击经常使用在论坛、博客等Web应用中。</p>
+
+<p>防范方法：</p>
+
+<p>完善的过滤体系,永远不相信用户的输入。需要对用户的输入进行处理，只允许输入合法的值，其它值一概过滤掉。、</p>
+
+<p>1.       对某些html危险字符转义，如“&gt;”转义为“&amp;gt”、“&lt;”转义为“&amp;lt”</p>
+
+<p>比如用户输入：<script>window.location.href=”http://www.baidu.com”;</script>，保存后最终存储的会是：&lt;script&gt;window.location.href="http://www.baidu.com"&lt;/script&gt;在展现时浏览器会对这些字符转换成文本内容显示，而不是一段可执行的代码。</p>
+
+<p>2.      HttpOnly</p>
+
+<p>防止XSS攻击者窃取Cookie。</p>
+
+<p>3)   跨网站请求伪造攻击(CrossSite Request Forgeries, CSRF)</p>
+
+<p>区别: XSS攻击站点内的信任用户，而CSRF则通过伪装来自受信任用户的请求来利用受信任的网站.攻击者盗用了你的身份，以你的名义发送恶意请求。CSRF能够做的事情包括：以你名义发送邮件，发消息，盗取你的账号，发表评论，甚至于购买商品，虚拟货币转账……造成的问题包括：个人隐私泄露以及财产安全。</p>
+
+<p>攻击方法:</p>
+
+<p>CSRF的主要手法是利用跨站请求，在用户不知情的情况下，以用户的身份伪造请求。其核心是利用了浏览器Cookie或服务器Session策略，盗取用户身份。</p>
+
+<p>攻击者伪造目标用户的HTTP请求，然后此请求发送到有CSRF漏洞的网站，网站执行此请求后，引发跨站请求伪造攻击。攻击者利用隐蔽的HTTP连接，让目标用户在不注意的情况下单击这个链接，由于是用户自己点击的，而他又是合法用户拥有合法权限，所以目标用户能够在网站内执行特定的HTTP链接，从而达到攻击者的目的。</p>
+
+<p>防范方法：（识别请求者身份）</p>
+
+<p>1、表单Token</p>
+
+<p>   CSRF是一个伪造用户请求的操作，所以需要构造用户请求的所有参数才可以。表单Token通过在请求参数中增加随机数的办法来阻止攻击者获取所有请求参数：在页面表单中增加一个随机数作为Token，每次响应页面的Token都不相同，从正常页面提交的请求会包含该Token值，而伪造的请求无法获得该值，服务器检查请求参数中Token的值是否存在且正确以确定提交者是否合法。</p>
+
+<p>2、检查内置的隐藏变量</p>
+
+<p>注：Token解释（详见csnd博客）</p>
+
+<p>Token，就是令牌，最大的特点就是随机性，不可预测。一般黑客或软件无法猜测出来。Token一般用在两个地方——防止表单重复提交、anti csrf攻击（跨站点请求伪造）。</p>
+
+<p>两者在原理上都是通过sessiontoken来实现的。当客户端请求页面时，服务器会生成一个随机数Token，并且将Token放置到session当中，然后将Token发给客户端（一般通过构造hidden表单）。下次客户端提交请求时，Token会随着表单一起提交到服务器端。
+然后，如果应用于“anti csrf攻击”，则服务器端会对Token值进行验证，判断是否和session中的Token值相等，若相等，则可以证明请求有效，不是伪造的。
+不过，如果应用于“防止表单重复提交”，服务器端第一次验证相同过后，会将session中的Token值更新下，若用户重复提交，第二次的验证判断将失败，因为用户提交的表单中的Token没变，但服务器端session中Token已经改变了。</p>
+
+<p>上面的session应用相对安全，但也叫繁琐，同时当多页面多请求时，必须采用多Token同时生成的方法，这样占用更多资源，执行效率会降低。因此，也可用cookie存储验证信息的方法来代替session Token。比如，应对“重复提交”时，当第一次提交后便把已经提交的信息写到cookie中，当第二次提交时，由于cookie已经有提交记录，因此第二次提交会失败。
+不过，cookie存储有个致命弱点，如果cookie被劫持（xss攻击很容易得到用户cookie），那么又一次gameover。黑客将直接实现csrf攻击。</p>
+
+<p>4)   Session固定攻击(SessionFixation)</p>
+
+<p>攻击方法:</p>
+
+<p>攻击者预先设定session id，让合法用户使用这个sessionid来访问被攻击的应用程序，一旦用户的会话ID被成功固定，攻击者就可以通过此session id来冒充用户访问应用程序。</p>
+
+<p>防范方法：
+1.定期更改session id</p>
+
+<p>2.更改session的名称</p>
+
+<p>3.关闭透明化sessionid</p>
+
+<p>4.只从cookie检查session id</p>
+
+<p>5.使用URL传递隐藏参数</p>
+
+<p>5)    Cookie攻击</p>
+
+<p>攻击方法:</p>
+
+<p>通过Java Script非常容易访问到当前网站的cookie。你可以打开任何网站，然后在浏览器地址栏中输  入：javascript:alert(doucment.cookie),立刻就可以看到当前站点的cookie（如果有的话）。攻击者可以利用这个特性来取得你的关键信息。例如，和XSS攻击相配合，攻击者在你的浏览器上执行特定的Java Script脚本，取得你的cookie。假设这个网站仅依赖cookie来验证用户身份，那么攻击者就可以假冒你的身份来做一些事情。
+现在多数浏览器都支持在cookie上打上HttpOnly的标记,凡有这个标志的cookie就无法通过Java Script来取得,如果能在关键cookie上打上这个标记，就会大大增强cookie的安全性</p>
+
+<p>防范方法：</p>
+
+<ol>
+  <li>不要在Cookie中保存敏感信息</li>
+  <li>不要在Cookie中保存没有经过加密的或者容易被解密的敏感信息</li>
+  <li>对从客户端取得的Cookie信息进行严格校验</li>
+</ol>
+
+<p>注：Cookie HttpOnly</p>
+
+<p>Cookie都是通过document对象获取的，我们如果能让cookie在浏览器中不可见就可以了，那HttpOnly就是在设置cookie时接受这样一个参数，一旦被设置，在浏览器的document对象中就看不到cookie了。而浏览器在浏览网页的时候不受任何影响。</p>
+
+<p>6)   Session劫持攻击(SessionHijacking)</p>
+
+<p>攻击方法:</p>
+
+<p>攻击者利用各种手段来获取目标用户的session id。一旦获取到session id，那么攻击者可以利用目标用户的身份来登录网站，获取目标用户的操作权限。</p>
+
+<p>防范方法：
+1.定期更改session id
+2.更改session的名称
+3.关闭透明化session id
+4.设置HttpOnly。通过设置Cookie的HttpOnly为true，可以防止客户端脚本访问这个Cookie，从而有效的防止XSS攻击。</p>
+
+<p>7)   文件上传漏洞攻击(FileUpload Attack)</p>
+
+<p>攻击方法:</p>
+
+<p>攻击者利用程序缺陷绕过系统对文件的验证与处理策略将恶意代码上传到服务器并获得执行服务器端命令的能力。</p>
+
+<p>防范方法：
+1.文件上传的目录设置为不可执行；
+2.判断文件类型，设置白名单。对于图片的处理，可以使用压缩函数或者resize函数，在处理图片的同时破坏图片中可能包含的HTML代码；
+3.使用随机数改写文件名和文件路径：一个是上传后无法访问；再来就是像shell、.php 、.rar和crossdomain.xml这种文件，都将因为重命名而无法攻击；</p>
+
+<p>8)       DDos</p>
+
+<p>DDoS攻击通过大量合法的请求占用大量网络资源，以达到瘫痪网络的目的。打开IIS，服务器带宽使用流量马上上升，与被DDOS攻击相反，DDOS攻击是不断接收到大量的数据，Php ddos则是对外发送大量的数据包，造成服务器网络堵塞，此时服务器可能会掉包严重或者表现为经常性的断线。</p>
+
+<p>防范方法：</p>
+
+<p>升级系统，及时安装补丁；查找系统漏洞；优化系统资源，提高web负载能力；关闭不必要的服务与端口；限制特定的流量；</p>
+
+
+        </div>
+        <div id="sidebar">
+          <div class="me-info" >
+    <img src="/assets/images/logo.jpg"/>
+    <div class="detail">
+        9年程序猿，会php，.net，java，html，css，js。
+        <p>QQ&nbsp;:&nbsp;1250307745</p>
+        <p>E-Mail&nbsp;:&nbsp;long275@126.com</p>
+    </div>
+</div>
+<div class="box">
+    <div class="title">最新</div>
+    
+    <div class="item">
+        <a href="/tech/responsibility/">责任链模式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/observer/">观察者模式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/prototype/">原型模式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/builder/">建造者模式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/%E8%BF%87%E6%BB%A4%E5%99%A8%E6%A8%A1%E5%BC%8F/">过滤器模式</a>
+      </div>
+    
+</div>
+<div class="box">
+    <div class="title">备忘</div>
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <div class="item">
+            <a href="/tech/PHP%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">Php面试总结</a>
+        </div>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+<div class="box">
+    <div class="title">标签</div>
+    <div class="tag">
+        
+        <a href="/tags/网站" >网站</a>
+        
+        <a href="/tags/游戏" >游戏</a>
+        
+        <a href="/tags/足球" >足球</a>
+        
+        <a href="/tags/APP" >APP</a>
+        
+        <a href="/tags/软件" >软件</a>
+        
+        <a href="/tags/linux" >linux</a>
+        
+        <a href="/tags/vim" >vim</a>
+        
+        <a href="/tags/php" >php</a>
+        
+        <a href="/tags/面试" >面试</a>
+        
+        <a href="/tags/redis" >redis</a>
+        
+        <a href="/tags/mysql" >mysql</a>
+        
+        <a href="/tags/读书笔记" >读书笔记</a>
+        
+        <a href="/tags/设计模式" >设计模式</a>
+        
+        <a href="/tags/服务器" >服务器</a>
+        
+    </div>
+</div>
+        </div>
+      </div>
+      <div id="footer">
+        Designed & Powerd by long | Create by jekyll.
+      </div>
+    </div>
+  </body>
+</html>

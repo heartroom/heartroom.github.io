@@ -1,0 +1,314 @@
+<html lang="zh-CN">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="pragma" content="no-cache"> 
+    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate"> 
+    <meta http-equiv="expires" content="Wed, 26 Feb 1997 08:21:57 GMT">
+    <meta name="description" content="编程知识积累" />
+    <meta name="keywords" content="javascript,css,html,php,linux,c#,android,ios" />
+    <meta name="author" content="long" />
+    <title>策略模式</title>
+    <link rel="stylesheet" href="/assets/css/styles.css?v=2.5">
+    <link type="image/x-icon" rel="shortcut icon" href="/assets/images/favicon.ico" />
+    <script src="/assets/js/jquery.js"></script>
+    <script src="/assets/js/common.js"></script>
+  </head>
+  <body>
+    <div id="wrap">
+      <div id="header">
+        <div id="banner">
+          <span id="logo">心空间</span>
+          <span id="sub">we can assert that there is no passion,no great cause will not be completed.-Hegel</span>
+        </div>
+        <div id="menu">
+          <ul>
+  
+  <li>
+    <a href="/" >
+    首页
+    </a>
+  </li>
+  
+  <li>
+    <a href="/tech" class="on">
+    技术
+    </a>
+  </li>
+  
+  <li>
+    <a href="/works/" >
+    作品
+    </a>
+  </li>
+  
+  <li>
+    <a href="/others" >
+    其他
+    </a>
+  </li>
+  
+  <li>
+    <a href="/about" >
+    关于
+    </a>
+  </li>
+  
+</ul>
+        </div>
+      </div>
+      <div id="main">
+        <div id="content">
+          <h3>策略模式</h3>
+<p>
+    <sapn>发布于：2020-01-09 00:00</sapn> &nbsp;
+
+    
+    标签分类：
+        
+            <a href="/tags/设计模式">设计模式</a>
+        
+    
+</p>
+<p>策略模式就是把一组算法封装成一个一个的类，实现相同的接口，更灵活的 调用不同的策略算法。各个算法的修改互不影响。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?php</span>
+<span class="kd">class</span> <span class="nc">Context</span>
+<span class="p">{</span>
+    <span class="k">private</span> <span class="nv">$strategy</span><span class="p">;</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">setStrategy</span><span class="p">(</span><span class="nv">$strategy</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">strategy</span> <span class="o">=</span> <span class="nv">$strategy</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="nv">$param</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">strategy</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">(</span><span class="nv">$param</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">create</span><span class="p">(</span><span class="nv">$typeName</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">strategy</span> <span class="o">=</span> <span class="k">new</span> <span class="nv">$typeName</span><span class="p">();</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">strategy</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">interface</span> <span class="nc">Strategy</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="nv">$param</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">StrategyAdd</span> <span class="k">implements</span> <span class="nx">Strategy</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="nv">$param</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">"加法操作 "</span> <span class="o">.</span> <span class="p">(</span><span class="nv">$param</span><span class="p">[</span><span class="s1">'a'</span><span class="p">]</span><span class="o">+</span><span class="nv">$param</span><span class="p">[</span><span class="s1">'b'</span><span class="p">])</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">StrategySubstract</span> <span class="k">implements</span> <span class="nx">Strategy</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="nv">$param</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">"减法操作 "</span> <span class="o">.</span> <span class="p">(</span><span class="nv">$param</span><span class="p">[</span><span class="s1">'a'</span><span class="p">]</span><span class="o">-</span><span class="nv">$param</span><span class="p">[</span><span class="s1">'b'</span><span class="p">])</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">StrategyMultiply</span> <span class="k">implements</span> <span class="nx">Strategy</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">run</span><span class="p">(</span><span class="nv">$param</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">"乘法操作 "</span> <span class="o">.</span> <span class="p">(</span><span class="nv">$param</span><span class="p">[</span><span class="s1">'a'</span><span class="p">]</span><span class="o">*</span><span class="nv">$param</span><span class="p">[</span><span class="s1">'b'</span><span class="p">])</span> <span class="o">.</span> <span class="nx">PHP_EOL</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nv">$context</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Context</span><span class="p">();</span>
+<span class="nv">$context</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s1">'StrategyMultiply'</span><span class="p">);</span>
+<span class="nv">$context</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">([</span><span class="s1">'a'</span><span class="o">=&gt;</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'b'</span><span class="o">=&gt;</span><span class="mi">3</span><span class="p">]);</span>
+
+<span class="nv">$context</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s1">'StrategyAdd'</span><span class="p">);</span>
+<span class="nv">$context</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">([</span><span class="s1">'a'</span><span class="o">=&gt;</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'b'</span><span class="o">=&gt;</span><span class="mi">3</span><span class="p">]);</span>
+
+<span class="nv">$context</span><span class="o">-&gt;</span><span class="na">create</span><span class="p">(</span><span class="s1">'StrategySubstract'</span><span class="p">);</span>
+<span class="nv">$context</span><span class="o">-&gt;</span><span class="na">run</span><span class="p">([</span><span class="s1">'a'</span><span class="o">=&gt;</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'b'</span><span class="o">=&gt;</span><span class="mi">3</span><span class="p">]);</span>
+</code></pre></div></div>
+
+
+        </div>
+        <div id="sidebar">
+          <div class="me-info" >
+    <img src="/assets/images/logo.jpg"/>
+    <div class="detail">
+        9年程序猿，会php，.net，java，html，css，js。
+        <p>QQ&nbsp;:&nbsp;1250307745</p>
+        <p>E-Mail&nbsp;:&nbsp;long275@126.com</p>
+    </div>
+</div>
+<div class="box">
+    <div class="title">最新</div>
+    
+    <div class="item">
+        <a href="/tech/responsibility/">责任链模式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/observer/">观察者模式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/prototype/">原型模式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/builder/">建造者模式</a>
+      </div>
+    
+    <div class="item">
+        <a href="/tech/%E8%BF%87%E6%BB%A4%E5%99%A8%E6%A8%A1%E5%BC%8F/">过滤器模式</a>
+      </div>
+    
+</div>
+<div class="box">
+    <div class="title">备忘</div>
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+        <div class="item">
+            <a href="/tech/PHP%E9%9D%A2%E8%AF%95%E6%80%BB%E7%BB%93/">Php面试总结</a>
+        </div>
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+</div>
+<div class="box">
+    <div class="title">标签</div>
+    <div class="tag">
+        
+        <a href="/tags/网站" >网站</a>
+        
+        <a href="/tags/游戏" >游戏</a>
+        
+        <a href="/tags/足球" >足球</a>
+        
+        <a href="/tags/APP" >APP</a>
+        
+        <a href="/tags/软件" >软件</a>
+        
+        <a href="/tags/linux" >linux</a>
+        
+        <a href="/tags/vim" >vim</a>
+        
+        <a href="/tags/php" >php</a>
+        
+        <a href="/tags/面试" >面试</a>
+        
+        <a href="/tags/redis" >redis</a>
+        
+        <a href="/tags/mysql" >mysql</a>
+        
+        <a href="/tags/读书笔记" >读书笔记</a>
+        
+        <a href="/tags/设计模式" >设计模式</a>
+        
+        <a href="/tags/服务器" >服务器</a>
+        
+    </div>
+</div>
+        </div>
+      </div>
+      <div id="footer">
+        Designed & Powerd by long | Create by jekyll.
+      </div>
+    </div>
+  </body>
+</html>
